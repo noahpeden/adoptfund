@@ -1,7 +1,7 @@
 {
   "name": "react-starter-kit",
   "version": "1.0.0",
-  "description": "Make a Vending Machine",
+  "description": "Adoptfund",
   "main": "index.js",
   "directories": {
     "test": "tests"
