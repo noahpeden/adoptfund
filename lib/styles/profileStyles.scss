@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'reset';
+
+.nav-background {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(99, 87, 85, 0.82);
+  margin: 0;
+  position: absolute;
+  top: 0;
+}
+
+.basics-h2 {
+  margin-top: 25vh;
+  font-family: $roboto-slab;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+
+.input-container {
+  border: 1px solid orchid;
+  margin-top: 15vh;
+}
+
+.title-input, .name-input, .city-input, .state-input, .date-input {
+  margin: 20px;
+}
+
+.
