@@ -4,7 +4,7 @@
 .nav-background {
   width: 100%;
   height: 60px;
-  background-color: rgba(39, 39, 39, 0.81);
+  background-color: $hover-color;
   margin: 0;
   position: absolute;
   top: 0;
@@ -67,6 +67,6 @@
   background-color: $splash-color;
   transition: all 0.5s ease;
   &:hover {
-    background-color: rgba(39, 39, 39, 0.81);
+    background-color: $hover-color;
   }
 }
