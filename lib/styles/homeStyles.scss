@@ -1,0 +1,95 @@
+@import 'variables';
+@import 'reset';
+
+// .nav-container {
+//   border: 1px solid orchid;
+// }
+
+.img-container {
+  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+}
+
+.img-layer {
+  background-color: rgba(84, 80, 80, 0.6);
+}
+
+.nav-container {
+  margin: 20px 10px;
+  background: transparent;
+  position: absolute;
+}
+
+.nav-background {
+  background: orchid;
+}
+
+.start-family-btn, .about-btn, .featured-btn, .sign-in-btn {
+  margin: 10px;
+  border: none;
+  background: none;
+  font-family: $pt-sans;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  transition: color 0.5s ease;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    color: $splash-color;
+  }
+}
+
+.main-section-container {
+  text-align: center;
+  // margin-top: 25vh;
+  padding: 120px 50px;
+}
+
+.title {
+  font-family: $roboto-slab;
+  font-size: 120px;
+  font-weight: bold;
+  padding: 50px;
+  color: white;
+}
+
+.hero-h3 {
+  font-family: $pt-sans;
+  font-size: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+.main-start-family-btn {
+  width: 30%;
+  height: 50px;
+  margin-right: 40px;
+  border: none;
+  border-radius: 5px;
+  font-family: $pt-sans;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: $splash-color;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  &:hover {
+  background: none;
+  border: 5px solid white;
+  }
+}
+
+.search-family-input {
+  width: 35%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  color: $input-font-color;
+  font-family: $pt-sans;
+  font-size: 20px;
+  text-align: center;
+  outline: none;
+}
