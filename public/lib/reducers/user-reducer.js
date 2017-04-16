@@ -1,7 +1,7 @@
 const user = (state = {}, action) => {
   switch (action.type) {
     case 'SIGN_IN' :
-      return { data: action }
+      return action
     // case 'REGISTER':
     //   return { data: action }
     default:

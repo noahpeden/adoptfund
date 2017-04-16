@@ -4,16 +4,10 @@ import { Link, browserHistory } from 'react-router'
 export const signIn = (data) => {
   return {
     type: 'SIGN_IN',
-    data,
+    data: data[0],
   }
 }
 
-// export const register = (data) => {
-//   return {
-//     type: 'REGISTER',
-//     data,
-//   }
-// }
 export const featured = (featured) => {
   return {
     type: 'FEATURED',
@@ -78,7 +72,6 @@ export const addUser = (firstName, lastName, email, password) => {
           browserHistory.push('/')
         }
       })
-      .then(data => browserHistory.push('/'))
       .catch(err => console.log(err))
   }
 }
