@@ -11526,7 +11526,9 @@
 	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost })
 	    }).then(function (data) {
 	      return data.json();
-	    }).then(function (data) {
+	    })
+	    //save current family and route to family profile
+	    .then(function (data) {
 	      return console.log(data);
 	    });
 	  };
