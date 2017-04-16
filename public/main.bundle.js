@@ -109,7 +109,7 @@
 	var ReactDOM = __webpack_require__(160);
 
 
-	var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+	var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
 	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default }), {
 	  user: {},
 	  family: {
