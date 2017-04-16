@@ -8,12 +8,12 @@ export const signIn = (data) => {
   }
 }
 
-export const register = (data) => {
-  return {
-    type: 'REGISTER',
-    data,
-  }
-}
+// export const register = (data) => {
+//   return {
+//     type: 'REGISTER',
+//     data,
+//   }
+// }
 export const featured = (featured) => {
   return {
     type: 'FEATURED',
@@ -50,8 +50,14 @@ export const fetchLogin = (email, password) => {
       body: JSON.stringify({ email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(signIn(data)))
-      .then(data => browserHistory.push('/'))
+      .then(data => {
+        if(data.message){
+          alert(data.message)
+        }else{
+          dispatch(signIn(data))
+          browserHistory.push('/')
+        }
+      })
       .catch(err => alert('Email and Password do not match'))
   }
 }
@@ -64,7 +70,14 @@ export const addUser = (firstName, lastName, email, password) => {
       body: JSON.stringify({ firstName, lastName, email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(register(data)))
+      .then(data => {
+        if(data.message){
+          alert(data.message)
+        }else{
+          dispatch(signIn(data))
+          browserHistory.push('/')
+        }
+      })
       .then(data => browserHistory.push('/'))
       .catch(err => console.log(err))
   }

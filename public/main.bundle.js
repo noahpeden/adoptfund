@@ -11431,7 +11431,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.register = exports.signIn = undefined;
+	exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signIn = undefined;
 
 	var _isomorphicFetch = __webpack_require__(127);
 
@@ -11448,12 +11448,12 @@
 	  };
 	};
 
-	var register = exports.register = function register(data) {
-	  return {
-	    type: 'REGISTER',
-	    data: data
-	  };
-	};
+	// export const register = (data) => {
+	//   return {
+	//     type: 'REGISTER',
+	//     data,
+	//   }
+	// }
 	var featured = exports.featured = function featured(_featured) {
 	  return {
 	    type: 'FEATURED',
@@ -11491,9 +11491,12 @@
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(signIn(data));
-	    }).then(function (data) {
-	      return _reactRouter.browserHistory.push('/');
+	      if (data.message) {
+	        alert(data.message);
+	      } else {
+	        dispatch(signIn(data));
+	        _reactRouter.browserHistory.push('/');
+	      }
 	    }).catch(function (err) {
 	      return alert('Email and Password do not match');
 	    });
@@ -11509,7 +11512,12 @@
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(register(data));
+	      if (data.message) {
+	        alert(data.message);
+	      } else {
+	        dispatch(signIn(data));
+	        _reactRouter.browserHistory.push('/');
+	      }
 	    }).then(function (data) {
 	      return _reactRouter.browserHistory.push('/');
 	    }).catch(function (err) {
@@ -31297,8 +31305,8 @@
 	  switch (action.type) {
 	    case 'SIGN_IN':
 	      return { data: action };
-	    case 'REGISTER':
-	      return { data: action };
+	    // case 'REGISTER':
+	    //   return { data: action }
 	    default:
 	      return state;
 	  }
