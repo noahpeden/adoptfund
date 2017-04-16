@@ -11464,6 +11464,7 @@
 	};
 
 	var storeSelected = exports.storeSelected = function storeSelected(info) {
+	  console.log(info);
 	  return {
 	    type: 'SELECTED',
 	    info: info
@@ -13431,7 +13432,8 @@
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
 	    selectedFamily: state.family.selected.info,
-	    user: state.user.data
+	    user: state.user.data,
+	    donations: state.family.donations.donations
 	  };
 	};
 
@@ -13507,6 +13509,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        console.log('donations:', this.props.donations),
 	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
 	          'button',
 	          { className: 'edit-btn' },
@@ -31352,11 +31355,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var featured = function featured() {
+	var family = function family() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
-	  console.log(action);
 	  switch (action.type) {
 	    case 'FEATURED':
 	      return Object.assign({}, state, { featured: action });
@@ -31366,6 +31368,7 @@
 	      return Object.assign({}, state, { selected: action });
 	    case 'DONATION-FAMILY':
 	      return Object.assign({}, state, { donationFamily: action });
+	    // create donations reducer so it doesn't continue to add to array
 	    case 'FAMILY-DONATIONS':
 	      return Object.assign({}, state, { donations: action });
 	    default:
@@ -31373,7 +31376,7 @@
 	  }
 	};
 
-	exports.default = featured;
+	exports.default = family;
 
 /***/ },
 /* 308 */

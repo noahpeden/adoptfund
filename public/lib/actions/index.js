@@ -23,6 +23,7 @@ export const searched = (searchedFamily) => {
 }
 
 export const storeSelected = (info) => {
+  console.log(info)
   return {
     type: 'SELECTED',
     info,
