@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack.js",
-    "test": "mocha tests/vendingMachineTest.js"
+    "build": "webpack",
+    "test": "mocha tests/vendingMachineTest.js",
   },
   "repository": {
     "type": "git",
