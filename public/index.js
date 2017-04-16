@@ -1,26 +1,21 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import LoginContainer from './lib/containers/LoginContainer'
+import RegisterContainer from './lib/containers/RegisterContainer'
+import AppContainer from './lib/containers/AppContainer'
+import HomeContainer from './lib/containers/HomeContainer'
+import FamilyListContainer from './lib/containers/FamilyListContainer'
+import FamilyProfileContainer from './lib/containers/FamilyProfileContainer'
+import BasicsContainer from './lib/containers/BasicsContainer'
 
-import './styles/homeStyles'
-import './styles/profileStyles'
-import './styles/loginStyles'
+import About from './lib/components/About'
 
-import LoginContainer from './containers/LoginContainer'
-import RegisterContainer from './containers/RegisterContainer'
-import AppContainer from './containers/AppContainer'
-import HomeContainer from './containers/HomeContainer'
-import FamilyListContainer from './containers/FamilyListContainer'
-import FamilyProfileContainer from './containers/FamilyProfileContainer'
-import BasicsContainer from './containers/BasicsContainer'
-
-import About from './components/About'
-
-import user from './reducers/user-reducer'
-import family from './reducers/family-reducer'
+import user from './lib/reducers/user-reducer'
+import family from './lib/reducers/family-reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(combineReducers({ user, family }),
