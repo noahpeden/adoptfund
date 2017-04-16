@@ -1,21 +1,17 @@
 import fetch from 'isomorphic-fetch'
 import { Link, browserHistory } from 'react-router'
 
-export const signIn = (email, password) => {
+export const signIn = (data) => {
   return {
     type: 'SIGN_IN',
-    email,
-    password,
+    data,
   }
 }
 
-export const register = (newUserFirstName, newUserLastName, newUserEmail, newUserPassword) => {
+export const register = (data) => {
   return {
     type: 'REGISTER',
-    newUserFirstName,
-    newUserLastName,
-    newUserEmail,
-    newUserPassword,
+    data,
   }
 }
 export const featured = (featured) => {
@@ -48,13 +44,13 @@ export const saveFamily = (familyId) => {
 
 export const fetchLogin = (email, password) => {
   return (dispatch) => {
-    return fetch('https://adoptfund-api.herokuapp.com/api/v1/users', {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(signIn(email, password, data.data)))
+      .then(data => dispatch(signIn(data)))
       .then(data => browserHistory.push('/'))
       .catch(err => alert('Email and Password do not match'))
   }
@@ -62,13 +58,13 @@ export const fetchLogin = (email, password) => {
 
 export const addUser = (firstName, lastName, email, password) => {
   return (dispatch) => {
-    return fetch('https://adoptfund-api.herokuapp.com/api/v1/users', {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstName, lastName, email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(register( firstName, lastName, email, password, data.data)))
+      .then(data => dispatch(register(data)))
       .then(data => browserHistory.push('/'))
       .catch(err => console.log(err))
   }

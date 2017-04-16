@@ -11441,21 +11441,17 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var signIn = exports.signIn = function signIn(email, password) {
+	var signIn = exports.signIn = function signIn(data) {
 	  return {
 	    type: 'SIGN_IN',
-	    email: email,
-	    password: password
+	    data: data
 	  };
 	};
 
-	var register = exports.register = function register(newUserFirstName, newUserLastName, newUserEmail, newUserPassword) {
+	var register = exports.register = function register(data) {
 	  return {
 	    type: 'REGISTER',
-	    newUserFirstName: newUserFirstName,
-	    newUserLastName: newUserLastName,
-	    newUserEmail: newUserEmail,
-	    newUserPassword: newUserPassword
+	    data: data
 	  };
 	};
 	var featured = exports.featured = function featured(_featured) {
@@ -11488,14 +11484,14 @@
 
 	var fetchLogin = exports.fetchLogin = function fetchLogin(email, password) {
 	  return function (dispatch) {
-	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/users', {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/login', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ email: email, password: password })
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(signIn(email, password, data.data));
+	      return dispatch(signIn(data));
 	    }).then(function (data) {
 	      return _reactRouter.browserHistory.push('/');
 	    }).catch(function (err) {
@@ -11506,14 +11502,14 @@
 
 	var addUser = exports.addUser = function addUser(firstName, lastName, email, password) {
 	  return function (dispatch) {
-	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/users', {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/register', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
 	      body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, password: password })
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(register(firstName, lastName, email, password, data.data));
+	      return dispatch(register(data));
 	    }).then(function (data) {
 	      return _reactRouter.browserHistory.push('/');
 	    }).catch(function (err) {
