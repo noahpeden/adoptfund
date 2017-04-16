@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "mocha tests/vendingMachineTest.js"
+    "test": "mocha tests/vendingMachineTest.js",
+    "heroku": "npm run build && git push heroku master"
   },
   "repository": {
     "type": "git",
