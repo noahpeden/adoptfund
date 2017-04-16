@@ -11,11 +11,12 @@ class Basics extends Component {
       expiration: '',
       story: '',
       links: '',
-      totalCost:'',
+      cost: '',
     }
   }
 
   render() {
+    const { title, location, name, expiration, story, links, cost } = this.state
     return (
       <div>
         <h2 className='basics-h2'>Create Your Family Profile</h2>
@@ -52,16 +53,10 @@ class Basics extends Component {
           <input
             className='cost-input'
             placeholder='What is the total Cost'
-            onChange={(e) => this.setState({totalCost: e.target.value})} />
-          <p className='profile-text'>When will your Family Fund need to end?</p>
-          <input
-            className='date-input'
-            type='date'
-            data-date-inline-picker='true'
-            onChange={(e) => this.setState({expiration: e.target.value})} />
+            onChange={(e) => this.setState({cost: e.target.value})} />
         </div>
         <div className='buttons-container'>
-          <button className='create-btn'>Create Profile</button>
+          <button onClick={() => this.props.createFamily(title, location, name, expiration, story, links, cost)}>Create</button>
         </div>
       </div>
     )

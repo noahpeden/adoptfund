@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NavBar from './NavBar'
 import HeroSection from './HeroSection'
-import Featured from './Featured'
+import FamilyCard from './FamilyCard'
 import Login from './Login'
 
 require('../styles/homeStyles')
