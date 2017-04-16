@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 
 export const signIn = (data) => {
   return {
@@ -11,28 +11,35 @@ export const signIn = (data) => {
 export const featured = (featured) => {
   return {
     type: 'FEATURED',
-    featured
+    featured,
   }
 }
 
 export const searched = (searchedFamily) => {
   return {
     type: 'SEARCHED',
-    searchedFamily
+    searchedFamily,
   }
 }
 
 export const storeSelected = (info) => {
   return {
     type: 'SELECTED',
-    info
+    info,
   }
 }
 
 export const saveFamily = (familyId) => {
   return {
     type: 'DONATION-FAMILY',
-    familyId
+    familyId,
+  }
+}
+
+export const familyDonations = (donations) => {
+  return {
+    type: 'FAMILY-DONATIONS',
+    donations,
   }
 }
 
@@ -45,9 +52,9 @@ export const fetchLogin = (email, password) => {
     })
       .then(data => data.json())
       .then(data => {
-        if(data.message){
+        if (data.message) {
           alert(data.message)
-        }else{
+        } else {
           dispatch(signIn(data))
           browserHistory.push('/')
         }
@@ -65,9 +72,9 @@ export const addUser = (firstName, lastName, email, password) => {
     })
       .then(data => data.json())
       .then(data => {
-        if(data.message){
+        if (data.message) {
           alert(data.message)
-        }else{
+        } else {
           dispatch(signIn(data))
           browserHistory.push('/')
         }
@@ -84,7 +91,7 @@ export const createFamily = (title, location, name, expiration, story, links, co
       body: JSON.stringify({ title, location, name, expiration, story, links, cost }),
     })
     .then(data => data.json())
-    //save current family and route to family profile
+    // save current family and route to family profile
     .then(data => console.log(data))
   }
 }
@@ -94,7 +101,8 @@ export const featuredCampaigns = () => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/family?limit=6')
     .then(data => data.json())
     .then(data => {
-      dispatch(featured(data))})
+      dispatch(featured(data))
+    })
     .catch(err => console.log(err))
   }
 }
@@ -104,7 +112,8 @@ export const searchCampaigns = (familyName) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/family/' + familyName)
     .then(data => data.json())
     .then(data => {
-      dispatch(searched(data))})
+      dispatch(searched(data))
+    })
     .catch(err => console.log(err))
   }
 }
@@ -118,6 +127,15 @@ export const sendDonation = (first, last, email, donation, familyId) => {
     })
     .then(data => data.json())
     .then(data => console.log(data))
+    .catch(err => console.log(err))
+  }
+}
+
+export const grabDonations = (familyId) => {
+  return (dispatch) => {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/donation/' + familyId)
+    .then(donations => donations.json())
+    .then(donations => dispatch(familyDonations(donations)))
     .catch(err => console.log(err))
   }
 }

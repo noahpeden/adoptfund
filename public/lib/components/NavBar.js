@@ -25,7 +25,7 @@ export default class NavBar extends Component {
         {
           this.props.user ?
           <button className='sign-in-btn'>Sign Out</button> :
-          <Link to='/login'><button className='sign-in-btn'>Sign In, Fool.</button></Link>
+          <Link to='/login'><button className='sign-in-btn'>Sign In</button></Link>
         }
       </nav>
     )

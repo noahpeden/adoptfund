@@ -120,7 +120,8 @@
 	    featured: [],
 	    searched: [],
 	    selected: null,
-	    donationFamily: null
+	    donationFamily: null,
+	    donations: []
 	  }
 	}, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
 
@@ -11431,7 +11432,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signIn = undefined;
+	exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signIn = undefined;
 
 	var _isomorphicFetch = __webpack_require__(127);
 
@@ -11473,6 +11474,13 @@
 	  return {
 	    type: 'DONATION-FAMILY',
 	    familyId: familyId
+	  };
+	};
+
+	var familyDonations = exports.familyDonations = function familyDonations(donations) {
+	  return {
+	    type: 'FAMILY-DONATIONS',
+	    donations: donations
 	  };
 	};
 
@@ -11527,7 +11535,7 @@
 	    }).then(function (data) {
 	      return data.json();
 	    })
-	    //save current family and route to family profile
+	    // save current family and route to family profile
 	    .then(function (data) {
 	      return console.log(data);
 	    });
@@ -11568,6 +11576,18 @@
 	      return data.json();
 	    }).then(function (data) {
 	      return console.log(data);
+	    }).catch(function (err) {
+	      return console.log(err);
+	    });
+	  };
+	};
+
+	var grabDonations = exports.grabDonations = function grabDonations(familyId) {
+	  return function (dispatch) {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/donation/' + familyId).then(function (donations) {
+	      return donations.json();
+	    }).then(function (donations) {
+	      return dispatch(familyDonations(donations));
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -12521,7 +12541,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'sign-in-btn' },
-	            'Sign In, Fool.'
+	            'Sign In'
 	          )
 	        )
 	      );
@@ -13419,6 +13439,9 @@
 	  return {
 	    saveFamily: function saveFamily(familyId) {
 	      dispatch((0, _actions.saveFamily)(familyId));
+	    },
+	    grabDonations: function grabDonations(familyId) {
+	      dispatch((0, _actions.grabDonations)(familyId));
 	    }
 	  };
 	};
@@ -13466,6 +13489,11 @@
 	  }
 
 	  _createClass(FamilyProfile, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.grabDonations(this.props.selectedFamily.id);
+	    }
+	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.saveFamily(this.props.selectedFamily.id);
@@ -31325,9 +31353,10 @@
 	  value: true
 	});
 	var featured = function featured() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
+	  console.log(action);
 	  switch (action.type) {
 	    case 'FEATURED':
 	      return Object.assign({}, state, { featured: action });
@@ -31337,6 +31366,8 @@
 	      return Object.assign({}, state, { selected: action });
 	    case 'DONATION-FAMILY':
 	      return Object.assign({}, state, { donationFamily: action });
+	    case 'FAMILY-DONATIONS':
+	      return Object.assign({}, state, { donations: action });
 	    default:
 	      return state;
 	  }
