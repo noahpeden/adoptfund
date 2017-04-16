@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import LoginContainer from './lib/containers/LoginContainer'
