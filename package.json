@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "mocha tests/vendingMachineTest.js",
+    "test": "mocha tests/vendingMachineTest.js"
   },
   "repository": {
     "type": "git",
