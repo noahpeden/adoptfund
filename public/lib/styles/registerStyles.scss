@@ -1,16 +1,60 @@
 @import 'variables';
 @import 'reset';
 
-.register-container {
-  margin: 50px auto;
+.register-title {
+  margin-top: 25vh;
+  margin-left: 31%;
+  font-family: $roboto-slab;
+  font-size: 40px;
+  font-weight: bold;
+  color: $splash-color;
 }
 
 .register-container {
   width: 40%;
   height: 40%;
-  margin: 50px auto;
+  margin: 70px auto;
+  padding: 30px;
   // border: 1px solid orchid;
   border-radius: 5px;
   background-color: rgba(39, 39, 39, 0.11);
+}
 
+.new-user-text {
+  font-family: $pt-sans;
+  font-size: 20px;
+  margin-left: 6%;
+  padding-top: 30px;
+}
+
+#newUserFirstName, #newUserLastName, #newUserEmail, #newUserPassword  {
+  width: 35%;
+  height: 40px;
+  margin-left: 32%;
+  margin-top: 30px;
+  font-family: $pt-sans;
+  font-size: 15px;
+  text-align: center;
+  border: 1px solid $hover-color;
+  border-radius: 5px;
+  &:focus {
+    outline-color: $splash-color;
+  }
+}
+
+.new-user-btn {
+  height: 30px;
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  background-color: $splash-color;
+  display: block;
+  margin: 55px auto;
+  font-family: $pt-sans;
+  font-size: 20px;
+  color: white;
+  transition: all 0.5s ease;
+  &:hover {
+    background-color: $hover-color;
+  }
 }
