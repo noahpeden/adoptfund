@@ -12367,9 +12367,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _NavBar = __webpack_require__(135);
+	var _NavBarContainer = __webpack_require__(308);
 
-	var _NavBar2 = _interopRequireDefault(_NavBar);
+	var _NavBarContainer2 = _interopRequireDefault(_NavBarContainer);
 
 	var _HeroSection = __webpack_require__(136);
 
@@ -12418,7 +12418,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_NavBar2.default, { location: this.props.location }),
+	        _react2.default.createElement(_NavBarContainer2.default, { location: this.props.location }),
 	        this.props.children
 	      );
 	    }
@@ -12511,7 +12511,11 @@
 	            'Home'
 	          )
 	        ),
-	        _react2.default.createElement(
+	        this.props.user ? _react2.default.createElement(
+	          'button',
+	          { className: 'sign-in-btn' },
+	          'Sign Out'
+	        ) : _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/login' },
 	          _react2.default.createElement(
@@ -31334,6 +31338,30 @@
 	};
 
 	exports.default = featured;
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactRedux = __webpack_require__(25);
+
+	var _NavBar = __webpack_require__(135);
+
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return { user: state.user.data };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_NavBar2.default);
 
 /***/ }
 /******/ ]);
