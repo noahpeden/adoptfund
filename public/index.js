@@ -18,9 +18,10 @@ import About from './lib/components/About'
 
 import user from './lib/reducers/user-reducer'
 import family from './lib/reducers/family-reducer'
+import donations from './lib/reducers/donations-reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(combineReducers({ user, family }),
+const store = createStore(combineReducers({ user, family, donations }),
   {
     user: {},
     family: {
@@ -28,8 +29,9 @@ const store = createStore(combineReducers({ user, family }),
       searched: [],
       selected: null,
       donationFamily: null,
-      donations: [],
+      // donations: [],
     },
+    donations: {},
   },
 composeEnhancers(applyMiddleware(thunk)),
 )

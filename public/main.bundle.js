@@ -107,6 +107,10 @@
 
 	var _familyReducer2 = _interopRequireDefault(_familyReducer);
 
+	var _donationsReducer = __webpack_require__(309);
+
+	var _donationsReducer2 = _interopRequireDefault(_donationsReducer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(27);
@@ -114,15 +118,15 @@
 
 
 	var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
-	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default }), {
+	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default, donations: _donationsReducer2.default }), {
 	  user: {},
 	  family: {
 	    featured: [],
 	    searched: [],
 	    selected: null,
-	    donationFamily: null,
-	    donations: []
-	  }
+	    donationFamily: null
+	  },
+	  donations: {}
 	}, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
 
 	var router = React.createElement(
@@ -13433,7 +13437,7 @@
 	  return {
 	    selectedFamily: state.family.selected.info,
 	    user: state.user.data,
-	    donations: state.family.donations.donations
+	    donations: state.donations.donations
 	  };
 	};
 
@@ -31369,8 +31373,8 @@
 	    case 'DONATION-FAMILY':
 	      return Object.assign({}, state, { donationFamily: action });
 	    // create donations reducer so it doesn't continue to add to array
-	    case 'FAMILY-DONATIONS':
-	      return Object.assign({}, state, { donations: action });
+	    // case 'FAMILY-DONATIONS':
+	    //   return Object.assign({}, state, { donations: action })
 	    default:
 	      return state;
 	  }
@@ -31401,6 +31405,29 @@
 	};
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_NavBar2.default);
+
+/***/ },
+/* 309 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var donations = function donations() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'FAMILY-DONATIONS':
+	      return Object.assign({}, { donations: action });
+	    default:
+	      return state;
+	  }
+	};
+
+	exports.default = donations;
 
 /***/ }
 /******/ ]);
