@@ -17,7 +17,11 @@ export default class FamilyProfile extends Component {
     const family = this.props.selectedFamily
     return(
       <div>
-        {console.log(this.props.selectedFamily)}
+        {
+          this.props.user === this.props.selectedFamily.userId ?
+          <button className='edit-btn'>Edit</button> :
+          ''
+        }
         <h1>{family.title}</h1>
         <h2>{family.name}</h2>
         <p>{family.location}</p>

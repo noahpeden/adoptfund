@@ -13410,7 +13410,8 @@
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    selectedFamily: state.family.selected.info
+	    selectedFamily: state.family.selected.info,
+	    user: state.user.data
 	  };
 	};
 
@@ -13478,7 +13479,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        console.log(this.props.selectedFamily),
+	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
+	          'button',
+	          { className: 'edit-btn' },
+	          'Edit'
+	        ) : '',
 	        _react2.default.createElement(
 	          'h1',
 	          null,

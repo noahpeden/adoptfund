@@ -5,6 +5,7 @@ import {saveFamily} from '../actions'
 const mapStateToProps = state => {
   return {
     selectedFamily: state.family.selected.info,
+    user: state.user.data,
   }
 }
 

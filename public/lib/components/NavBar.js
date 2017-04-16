@@ -22,7 +22,11 @@ export default class NavBar extends Component {
         <Link to='/about'><button className='about-btn'>How it Works</button></Link>
         <button className='featured-btn' href='#featured'>Featured Families</button>
         <Link to='/'><button className='home-btn'>Home</button></Link>
-        {this.props.user ? <button className='sign-in-btn'>Sign Out</button> : <Link to='/login'><button className='sign-in-btn'>Sign In, Fool.</button></Link>}
+        {
+          this.props.user ?
+          <button className='sign-in-btn'>Sign Out</button> :
+          <Link to='/login'><button className='sign-in-btn'>Sign In, Fool.</button></Link>
+        }
       </nav>
     )
   }
