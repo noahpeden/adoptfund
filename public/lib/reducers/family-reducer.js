@@ -6,6 +6,8 @@ const featured = (state = [], action) => {
       return Object.assign({}, state, { searched: action })
     case 'SELECTED':
       return Object.assign({}, state, { selected: action })
+    case 'DONATION-FAMILY':
+      return Object.assign({}, state, { donationFamily: action })
     default:
       return state
   }

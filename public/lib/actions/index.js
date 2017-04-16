@@ -1,21 +1,17 @@
 import fetch from 'isomorphic-fetch'
 import { Link, browserHistory } from 'react-router'
 
-export const signIn = (email, password) => {
+export const signIn = (data) => {
   return {
     type: 'SIGN_IN',
-    email,
-    password,
+    data,
   }
 }
 
-export const register = (newUserFirstName, newUserLastName, newUserEmail, newUserPassword) => {
+export const register = (data) => {
   return {
     type: 'REGISTER',
-    newUserFirstName,
-    newUserLastName,
-    newUserEmail,
-    newUserPassword,
+    data,
   }
 }
 export const featured = (featured) => {
@@ -39,15 +35,22 @@ export const storeSelected = (info) => {
   }
 }
 
+export const saveFamily = (familyId) => {
+  return {
+    type: 'DONATION-FAMILY',
+    familyId
+  }
+}
+
 export const fetchLogin = (email, password) => {
   return (dispatch) => {
-    return fetch('https://adoptfund-api.herokuapp.com/api/v1/users', {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(signIn(email, password, data.data)))
+      .then(data => dispatch(signIn(data)))
       .then(data => browserHistory.push('/'))
       .catch(err => alert('Email and Password do not match'))
   }
@@ -55,13 +58,13 @@ export const fetchLogin = (email, password) => {
 
 export const addUser = (firstName, lastName, email, password) => {
   return (dispatch) => {
-    return fetch('https://adoptfund-api.herokuapp.com/api/v1/users', {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstName, lastName, email, password }),
     })
       .then(data => data.json())
-      .then(data => dispatch(register( firstName, lastName, email, password, data.data)))
+      .then(data => dispatch(register(data)))
       .then(data => browserHistory.push('/'))
       .catch(err => console.log(err))
   }
@@ -75,6 +78,7 @@ export const createFamily = (title, location, name, expiration, story, links, co
       body: JSON.stringify({ title, location, name, expiration, story, links, cost }),
     })
     .then(data => data.json())
+    //save current family and route to family profile
     .then(data => console.log(data))
   }
 }
@@ -95,6 +99,19 @@ export const searchCampaigns = (familyName) => {
     .then(data => data.json())
     .then(data => {
       dispatch(searched(data))})
+    .catch(err => console.log(err))
+  }
+}
+
+export const sendDonation = (first, last, email, donation, familyId) => {
+  return (dispatch) => {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/donation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ first, last, email, donation, familyId }),
+    })
+    .then(data => data.json())
+    .then(data => console.log(data))
     .catch(err => console.log(err))
   }
 }
