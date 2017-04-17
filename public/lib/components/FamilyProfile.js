@@ -9,15 +9,24 @@ export default class FamilyProfile extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.grabDonations(this.props.selectedFamily.id)
+  }
+
   donate() {
     this.props.saveFamily(this.props.selectedFamily.id)
   }
 
   render() {
     const family = this.props.selectedFamily
-    return(
+    return (
       <div>
-        {console.log(this.props.selectedFamily)}
+        {console.log('donations:', this.props.donations)}
+        {
+          this.props.user === this.props.selectedFamily.userId
+          ? <button className='edit-btn'>Edit</button>
+          : ''
+        }
         <h1>{family.title}</h1>
         <h2>{family.name}</h2>
         <p>{family.location}</p>

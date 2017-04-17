@@ -16,12 +16,17 @@ export default class NavBar extends Component {
     }
 
     return (
+
       <nav className={navBackground} >
-      <Link to='/basics'><button className='start-family-btn'>Start a Family Fund</button></Link>
-      <Link to='/about'><button className='about-btn'>How it Works</button></Link>
-      <button className='featured-btn' href='#featured'>Featured Families</button>
-      <Link to='/'><button className='home-btn'>Home</button></Link>
-      <Link to='/login'><button className='sign-in-btn'>Sign In, Fool.</button></Link>
+        <Link to='/basics'><button className='start-family-btn'>Start a Family Fund</button></Link>
+        <Link to='/about'><button className='about-btn'>How it Works</button></Link>
+        <button className='featured-btn' href='#featured'>Featured Families</button>
+        <Link to='/'><button className='home-btn'>Home</button></Link>
+        {
+          this.props.user ?
+          <button className='sign-in-btn'>Sign Out</button> :
+          <Link to='/login'><button className='sign-in-btn'>Sign In</button></Link>
+        }
       </nav>
     )
   }

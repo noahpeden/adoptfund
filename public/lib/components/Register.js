@@ -21,7 +21,7 @@ export default class Register extends Component {
     const { addUser } = this.props
     const { newUserFirstName, newUserLastName, newUserEmail, newUserPassword, newUserName } = this.state
     return(
-      <div>
+      <div className='register-cont'>
         <form onSubmit={(e) => {
           e.preventDefault()
           addUser(newUserFirstName, newUserLastName, newUserEmail, newUserPassword)

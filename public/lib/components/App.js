@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from './NavBar'
+import NavBarContainer from '../containers/NavBarContainer'
 import HeroSection from './HeroSection'
 import FamilyCard from './FamilyCard'
 import Login from './Login'
@@ -22,7 +22,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <NavBar location={this.props.location} />
+        <NavBarContainer location={this.props.location} />
         {this.props.children}
       </div>
     )

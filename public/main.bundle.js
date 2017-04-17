@@ -107,6 +107,10 @@
 
 	var _familyReducer2 = _interopRequireDefault(_familyReducer);
 
+	var _donationsReducer = __webpack_require__(309);
+
+	var _donationsReducer2 = _interopRequireDefault(_donationsReducer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var React = __webpack_require__(27);
@@ -114,14 +118,15 @@
 
 
 	var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
-	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default }), {
+	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default, donations: _donationsReducer2.default }), {
 	  user: {},
 	  family: {
 	    featured: [],
 	    searched: [],
 	    selected: null,
 	    donationFamily: null
-	  }
+	  },
+	  donations: {}
 	}, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
 
 	var router = React.createElement(
@@ -11431,7 +11436,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.register = exports.signIn = undefined;
+	exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signIn = undefined;
 
 	var _isomorphicFetch = __webpack_require__(127);
 
@@ -11444,16 +11449,10 @@
 	var signIn = exports.signIn = function signIn(data) {
 	  return {
 	    type: 'SIGN_IN',
-	    data: data
+	    data: data[0]
 	  };
 	};
 
-	var register = exports.register = function register(data) {
-	  return {
-	    type: 'REGISTER',
-	    data: data
-	  };
-	};
 	var featured = exports.featured = function featured(_featured) {
 	  return {
 	    type: 'FEATURED',
@@ -11469,6 +11468,7 @@
 	};
 
 	var storeSelected = exports.storeSelected = function storeSelected(info) {
+	  console.log(info);
 	  return {
 	    type: 'SELECTED',
 	    info: info
@@ -11482,6 +11482,13 @@
 	  };
 	};
 
+	var familyDonations = exports.familyDonations = function familyDonations(donations) {
+	  return {
+	    type: 'FAMILY-DONATIONS',
+	    donations: donations
+	  };
+	};
+
 	var fetchLogin = exports.fetchLogin = function fetchLogin(email, password) {
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/login', {
@@ -11491,9 +11498,12 @@
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(signIn(data));
-	    }).then(function (data) {
-	      return _reactRouter.browserHistory.push('/');
+	      if (data.message) {
+	        alert(data.message);
+	      } else {
+	        dispatch(signIn(data));
+	        _reactRouter.browserHistory.push('/');
+	      }
 	    }).catch(function (err) {
 	      return alert('Email and Password do not match');
 	    });
@@ -11509,9 +11519,12 @@
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(register(data));
-	    }).then(function (data) {
-	      return _reactRouter.browserHistory.push('/');
+	      if (data.message) {
+	        alert(data.message);
+	      } else {
+	        dispatch(signIn(data));
+	        _reactRouter.browserHistory.push('/');
+	      }
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -11527,7 +11540,7 @@
 	    }).then(function (data) {
 	      return data.json();
 	    })
-	    //save current family and route to family profile
+	    // save current family and route to family profile
 	    .then(function (data) {
 	      return console.log(data);
 	    });
@@ -11568,6 +11581,18 @@
 	      return data.json();
 	    }).then(function (data) {
 	      return console.log(data);
+	    }).catch(function (err) {
+	      return console.log(err);
+	    });
+	  };
+	};
+
+	var grabDonations = exports.grabDonations = function grabDonations(familyId) {
+	  return function (dispatch) {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/donation/' + familyId).then(function (donations) {
+	      return donations.json();
+	    }).then(function (donations) {
+	      return dispatch(familyDonations(donations));
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -12292,7 +12317,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'register-cont' },
 	        _react2.default.createElement(
 	          'form',
 	          { onSubmit: function onSubmit(e) {
@@ -12367,9 +12392,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _NavBar = __webpack_require__(135);
+	var _NavBarContainer = __webpack_require__(308);
 
-	var _NavBar2 = _interopRequireDefault(_NavBar);
+	var _NavBarContainer2 = _interopRequireDefault(_NavBarContainer);
 
 	var _HeroSection = __webpack_require__(136);
 
@@ -12418,7 +12443,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_NavBar2.default, { location: this.props.location }),
+	        _react2.default.createElement(_NavBarContainer2.default, { location: this.props.location }),
 	        this.props.children
 	      );
 	    }
@@ -12511,13 +12536,17 @@
 	            'Home'
 	          )
 	        ),
-	        _react2.default.createElement(
+	        this.props.user ? _react2.default.createElement(
+	          'button',
+	          { className: 'sign-in-btn' },
+	          'Sign Out'
+	        ) : _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/login' },
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'sign-in-btn' },
-	            'Sign In, Fool.'
+	            'Sign In'
 	          )
 	        )
 	      );
@@ -13107,7 +13136,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.login-title {\n  margin-top: 25vh;\n  margin-left: 44%;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 40px;\n  font-weight: bold;\n  color: #d89b1b; }\n\n.login-container {\n  width: 40%;\n  height: 40%;\n  margin: 50px auto;\n  border-radius: 5px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.email, .password {\n  width: 35%;\n  height: 40px;\n  margin-left: 32%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  text-align: center;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px; }\n  .email:focus, .password:focus {\n    outline-color: #d89b1b; }\n\n.login-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin-left: 20%;\n  padding-top: 30px;\n  padding-bottom: 20px; }\n\n.log-in-btn {\n  margin-top: 20px;\n  width: 20%;\n  font-size: 20px;\n  font-weight: bold; }\n\n.register {\n  width: 35%;\n  font-size: 15px;\n  text-decoration: none; }\n\n.log-in-btn, .register {\n  height: 30px;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  display: block;\n  margin: 30px auto;\n  font-family: \"PT Sans\", sans-serif;\n  color: white;\n  transition: all 0.5s ease; }\n  .log-in-btn:hover, .register:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.login-title {\n  margin-top: 25vh;\n  margin-left: 44%;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 40px;\n  font-weight: bold;\n  color: #d89b1b; }\n\n.login-container {\n  width: 40%;\n  height: 40%;\n  margin: 50px auto;\n  border-radius: 5px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.email, .password {\n  width: 35%;\n  height: 40px;\n  margin-left: 32%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  text-align: center;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px; }\n  .email:focus, .password:focus {\n    outline-color: #d89b1b; }\n\n.login-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin-left: 20%;\n  padding-top: 30px;\n  padding-bottom: 20px; }\n\n.log-in-btn {\n  margin-top: 20px;\n  width: 20%;\n  font-size: 20px;\n  font-weight: bold; }\n\n.register {\n  width: 35%;\n  font-size: 15px;\n  text-decoration: none; }\n\n.log-in-btn, .register {\n  height: 30px;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  display: block;\n  margin: 30px auto;\n  font-family: \"PT Sans\", sans-serif;\n  color: white;\n  transition: all 0.5s ease; }\n  .log-in-btn:hover, .register:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.register-cont {\n  position: absolute;\n  top: 100px; }\n", ""]);
 
 	// exports
 
@@ -13406,7 +13435,9 @@
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    selectedFamily: state.family.selected.info
+	    selectedFamily: state.family.selected.info,
+	    user: state.user.data,
+	    donations: state.donations.donations
 	  };
 	};
 
@@ -13414,6 +13445,9 @@
 	  return {
 	    saveFamily: function saveFamily(familyId) {
 	      dispatch((0, _actions.saveFamily)(familyId));
+	    },
+	    grabDonations: function grabDonations(familyId) {
+	      dispatch((0, _actions.grabDonations)(familyId));
 	    }
 	  };
 	};
@@ -13461,6 +13495,11 @@
 	  }
 
 	  _createClass(FamilyProfile, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.grabDonations(this.props.selectedFamily.id);
+	    }
+	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.saveFamily(this.props.selectedFamily.id);
@@ -13474,7 +13513,12 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        console.log(this.props.selectedFamily),
+	        console.log('donations:', this.props.donations),
+	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
+	          'button',
+	          { className: 'edit-btn' },
+	          'Edit'
+	        ) : '',
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -31296,9 +31340,9 @@
 
 	  switch (action.type) {
 	    case 'SIGN_IN':
-	      return { data: action };
-	    case 'REGISTER':
-	      return { data: action };
+	      return action;
+	    // case 'REGISTER':
+	    //   return { data: action }
 	    default:
 	      return state;
 	  }
@@ -31315,8 +31359,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var featured = function featured() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	var family = function family() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -31328,12 +31372,62 @@
 	      return Object.assign({}, state, { selected: action });
 	    case 'DONATION-FAMILY':
 	      return Object.assign({}, state, { donationFamily: action });
+	    // create donations reducer so it doesn't continue to add to array
+	    // case 'FAMILY-DONATIONS':
+	    //   return Object.assign({}, state, { donations: action })
 	    default:
 	      return state;
 	  }
 	};
 
-	exports.default = featured;
+	exports.default = family;
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactRedux = __webpack_require__(25);
+
+	var _NavBar = __webpack_require__(135);
+
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return { user: state.user.data };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_NavBar2.default);
+
+/***/ },
+/* 309 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var donations = function donations() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'FAMILY-DONATIONS':
+	      return Object.assign({}, { donations: action });
+	    default:
+	      return state;
+	  }
+	};
+
+	exports.default = donations;
 
 /***/ }
 /******/ ]);
