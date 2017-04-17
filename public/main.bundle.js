@@ -12531,6 +12531,15 @@
 	  }
 
 	  _createClass(NavBar, [{
+	    key: 'checkRoute',
+	    value: function checkRoute() {
+	      if (this.props.user) {
+	        _reactRouter.browserHistory.push('/basics');
+	      } else {
+	        alert('Please log in or create an account');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -12543,13 +12552,11 @@
 	        'nav',
 	        { className: navBackground },
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/basics' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'start-family-btn' },
-	            'Start a Family Fund'
-	          )
+	          'button',
+	          { className: 'start-family-btn', onClick: function onClick() {
+	              return _this2.checkRoute();
+	            } },
+	          'Start a Family Fund'
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
