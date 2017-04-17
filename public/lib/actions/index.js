@@ -92,8 +92,9 @@ export const createFamily = (title, location, name, expiration, story, links, co
       body: JSON.stringify({ title, location, name, expiration, story, links, cost }),
     })
     .then(data => data.json())
-    // save current family and route to family profile
-    .then(data => console.log(data))
+    .then(data => dispatch(storeSelected(data[0])))
+    .then(data => browserHistory.push('/profile'))
+    .catch(err => console.log(err))
   }
 }
 
