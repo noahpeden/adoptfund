@@ -12629,6 +12629,15 @@
 	  }
 
 	  _createClass(HeroSection, [{
+	    key: 'checkRoute',
+	    value: function checkRoute() {
+	      if (this.props.user) {
+	        _reactRouter.browserHistory.push('/basics');
+	      } else {
+	        alert('Please log in or create an account');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -12647,13 +12656,11 @@
 	          'Savin da bebs one fambam at a time'
 	        ),
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/basics' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'main-start-family-btn' },
-	            'Start Family Fund'
-	          )
+	          'button',
+	          { className: 'main-start-family-btn', onClick: function onClick() {
+	              return _this2.checkRoute();
+	            } },
+	          'Start Family Fund'
 	        ),
 	        _react2.default.createElement('input', { className: 'search-family-input', placeholder: 'Search for a Family', onChange: function onChange(e) {
 	            return _this2.setState({ searchText: e.target.value });
@@ -13281,6 +13288,12 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    user: state.user.data
+	  };
+	};
+
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    searchCampaigns: function searchCampaigns(text) {
@@ -13289,7 +13302,7 @@
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_HeroSection2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_HeroSection2.default);
 
 /***/ },
 /* 150 */
@@ -13557,15 +13570,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/edit' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'edit-btn' },
-	            'Edit'
-	          )
-	        ) : '',
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -13638,7 +13642,8 @@
 	          'div',
 	          { className: 'link-section' },
 	          family.links
-	        )
+	        ),
+	        console.log(this.props.user)
 	      );
 	    }
 	  }]);

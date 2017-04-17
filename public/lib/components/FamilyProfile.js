@@ -37,11 +37,6 @@ export default class FamilyProfile extends Component {
     const family = this.props.selectedFamily
     return (
       <div>
-        {
-          this.props.user === this.props.selectedFamily.userId
-          ? <Link to='/edit'><button className='edit-btn'>Edit</button></Link>
-          : ''
-        }
         <h1>{family.title}</h1>
         <h2>{family.name}</h2>
         <p>{family.location}</p>
@@ -61,6 +56,12 @@ export default class FamilyProfile extends Component {
         <div className='link-section'>
           {family.links}
         </div>
+        {console.log(this.props.user)}
+        {/* {
+          this.props.user.id === this.props.selectedFamily.userId
+          ? <Link to='/edit'><button className='edit-btn'>Edit</button></Link>
+          : ''
+        } */}
       </div>
     )
   }

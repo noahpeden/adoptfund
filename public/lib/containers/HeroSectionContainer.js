@@ -2,6 +2,12 @@ import { connect } from 'react-redux'
 import HeroSection from '../components/HeroSection'
 import { searchCampaigns } from '../actions'
 
+const mapStateToProps = state => {
+  return {
+    user: state.user.data,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     searchCampaigns: (text) => {
@@ -10,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(HeroSection)
+export default connect(mapStateToProps, mapDispatchToProps)(HeroSection)
