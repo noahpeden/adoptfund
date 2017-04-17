@@ -11548,10 +11548,12 @@
 	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost })
 	    }).then(function (data) {
 	      return data.json();
-	    })
-	    // save current family and route to family profile
-	    .then(function (data) {
-	      return console.log(data);
+	    }).then(function (data) {
+	      return dispatch(storeSelected(data[0]));
+	    }).then(function (data) {
+	      return _reactRouter.browserHistory.push('/profile');
+	    }).catch(function (err) {
+	      return console.log(err);
 	    });
 	  };
 	};
@@ -12645,6 +12647,15 @@
 	  }
 
 	  _createClass(HeroSection, [{
+	    key: 'checkRoute',
+	    value: function checkRoute() {
+	      if (this.props.user) {
+	        _reactRouter.browserHistory.push('/basics');
+	      } else {
+	        alert('Please log in or create an account');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -12663,13 +12674,11 @@
 	          'Savin da bebs one fambam at a time'
 	        ),
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/basics' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'main-start-family-btn' },
-	            'Start Family Fund'
-	          )
+	          'button',
+	          { className: 'main-start-family-btn', onClick: function onClick() {
+	              return _this2.checkRoute();
+	            } },
+	          'Start Family Fund'
 	        ),
 	        _react2.default.createElement('input', { className: 'search-family-input', placeholder: 'Search for a Family', onChange: function onChange(e) {
 	            return _this2.setState({ searchText: e.target.value });
@@ -13297,6 +13306,12 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    user: state.user.data
+	  };
+	};
+
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    searchCampaigns: function searchCampaigns(text) {
@@ -13305,7 +13320,7 @@
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_HeroSection2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_HeroSection2.default);
 
 /***/ },
 /* 150 */
@@ -13540,11 +13555,29 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.grabDonations(this.props.selectedFamily.id);
+	      this.progress();
 	    }
 	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.saveFamily(this.props.selectedFamily.id);
+	    }
+	  }, {
+	    key: 'raised',
+	    value: function raised() {
+	      var total = void 0;
+	      if (this.props.donations) {
+	        this.props.donations.donations.forEach(function (donation) {
+	          total += donation.donationAmount;
+	        });
+	      }
+	      return total;
+	    }
+	  }, {
+	    key: 'progress',
+	    value: function progress() {
+	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
+	      document.querySelector('progress-bar').style.width = percentage + '%';
 	    }
 	  }, {
 	    key: 'render',
@@ -13555,12 +13588,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        console.log('donations:', this.props.donations),
-	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
-	          'button',
-	          { className: 'edit-btn' },
-	          'Edit'
-	        ) : '',
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -13598,8 +13625,17 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
+	            'Raised: ',
+	            this.raised()
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Goal: ',
 	            family.cost
 	          ),
+	          _react2.default.createElement('div', { className: 'progress-bar-cont' }),
+	          _react2.default.createElement('div', { className: 'progress-bar' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
@@ -13624,7 +13660,8 @@
 	          'div',
 	          { className: 'link-section' },
 	          family.links
-	        )
+	        ),
+	        console.log(this.props.user)
 	      );
 	    }
 	  }]);
