@@ -8,6 +8,13 @@ export const signIn = (data) => {
   }
 }
 
+export const signOut = (data = {}) => {
+  return {
+    type: 'SIGN_OUT',
+    data,
+  }
+}
+
 export const featured = (featured) => {
   return {
     type: 'FEATURED',
