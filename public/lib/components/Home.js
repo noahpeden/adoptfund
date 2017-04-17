@@ -9,11 +9,11 @@ export default class Home extends Component {
         <div className='img-container'>
           <div className='img-layer'>
             <HeroSectionContainer />
-            <ul>
-              {displayCards(this.props.family)}
-            </ul>
           </div>
         </div>
+              <ul className='featured-container'>
+            {displayCards(this.props.family)}
+          </ul>
       </section>
     )
   }

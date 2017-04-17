@@ -12629,18 +12629,21 @@
 	  };
 	};
 
-	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, cost) {
+	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, cost, userId) {
+	  console.log(userId);
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/family', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
-	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost })
+	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost, userId: userId })
 	    }).then(function (data) {
 	      return data.json();
-	    })
-	    // save current family and route to family profile
-	    .then(function (data) {
-	      return console.log(data);
+	    }).then(function (data) {
+	      return dispatch(storeSelected(data[0]));
+	    }).then(function (data) {
+	      return _reactRouter.browserHistory.push('/profile');
+	    }).catch(function (err) {
+	      return console.log(err);
 	    });
 	  };
 	};
@@ -13268,7 +13271,7 @@
 	              { className: 'login-text' },
 	              'Password:'
 	            ),
-	            _react2.default.createElement('input', { className: 'password', placeholder: 'password', id: 'password', onChange: this.updateInput, value: password }),
+	            _react2.default.createElement('input', { type: 'password', className: 'password', placeholder: 'password', id: 'password', onChange: this.updateInput, value: password }),
 	            _react2.default.createElement(_Button2.default, { className: 'log-in-btn', text: 'login' })
 	          ),
 	          _react2.default.createElement(
@@ -13426,7 +13429,7 @@
 	          _react2.default.createElement('input', { placeholder: 'New User First Name', onChange: this.updateInput, value: newUserFirstName, id: 'newUserFirstName' }),
 	          _react2.default.createElement('input', { placeholder: 'New User Last Name', onChange: this.updateInput, value: newUserLastName, id: 'newUserLastName' }),
 	          _react2.default.createElement('input', { placeholder: 'New User Email', onChange: this.updateInput, value: newUserEmail, id: 'newUserEmail' }),
-	          _react2.default.createElement('input', { placeholder: 'New User Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
+	          _react2.default.createElement('input', { type: 'password', placeholder: 'New User Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
 	          _react2.default.createElement(_Button2.default, { text: 'Add New User' })
 	        )
 	      );
@@ -13618,6 +13621,15 @@
 	  }
 
 	  _createClass(NavBar, [{
+	    key: 'checkRoute',
+	    value: function checkRoute() {
+	      if (this.props.user) {
+	        _reactRouter.browserHistory.push('/basics');
+	      } else {
+	        alert('Please log in or create an account');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -13630,13 +13642,11 @@
 	        'nav',
 	        { className: navBackground },
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/basics' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'start-family-btn' },
-	            'Start a Family Fund'
-	          )
+	          'button',
+	          { className: 'start-family-btn', onClick: function onClick() {
+	              return _this2.checkRoute();
+	            } },
+	          'Start a Family Fund'
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
@@ -13734,6 +13744,15 @@
 	  }
 
 	  _createClass(HeroSection, [{
+	    key: 'checkRoute',
+	    value: function checkRoute() {
+	      if (this.props.user) {
+	        _reactRouter.browserHistory.push('/basics');
+	      } else {
+	        alert('Please log in or create an account');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -13752,13 +13771,11 @@
 	          'Savin da bebs one fambam at a time'
 	        ),
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/basics' },
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'main-start-family-btn' },
-	            'Start Family Fund'
-	          )
+	          'button',
+	          { className: 'main-start-family-btn', onClick: function onClick() {
+	              return _this2.checkRoute();
+	            } },
+	          'Start Family Fund'
 	        ),
 	        _react2.default.createElement('input', { className: 'search-family-input', placeholder: 'Search for a Family', onChange: function onChange(e) {
 	            return _this2.setState({ searchText: e.target.value });
@@ -13818,9 +13835,21 @@
 	      this.props.storeSelected(info);
 	    }
 	  }, {
+	    key: 'runDebugger',
+	    value: function runDebugger() {
+	      debugger;
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
+
+	      var _props$info = this.props.info,
+	          title = _props$info.title,
+	          image = _props$info.image,
+	          name = _props$info.name,
+	          story = _props$info.story,
+	          expiration = _props$info.expiration;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -13830,7 +13859,29 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          this.props.info.title
+	          title
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          name
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          story
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          expiration
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: function onClick() {
+	              return _this2.runDebugger();
+	            } },
+	          'Debugger'
 	        )
 	      );
 	    }
@@ -13877,7 +13928,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.img-container {\n  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);\n  background-repeat: no-repeat;\n  -webkit-background-size: cover; }\n\n.img-layer {\n  background-color: rgba(84, 80, 80, 0.6); }\n\n.nav-container {\n  margin: 20px 10px;\n  background: transparent;\n  position: absolute; }\n\n.start-family-btn, .about-btn, .featured-btn, .sign-in-btn, .home-btn {\n  margin: 10px;\n  border: none;\n  background: none;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 17px;\n  font-weight: 600;\n  color: white;\n  transition: color 0.5s ease;\n  cursor: pointer;\n  outline: none; }\n  .start-family-btn:hover, .about-btn:hover, .featured-btn:hover, .sign-in-btn:hover, .home-btn:hover {\n    color: #d89b1b; }\n\n.main-section-container {\n  text-align: center;\n  padding: 120px 50px; }\n\n.title {\n  font-family: \"Roboto Slab\", serif;\n  font-size: 120px;\n  font-weight: bold;\n  padding: 50px;\n  color: white; }\n\n.hero-h3 {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 30px;\n  padding-bottom: 30px;\n  color: white; }\n\n.main-start-family-btn {\n  width: 25%;\n  height: 50px;\n  margin-right: 30px;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-weight: bold;\n  font-size: 20px;\n  background-color: #d89b1b;\n  color: white;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n  outline: none; }\n  .main-start-family-btn:hover {\n    background: none;\n    border: 5px solid white; }\n\n.search-family-input {\n  width: 30%;\n  height: 45px;\n  border: none;\n  border-radius: 5px;\n  color: #463e3c;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  text-align: center;\n  outline: none; }\n\n.search-btn {\n  width: 10%;\n  height: 50px;\n  margin: 20px;\n  background: transparent;\n  border: 4px solid white;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out; }\n  .search-btn:hover {\n    background-color: #d89b1b;\n    border: none; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.img-container {\n  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);\n  background-repeat: no-repeat;\n  -webkit-background-size: cover; }\n\n.img-layer {\n  background-color: rgba(84, 80, 80, 0.6); }\n\n.nav-container {\n  margin: 20px 10px;\n  background: transparent;\n  position: absolute; }\n\n.start-family-btn, .about-btn, .featured-btn, .sign-in-btn, .home-btn {\n  margin: 10px;\n  border: none;\n  background: none;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 17px;\n  font-weight: 600;\n  color: white;\n  transition: color 0.5s ease;\n  cursor: pointer;\n  outline: none; }\n  .start-family-btn:hover, .about-btn:hover, .featured-btn:hover, .sign-in-btn:hover, .home-btn:hover {\n    color: #d89b1b; }\n\n.main-section-container {\n  text-align: center;\n  padding: 120px 50px; }\n\n.title {\n  font-family: \"Roboto Slab\", serif;\n  font-size: 120px;\n  font-weight: bold;\n  padding: 50px;\n  color: white; }\n\n.hero-h3 {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 30px;\n  padding-bottom: 30px;\n  color: white; }\n\n.main-start-family-btn {\n  width: 25%;\n  height: 50px;\n  margin-right: 30px;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-weight: bold;\n  font-size: 20px;\n  background-color: #d89b1b;\n  color: white;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n  outline: none; }\n  .main-start-family-btn:hover {\n    background: none;\n    border: 5px solid white; }\n\n.search-family-input {\n  width: 30%;\n  height: 45px;\n  border: none;\n  border-radius: 5px;\n  color: #463e3c;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  text-align: center;\n  outline: none; }\n\n.search-btn {\n  width: 10%;\n  height: 50px;\n  margin: 20px;\n  background: transparent;\n  border: 4px solid white;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out; }\n  .search-btn:hover {\n    background-color: #d89b1b;\n    border: none; }\n\n.featured-container {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n  margin: 0 5%;\n  justify-content: center; }\n\n#featured {\n  display: inline-flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  position: relative;\n  color: white;\n  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);\n  border-radius: 5px;\n  width: 50%;\n  background: #42b078;\n  margin: 10px;\n  text-align: center;\n  padding: 10px; }\n", ""]);
 
 	// exports
 
@@ -14351,13 +14402,13 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'img-layer' },
-	            _react2.default.createElement(_HeroSectionContainer2.default, null),
-	            _react2.default.createElement(
-	              'ul',
-	              null,
-	              (0, _helpers.displayCards)(this.props.family)
-	            )
+	            _react2.default.createElement(_HeroSectionContainer2.default, null)
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'featured-container' },
+	          (0, _helpers.displayCards)(this.props.family)
 	        )
 	      );
 	    }
@@ -14388,6 +14439,12 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    user: state.user.data
+	  };
+	};
+
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    searchCampaigns: function searchCampaigns(text) {
@@ -14396,7 +14453,7 @@
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_HeroSection2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_HeroSection2.default);
 
 /***/ }),
 /* 160 */
@@ -14631,11 +14688,48 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.grabDonations(this.props.selectedFamily.id);
+	      this.progress();
 	    }
 	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.saveFamily(this.props.selectedFamily.id);
+	    }
+	  }, {
+	    key: 'raised',
+	    value: function raised() {
+	      var total = 0;
+	      if (this.props.donations) {
+	        this.props.donations.donations.forEach(function (donation) {
+	          total += donation.donationAmount;
+	        });
+	      }
+	      return total;
+	    }
+	  }, {
+	    key: 'progress',
+	    value: function progress() {
+	      // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
+	      // document.querySelector('progress-bar').style.width = percentage + '%'
+	    }
+	  }, {
+	    key: 'editButton',
+	    value: function editButton() {
+	      var btn = '';
+	      if (this.props.user) {
+	        if (this.props.user.id === this.props.selectedFamily.userId) {
+	          btn = _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/edit' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'edit-btn' },
+	              'Edit'
+	            )
+	          );
+	        }
+	      }
+	      return btn;
 	    }
 	  }, {
 	    key: 'render',
@@ -14646,12 +14740,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        console.log('donations:', this.props.donations),
-	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
-	          'button',
-	          { className: 'edit-btn' },
-	          'Edit'
-	        ) : '',
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -14689,8 +14777,17 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
+	            'Raised: $',
+	            this.raised()
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Goal: $',
 	            family.cost
 	          ),
+	          _react2.default.createElement('div', { className: 'progress-bar-cont' }),
+	          _react2.default.createElement('div', { className: 'progress-bar' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
@@ -14715,7 +14812,8 @@
 	          'div',
 	          { className: 'link-section' },
 	          family.links
-	        )
+	        ),
+	        this.editButton()
 	      );
 	    }
 	  }]);
@@ -14745,21 +14843,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const mapStateToProps = state => {
-	//   return {
-	//     family: state.family.featured.featured
-	//   }
-	// }
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    userId: state.user.data.id
+	  };
+	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    createFamily: function createFamily(title, location, name, expiration, story, links, cost) {
-	      dispatch((0, _actions.createFamily)(title, location, name, expiration, story, links, cost));
+	    createFamily: function createFamily(title, location, name, expiration, story, links, cost, userId) {
+	      dispatch((0, _actions.createFamily)(title, location, name, expiration, story, links, cost, userId));
 	    }
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Basics2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Basics2.default);
 
 /***/ }),
 /* 167 */
@@ -14908,7 +15006,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {
-	                return _this2.props.createFamily(title, location, name, expiration, story, links, cost);
+	                return _this2.props.createFamily(title, location, name, expiration, story, links, cost, _this2.props.userId);
 	              } },
 	            'Create'
 	          )

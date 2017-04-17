@@ -30,7 +30,7 @@ export default class Register extends Component {
           <input placeholder='New User First Name' onChange={this.updateInput} value={newUserFirstName} id="newUserFirstName" />
           <input placeholder='New User Last Name' onChange={this.updateInput} value={newUserLastName} id="newUserLastName" />
           <input placeholder='New User Email' onChange={this.updateInput} value={newUserEmail} id="newUserEmail"/>
-          <input placeholder='New User Password' onChange={this.updateInput} value={newUserPassword} id="newUserPassword" />
+          <input type='password' placeholder='New User Password' onChange={this.updateInput} value={newUserPassword} id="newUserPassword" />
             <Button text='Add New User' />
         </form>
       </div>
