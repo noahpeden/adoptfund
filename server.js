@@ -6,11 +6,7 @@ app.set('port', process.env.PORT || 3000)
 
 app.use(express.static('public'))
 
-app.get('/*', function (req, res) {
-  /* nothing */
-})
-
-app.get('/', function (req, res) {
+app.get('/*', function (req, res, next) {
   res.sendFile(path.join(__dirname, './public/index.html'))
 })
 

@@ -4,9 +4,10 @@ import HeroSection from './HeroSection'
 import FamilyCard from './FamilyCard'
 import Login from './Login'
 
-require('./../styles/homeStyles')
-require('./../styles/profileStyles')
-require('./../styles/loginStyles')
+require('../styles/homeStyles')
+require('../styles/profileStyles')
+require('../styles/loginStyles')
+require('../styles/registerStyles')
 
 export default class App extends Component {
   constructor() {
