@@ -75,37 +75,41 @@
 
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 
-	var _HomeContainer = __webpack_require__(148);
+	var _HomeContainer = __webpack_require__(147);
 
 	var _HomeContainer2 = _interopRequireDefault(_HomeContainer);
 
-	var _FamilyListContainer = __webpack_require__(153);
+	var _FamilyListContainer = __webpack_require__(152);
 
 	var _FamilyListContainer2 = _interopRequireDefault(_FamilyListContainer);
 
-	var _FamilyProfileContainer = __webpack_require__(155);
+	var _FamilyProfileContainer = __webpack_require__(154);
 
 	var _FamilyProfileContainer2 = _interopRequireDefault(_FamilyProfileContainer);
 
-	var _BasicsContainer = __webpack_require__(157);
+	var _BasicsContainer = __webpack_require__(156);
 
 	var _BasicsContainer2 = _interopRequireDefault(_BasicsContainer);
 
-	var _DonationContainer = __webpack_require__(159);
+	var _DonationContainer = __webpack_require__(158);
 
 	var _DonationContainer2 = _interopRequireDefault(_DonationContainer);
 
-	var _About = __webpack_require__(161);
+	var _About = __webpack_require__(160);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _userReducer = __webpack_require__(162);
+	var _userReducer = __webpack_require__(161);
 
 	var _userReducer2 = _interopRequireDefault(_userReducer);
 
-	var _familyReducer = __webpack_require__(163);
+	var _familyReducer = __webpack_require__(162);
 
 	var _familyReducer2 = _interopRequireDefault(_familyReducer);
+
+	var _donationsReducer = __webpack_require__(163);
+
+	var _donationsReducer2 = _interopRequireDefault(_donationsReducer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114,14 +118,15 @@
 
 
 	var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
-	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default }), {
+	var store = (0, _redux.createStore)((0, _redux.combineReducers)({ user: _userReducer2.default, family: _familyReducer2.default, donations: _donationsReducer2.default }), {
 	  user: {},
 	  family: {
 	    featured: [],
 	    searched: [],
 	    selected: null,
 	    donationFamily: null
-	  }
+	  },
+	  donations: {}
 	}, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
 
 	var router = React.createElement(
@@ -1910,7 +1915,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -2027,7 +2032,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 	'use strict';
 
@@ -2477,7 +2482,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -2586,7 +2591,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	function makeEmptyFunction(arg) {
@@ -2627,7 +2632,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -2658,7 +2663,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -2863,7 +2868,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -2908,7 +2913,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -3988,7 +3993,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -4432,7 +4437,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -4863,7 +4868,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -5978,7 +5983,7 @@
 	  selectorFactory, which has the signature:
 
 	    (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-	  
+
 	  connect passes its args to connectAdvanced as options, which will in turn pass them to
 	  selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -6170,7 +6175,7 @@
 	// dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 	// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 	// whether mapToProps needs to be invoked when props have changed.
-	// 
+	//
 	// A length of one signals that mapToProps does not depend on props from the parent component.
 	// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 	// therefore not reporting its length accurately..
@@ -6180,16 +6185,16 @@
 
 	// Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 	// this function wraps mapToProps in a proxy function which does several things:
-	// 
+	//
 	//  * Detects whether the mapToProps function being called depends on props, which
 	//    is used by selectorFactory to decide if it should reinvoke on props changes.
-	//    
+	//
 	//  * On first call, handles mapToProps if returns another function, and treats that
 	//    new function as the true mapToProps for subsequent calls.
-	//    
+	//
 	//  * On first call, verifies the first result is a plain object, in order to warn
 	//    the developer that their mapToProps function is not returning a valid result.
-	//    
+	//
 	function wrapMapToPropsFunc(mapToProps, methodName) {
 	  return function initProxySelector(dispatch, _ref) {
 	    var displayName = _ref.displayName;
@@ -11431,7 +11436,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.register = exports.signIn = undefined;
+	exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signOut = exports.signIn = undefined;
 
 	var _isomorphicFetch = __webpack_require__(127);
 
@@ -11444,16 +11449,19 @@
 	var signIn = exports.signIn = function signIn(data) {
 	  return {
 	    type: 'SIGN_IN',
+	    data: data[0]
+	  };
+	};
+
+	var signOut = exports.signOut = function signOut() {
+	  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	  return {
+	    type: 'SIGN_OUT',
 	    data: data
 	  };
 	};
 
-	var register = exports.register = function register(data) {
-	  return {
-	    type: 'REGISTER',
-	    data: data
-	  };
-	};
 	var featured = exports.featured = function featured(_featured) {
 	  return {
 	    type: 'FEATURED',
@@ -11469,6 +11477,7 @@
 	};
 
 	var storeSelected = exports.storeSelected = function storeSelected(info) {
+	  console.log(info);
 	  return {
 	    type: 'SELECTED',
 	    info: info
@@ -11482,6 +11491,13 @@
 	  };
 	};
 
+	var familyDonations = exports.familyDonations = function familyDonations(donations) {
+	  return {
+	    type: 'FAMILY-DONATIONS',
+	    donations: donations
+	  };
+	};
+
 	var fetchLogin = exports.fetchLogin = function fetchLogin(email, password) {
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/login', {
@@ -11491,9 +11507,12 @@
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(signIn(data));
-	    }).then(function (data) {
-	      return _reactRouter.browserHistory.push('/');
+	      if (data.message) {
+	        alert(data.message);
+	      } else {
+	        dispatch(signIn(data));
+	        _reactRouter.browserHistory.push('/');
+	      }
 	    }).catch(function (err) {
 	      return alert('Email and Password do not match');
 	    });
@@ -11509,9 +11528,12 @@
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return dispatch(register(data));
-	    }).then(function (data) {
-	      return _reactRouter.browserHistory.push('/');
+	      if (data.message) {
+	        alert(data.message);
+	      } else {
+	        dispatch(signIn(data));
+	        _reactRouter.browserHistory.push('/');
+	      }
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -11527,7 +11549,7 @@
 	    }).then(function (data) {
 	      return data.json();
 	    })
-	    //save current family and route to family profile
+	    // save current family and route to family profile
 	    .then(function (data) {
 	      return console.log(data);
 	    });
@@ -11568,6 +11590,18 @@
 	      return data.json();
 	    }).then(function (data) {
 	      return console.log(data);
+	    }).catch(function (err) {
+	      return console.log(err);
+	    });
+	  };
+	};
+
+	var grabDonations = exports.grabDonations = function grabDonations(familyId) {
+	  return function (dispatch) {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/donation/' + familyId).then(function (donations) {
+	      return donations.json();
+	    }).then(function (donations) {
+	      return dispatch(familyDonations(donations));
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -12150,7 +12184,7 @@
 	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { className: 'link', to: '/register' },
+	            { to: '/register' },
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'register' },
@@ -12292,48 +12326,19 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'register-cont' },
 	        _react2.default.createElement(
-	          'h2',
-	          { className: 'register-title' },
-	          'Sign up for AdoptFund:'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'register-container' },
-	          _react2.default.createElement(
-	            'form',
-	            { onSubmit: function onSubmit(e) {
-	                e.preventDefault();
-	                addUser(newUserFirstName, newUserLastName, newUserEmail, newUserPassword);
-	                _this2.setState({ newUserFirstName: '', newUserLastName: '', newUserEmail: '', newUserPassword: '' });
-	              } },
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Your First Name:'
-	            ),
-	            _react2.default.createElement('input', { placeholder: 'First Name', onChange: this.updateInput, value: newUserFirstName, id: 'newUserFirstName' }),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Your Last Name:'
-	            ),
-	            _react2.default.createElement('input', { placeholder: 'Last Name', onChange: this.updateInput, value: newUserLastName, id: 'newUserLastName' }),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Your Email:'
-	            ),
-	            _react2.default.createElement('input', { placeholder: 'Email', onChange: this.updateInput, value: newUserEmail, id: 'newUserEmail' }),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Choose a Password:'
-	            ),
-	            _react2.default.createElement('input', { placeholder: 'Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
-	            _react2.default.createElement(_Button2.default, { className: 'new-user-btn', text: 'Sign up!' })
-	          )
+	          'form',
+	          { onSubmit: function onSubmit(e) {
+	              e.preventDefault();
+	              addUser(newUserFirstName, newUserLastName, newUserEmail, newUserPassword);
+	              _this2.setState({ newUserFirstName: '', newUserLastName: '', newUserEmail: '', newUserPassword: '' });
+	            } },
+	          _react2.default.createElement('input', { placeholder: 'New User First Name', onChange: this.updateInput, value: newUserFirstName, id: 'newUserFirstName' }),
+	          _react2.default.createElement('input', { placeholder: 'New User Last Name', onChange: this.updateInput, value: newUserLastName, id: 'newUserLastName' }),
+	          _react2.default.createElement('input', { placeholder: 'New User Email', onChange: this.updateInput, value: newUserEmail, id: 'newUserEmail' }),
+	          _react2.default.createElement('input', { placeholder: 'New User Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
+	          _react2.default.createElement(_Button2.default, { text: 'Add New User' })
 	        )
 	      );
 	    }
@@ -12396,15 +12401,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _NavBar = __webpack_require__(135);
+	var _NavBarContainer = __webpack_require__(135);
 
-	var _NavBar2 = _interopRequireDefault(_NavBar);
+	var _NavBarContainer2 = _interopRequireDefault(_NavBarContainer);
 
-	var _HeroSection = __webpack_require__(136);
+	var _HeroSection = __webpack_require__(137);
 
 	var _HeroSection2 = _interopRequireDefault(_HeroSection);
 
-	var _FamilyCard = __webpack_require__(137);
+	var _FamilyCard = __webpack_require__(138);
 
 	var _FamilyCard2 = _interopRequireDefault(_FamilyCard);
 
@@ -12420,10 +12425,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(138);
-	__webpack_require__(142);
-	__webpack_require__(144);
-	__webpack_require__(146);
+	__webpack_require__(139);
+	__webpack_require__(143);
+	__webpack_require__(145);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -12448,7 +12452,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_NavBar2.default, { location: this.props.location }),
+	        _react2.default.createElement(_NavBarContainer2.default, { location: this.props.location }),
 	        this.props.children
 	      );
 	    }
@@ -12461,6 +12465,36 @@
 
 /***/ },
 /* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactRedux = __webpack_require__(25);
+
+	var _NavBar = __webpack_require__(136);
+
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+
+	var _actions = __webpack_require__(126);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return { user: state.user.data };
+	};
+
+	var mapDispatchToProps = {
+	  signOut: _actions.signOut
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_NavBar2.default);
+
+/***/ },
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12488,23 +12522,20 @@
 	var NavBar = function (_Component) {
 	  _inherits(NavBar, _Component);
 
-	  function NavBar(props) {
+	  function NavBar() {
 	    _classCallCheck(this, NavBar);
 
-	    var _this = _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
+	    return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).call(this));
 	  }
 
 	  _createClass(NavBar, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      // button to featured should stay on same page might need a tag
 	      var navBackground = 'nav-container ';
-	      if (this.props.location.pathname !== '/') {
-	        navBackground += 'nav-background';
-	      }
+	      if (this.props.location.pathname !== '/') navBackground += 'nav-background';
 
 	      return _react2.default.createElement(
 	        'nav',
@@ -12541,13 +12572,23 @@
 	            'Home'
 	          )
 	        ),
-	        _react2.default.createElement(
+	        this.props.user != null && Object.keys(this.props.user).length > 1 ? _react2.default.createElement(
+	          'button',
+	          {
+	            onClick: function onClick() {
+	              _this2.props.signOut();
+	              _reactRouter.browserHistory.push('/');
+	            },
+	            className: 'sign-in-btn'
+	          },
+	          'Sign Out'
+	        ) : _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/login' },
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'sign-in-btn' },
-	            'Sign In, Fool.'
+	            'Sign In'
 	          )
 	        )
 	      );
@@ -12560,7 +12601,7 @@
 	exports.default = NavBar;
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12650,7 +12691,7 @@
 	exports.default = HeroSection;
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12688,9 +12729,21 @@
 	      this.props.storeSelected(info);
 	    }
 	  }, {
+	    key: 'runDebugger',
+	    value: function runDebugger() {
+	      debugger;
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
+
+	      var _props$info = this.props.info,
+	          title = _props$info.title,
+	          image = _props$info.image,
+	          name = _props$info.name,
+	          story = _props$info.story,
+	          expiration = _props$info.expiration;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -12700,7 +12753,29 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          this.props.info.title
+	          title
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          name
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          story
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          expiration
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: function onClick() {
+	              return _this2.runDebugger();
+	            } },
+	          'Debugger'
 	        )
 	      );
 	    }
@@ -12712,16 +12787,16 @@
 	exports.default = FamilyCard;
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(139);
+	var content = __webpack_require__(140);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(141)(content, {});
+	var update = __webpack_require__(142)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -12738,22 +12813,22 @@
 	}
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(140)();
+	exports = module.exports = __webpack_require__(141)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.img-container {\n  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);\n  background-repeat: no-repeat;\n  -webkit-background-size: cover; }\n\n.img-layer {\n  background-color: rgba(84, 80, 80, 0.6); }\n\n.nav-container {\n  margin: 20px 10px;\n  background: transparent;\n  position: absolute; }\n\n.start-family-btn, .about-btn, .featured-btn, .sign-in-btn, .home-btn {\n  margin: 10px;\n  border: none;\n  background: none;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 17px;\n  font-weight: 600;\n  color: white;\n  transition: color 0.5s ease;\n  cursor: pointer;\n  outline: none; }\n  .start-family-btn:hover, .about-btn:hover, .featured-btn:hover, .sign-in-btn:hover, .home-btn:hover {\n    color: #d89b1b; }\n\n.main-section-container {\n  text-align: center;\n  padding: 120px 50px; }\n\n.title {\n  font-family: \"Roboto Slab\", serif;\n  font-size: 120px;\n  font-weight: bold;\n  padding: 50px;\n  color: white; }\n\n.hero-h3 {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 30px;\n  padding-bottom: 30px;\n  color: white; }\n\n.main-start-family-btn {\n  width: 25%;\n  height: 50px;\n  margin-right: 30px;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-weight: bold;\n  font-size: 20px;\n  background-color: #d89b1b;\n  color: white;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n  outline: none; }\n  .main-start-family-btn:hover {\n    background: none;\n    border: 5px solid white; }\n\n.search-family-input {\n  width: 30%;\n  height: 45px;\n  border: none;\n  border-radius: 5px;\n  color: #463e3c;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  text-align: center;\n  outline: none; }\n\n.search-btn {\n  width: 10%;\n  height: 50px;\n  margin: 20px;\n  background: transparent;\n  border: 4px solid white;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out; }\n  .search-btn:hover {\n    background-color: #d89b1b;\n    border: none; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.img-container {\n  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);\n  background-repeat: no-repeat;\n  -webkit-background-size: cover; }\n\n.img-layer {\n  background-color: rgba(84, 80, 80, 0.6); }\n\n.nav-container {\n  margin: 20px 10px;\n  background: transparent;\n  position: absolute; }\n\n.start-family-btn, .about-btn, .featured-btn, .sign-in-btn, .home-btn {\n  margin: 10px;\n  border: none;\n  background: none;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 17px;\n  font-weight: 600;\n  color: white;\n  transition: color 0.5s ease;\n  cursor: pointer;\n  outline: none; }\n  .start-family-btn:hover, .about-btn:hover, .featured-btn:hover, .sign-in-btn:hover, .home-btn:hover {\n    color: #d89b1b; }\n\n.main-section-container {\n  text-align: center;\n  padding: 120px 50px; }\n\n.title {\n  font-family: \"Roboto Slab\", serif;\n  font-size: 120px;\n  font-weight: bold;\n  padding: 50px;\n  color: white; }\n\n.hero-h3 {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 30px;\n  padding-bottom: 30px;\n  color: white; }\n\n.main-start-family-btn {\n  width: 25%;\n  height: 50px;\n  margin-right: 30px;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-weight: bold;\n  font-size: 20px;\n  background-color: #d89b1b;\n  color: white;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n  outline: none; }\n  .main-start-family-btn:hover {\n    background: none;\n    border: 5px solid white; }\n\n.search-family-input {\n  width: 30%;\n  height: 45px;\n  border: none;\n  border-radius: 5px;\n  color: #463e3c;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  text-align: center;\n  outline: none; }\n\n.search-btn {\n  width: 10%;\n  height: 50px;\n  margin: 20px;\n  background: transparent;\n  border: 4px solid white;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  font-weight: bold;\n  color: white;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out; }\n  .search-btn:hover {\n    background-color: #d89b1b;\n    border: none; }\n\n.featured-container {\n  display: flex;\n  width: 90%;\n  margin: 0 5%;\n  justify-content: center;\n  display: inline-flex;\n  flex-wrap: wrap; }\n\n#featured {\n  position: relative;\n  color: white;\n  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);\n  border-radius: 5px;\n  width: 27%;\n  background: #42b078;\n  margin: 10px;\n  text-align: left;\n  padding: 10px;\n  padding-top: 0;\n  padding-bottom: 40px; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports) {
 
 	/*
@@ -12809,7 +12884,7 @@
 
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -13061,16 +13136,16 @@
 
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(143);
+	var content = __webpack_require__(144);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(141)(content, {});
+	var update = __webpack_require__(142)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -13087,10 +13162,10 @@
 	}
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(140)();
+	exports = module.exports = __webpack_require__(141)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
@@ -13102,16 +13177,16 @@
 
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(145);
+	var content = __webpack_require__(146);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(141)(content, {});
+	var update = __webpack_require__(142)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -13128,63 +13203,22 @@
 	}
 
 /***/ },
-/* 145 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(140)();
-	// imports
-	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);", ""]);
-	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
-
-	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.login-title {\n  margin-top: 25vh;\n  margin-left: 44%;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 40px;\n  font-weight: bold;\n  color: #d89b1b; }\n\n.login-container {\n  width: 40%;\n  height: 40%;\n  margin: 50px auto;\n  border-radius: 5px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.email, .password {\n  width: 35%;\n  height: 40px;\n  margin-left: 32%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  text-align: center;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px; }\n  .email:focus, .password:focus {\n    outline-color: #d89b1b; }\n\n.login-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin-left: 20%;\n  padding-top: 30px;\n  padding-bottom: 20px; }\n\n.log-in-btn {\n  margin-top: 20px;\n  width: 20%;\n  font-size: 20px;\n  font-weight: bold; }\n\n.register {\n  width: 35%;\n  font-size: 15px;\n  text-decoration: none; }\n\n.log-in-btn, .register {\n  height: 30px;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  display: block;\n  margin: 30px auto;\n  font-family: \"PT Sans\", sans-serif;\n  color: white;\n  transition: all 0.5s ease; }\n  .log-in-btn:hover, .register:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.link {\n  text-decoration: none; }\n", ""]);
-
-	// exports
-
-
-/***/ },
 /* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(147);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(141)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./registerStyles.scss", function() {
-				var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./registerStyles.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 147 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(140)();
+	exports = module.exports = __webpack_require__(141)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.register-title {\n  margin-top: 25vh;\n  margin-left: 31%;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 40px;\n  font-weight: bold;\n  color: #d89b1b; }\n\n.register-container {\n  width: 40%;\n  height: 40%;\n  margin: 70px auto;\n  padding: 30px;\n  border-radius: 5px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.new-user-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin-left: 6%;\n  padding-top: 30px; }\n\n#newUserFirstName, #newUserLastName, #newUserEmail, #newUserPassword {\n  width: 35%;\n  height: 40px;\n  margin-left: 32%;\n  margin-top: 30px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  text-align: center;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px; }\n  #newUserFirstName:focus, #newUserLastName:focus, #newUserEmail:focus, #newUserPassword:focus {\n    outline-color: #d89b1b; }\n\n.new-user-btn {\n  height: 30px;\n  width: 50%;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  display: block;\n  margin: 55px auto;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  color: white;\n  transition: all 0.5s ease; }\n  .new-user-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.login-title {\n  margin-top: 25vh;\n  margin-left: 44%;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 40px;\n  font-weight: bold;\n  color: #d89b1b; }\n\n.login-container {\n  width: 40%;\n  height: 40%;\n  margin: 50px auto;\n  border-radius: 5px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.email, .password {\n  width: 35%;\n  height: 40px;\n  margin-left: 32%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  text-align: center;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px; }\n  .email:focus, .password:focus {\n    outline-color: #d89b1b; }\n\n.login-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin-left: 20%;\n  padding-top: 30px;\n  padding-bottom: 20px; }\n\n.log-in-btn {\n  margin-top: 20px;\n  width: 20%;\n  font-size: 20px;\n  font-weight: bold; }\n\n.register {\n  width: 35%;\n  font-size: 15px;\n  text-decoration: none; }\n\n.log-in-btn, .register {\n  height: 30px;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  display: block;\n  margin: 30px auto;\n  font-family: \"PT Sans\", sans-serif;\n  color: white;\n  transition: all 0.5s ease; }\n  .log-in-btn:hover, .register:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.register-cont {\n  position: absolute;\n  top: 100px; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 148 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13195,7 +13229,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _Home = __webpack_require__(149);
+	var _Home = __webpack_require__(148);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
@@ -13210,7 +13244,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_Home2.default);
 
 /***/ },
-/* 149 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13225,11 +13259,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _HeroSectionContainer = __webpack_require__(150);
+	var _HeroSectionContainer = __webpack_require__(149);
 
 	var _HeroSectionContainer2 = _interopRequireDefault(_HeroSectionContainer);
 
-	var _helpers = __webpack_require__(151);
+	var _helpers = __webpack_require__(150);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13260,12 +13294,16 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'img-layer' },
-	            _react2.default.createElement(_HeroSectionContainer2.default, null),
-	            _react2.default.createElement(
-	              'ul',
-	              null,
-	              (0, _helpers.displayCards)(this.props.family)
-	            )
+	            _react2.default.createElement(_HeroSectionContainer2.default, null)
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'featured-container' },
+	          _react2.default.createElement(
+	            'ul',
+	            null,
+	            (0, _helpers.displayCards)(this.props.family)
 	          )
 	        )
 	      );
@@ -13278,7 +13316,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 150 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13289,7 +13327,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _HeroSection = __webpack_require__(136);
+	var _HeroSection = __webpack_require__(137);
 
 	var _HeroSection2 = _interopRequireDefault(_HeroSection);
 
@@ -13308,7 +13346,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_HeroSection2.default);
 
 /***/ },
-/* 151 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13322,7 +13360,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FamilyCardContainer = __webpack_require__(152);
+	var _FamilyCardContainer = __webpack_require__(151);
 
 	var _FamilyCardContainer2 = _interopRequireDefault(_FamilyCardContainer);
 
@@ -13349,7 +13387,7 @@
 	};
 
 /***/ },
-/* 152 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13360,7 +13398,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _FamilyCard = __webpack_require__(137);
+	var _FamilyCard = __webpack_require__(138);
 
 	var _FamilyCard2 = _interopRequireDefault(_FamilyCard);
 
@@ -13379,7 +13417,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_FamilyCard2.default);
 
 /***/ },
-/* 153 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13390,7 +13428,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _FamilyList = __webpack_require__(154);
+	var _FamilyList = __webpack_require__(153);
 
 	var _FamilyList2 = _interopRequireDefault(_FamilyList);
 
@@ -13405,7 +13443,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_FamilyList2.default);
 
 /***/ },
-/* 154 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13420,7 +13458,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _helpers = __webpack_require__(151);
+	var _helpers = __webpack_require__(150);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13456,7 +13494,7 @@
 	exports.default = FamilyList;
 
 /***/ },
-/* 155 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13467,7 +13505,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _FamilyProfile = __webpack_require__(156);
+	var _FamilyProfile = __webpack_require__(155);
 
 	var _FamilyProfile2 = _interopRequireDefault(_FamilyProfile);
 
@@ -13477,7 +13515,9 @@
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    selectedFamily: state.family.selected.info
+	    selectedFamily: state.family.selected.info,
+	    user: state.user.data,
+	    donations: state.donations.donations
 	  };
 	};
 
@@ -13485,6 +13525,9 @@
 	  return {
 	    saveFamily: function saveFamily(familyId) {
 	      dispatch((0, _actions.saveFamily)(familyId));
+	    },
+	    grabDonations: function grabDonations(familyId) {
+	      dispatch((0, _actions.grabDonations)(familyId));
 	    }
 	  };
 	};
@@ -13492,7 +13535,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_FamilyProfile2.default);
 
 /***/ },
-/* 156 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13532,6 +13575,11 @@
 	  }
 
 	  _createClass(FamilyProfile, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.grabDonations(this.props.selectedFamily.id);
+	    }
+	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.saveFamily(this.props.selectedFamily.id);
@@ -13545,7 +13593,12 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        console.log(this.props.selectedFamily),
+	        console.log('donations:', this.props.donations),
+	        this.props.user === this.props.selectedFamily.userId ? _react2.default.createElement(
+	          'button',
+	          { className: 'edit-btn' },
+	          'Edit'
+	        ) : '',
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -13620,7 +13673,7 @@
 	exports.default = FamilyProfile;
 
 /***/ },
-/* 157 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13631,7 +13684,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _Basics = __webpack_require__(158);
+	var _Basics = __webpack_require__(157);
 
 	var _Basics2 = _interopRequireDefault(_Basics);
 
@@ -13656,7 +13709,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Basics2.default);
 
 /***/ },
-/* 158 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13817,7 +13870,7 @@
 	exports.default = Basics;
 
 /***/ },
-/* 159 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13828,7 +13881,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _Donation = __webpack_require__(160);
+	var _Donation = __webpack_require__(159);
 
 	var _Donation2 = _interopRequireDefault(_Donation);
 
@@ -13853,7 +13906,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_Donation2.default);
 
 /***/ },
-/* 160 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13937,7 +13990,7 @@
 	exports.default = Donation;
 
 /***/ },
-/* 161 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13967,7 +14020,7 @@
 	exports.default = About;
 
 /***/ },
-/* 162 */
+/* 161 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -13981,9 +14034,9 @@
 
 	  switch (action.type) {
 	    case 'SIGN_IN':
-	      return { data: action };
-	    case 'REGISTER':
-	      return { data: action };
+	      return action;
+	    case 'SIGN_OUT':
+	      return Object.assign({}, state, action);
 	    default:
 	      return state;
 	  }
@@ -13992,7 +14045,7 @@
 	exports.default = user;
 
 /***/ },
-/* 163 */
+/* 162 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -14000,8 +14053,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var featured = function featured() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	var family = function family() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -14018,7 +14071,30 @@
 	  }
 	};
 
-	exports.default = featured;
+	exports.default = family;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var donations = function donations() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'FAMILY-DONATIONS':
+	      return Object.assign({}, { donations: action });
+	    default:
+	      return state;
+	  }
+	};
+
+	exports.default = donations;
 
 /***/ },
 /* 164 */
@@ -14357,7 +14433,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 	'use strict';
 
@@ -15616,7 +15692,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16107,7 +16183,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16189,7 +16265,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16252,7 +16328,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -16426,7 +16502,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -17515,7 +17591,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -17639,7 +17715,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -17838,7 +17914,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -17931,7 +18007,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18030,7 +18106,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18059,7 +18135,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18425,7 +18501,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18467,7 +18543,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18570,7 +18646,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -18903,7 +18979,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -22343,7 +22419,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 * @typechecks static-only
 	 */
 
@@ -23546,7 +23622,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -24520,7 +24596,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -25822,7 +25898,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -25959,7 +26035,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -25990,7 +26066,7 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 * @typechecks
-	 * 
+	 *
 	 */
 
 	/*eslint-disable no-self-compare */
@@ -26214,7 +26290,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -26239,7 +26315,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -26483,7 +26559,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -26507,7 +26583,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -26552,7 +26628,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -26728,7 +26804,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -28872,7 +28948,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	var isTextNode = __webpack_require__(282);
@@ -29516,7 +29592,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -30970,7 +31046,7 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * 
+	 *
 	 */
 
 	'use strict';
