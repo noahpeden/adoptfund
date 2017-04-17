@@ -11540,12 +11540,13 @@
 	  };
 	};
 
-	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, cost) {
+	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, cost, userId) {
+	  console.log(userId);
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/family', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
-	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost })
+	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost, userId: userId })
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
@@ -13572,7 +13573,7 @@
 	  }, {
 	    key: 'raised',
 	    value: function raised() {
-	      var total = void 0;
+	      var total = 0;
 	      if (this.props.donations) {
 	        this.props.donations.donations.forEach(function (donation) {
 	          total += donation.donationAmount;
@@ -13583,8 +13584,27 @@
 	  }, {
 	    key: 'progress',
 	    value: function progress() {
-	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
-	      document.querySelector('progress-bar').style.width = percentage + '%';
+	      // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
+	      // document.querySelector('progress-bar').style.width = percentage + '%'
+	    }
+	  }, {
+	    key: 'editButton',
+	    value: function editButton() {
+	      var btn = '';
+	      if (this.props.user) {
+	        if (this.props.user.id === this.props.selectedFamily.userId) {
+	          btn = _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/edit' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'edit-btn' },
+	              'Edit'
+	            )
+	          );
+	        }
+	      }
+	      return btn;
 	    }
 	  }, {
 	    key: 'render',
@@ -13632,13 +13652,13 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'Raised: ',
+	            'Raised: $',
 	            this.raised()
 	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'Goal: ',
+	            'Goal: $',
 	            family.cost
 	          ),
 	          _react2.default.createElement('div', { className: 'progress-bar-cont' }),
@@ -13668,7 +13688,7 @@
 	          { className: 'link-section' },
 	          family.links
 	        ),
-	        console.log(this.props.user)
+	        this.editButton()
 	      );
 	    }
 	  }]);
@@ -13698,21 +13718,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const mapStateToProps = state => {
-	//   return {
-	//     family: state.family.featured.featured
-	//   }
-	// }
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    userId: state.user.data.id
+	  };
+	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    createFamily: function createFamily(title, location, name, expiration, story, links, cost) {
-	      dispatch((0, _actions.createFamily)(title, location, name, expiration, story, links, cost));
+	    createFamily: function createFamily(title, location, name, expiration, story, links, cost, userId) {
+	      dispatch((0, _actions.createFamily)(title, location, name, expiration, story, links, cost, userId));
 	    }
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Basics2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Basics2.default);
 
 /***/ },
 /* 157 */
@@ -13861,7 +13881,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {
-	                return _this2.props.createFamily(title, location, name, expiration, story, links, cost);
+	                return _this2.props.createFamily(title, location, name, expiration, story, links, cost, _this2.props.userId);
 	              } },
 	            'Create'
 	          )
