@@ -31,7 +31,7 @@ export default class Login extends Component {
             <p className='login-text'>Email:</p>
             <input className='email' placeholder='email' id='email' onChange={this.updateInput} value={email} />
             <p className='login-text'>Password:</p>
-            <input className='password' placeholder='password' id='password' onChange={this.updateInput} value={password} />
+            <input type='password' className='password' placeholder='password' id='password' onChange={this.updateInput} value={password} />
             <Button className='log-in-btn' text='login' />
           </form>
           <Link className='register-link' to='/register'><button className='register'>Don't have an account?</button></Link>

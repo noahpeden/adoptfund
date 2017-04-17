@@ -11,10 +11,36 @@ export default class FamilyProfile extends Component {
 
   componentDidMount() {
     this.props.grabDonations(this.props.selectedFamily.id)
+    this.progress()
   }
 
   donate() {
     this.props.saveFamily(this.props.selectedFamily.id)
+  }
+
+  raised() {
+    let total = 0
+    if (this.props.donations) {
+      this.props.donations.donations.forEach(donation => {
+        total += donation.donationAmount
+      })
+    }
+    return total
+  }
+
+  progress() {
+    // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
+    // document.querySelector('progress-bar').style.width = percentage + '%'
+  }
+
+  editButton() {
+    let btn = ''
+    if (this.props.user) {
+      if (this.props.user.id === this.props.selectedFamily.userId) {
+        btn = <Link to='/edit'><button className='edit-btn'>Edit</button></Link>
+      }
+    }
+    return btn
   }
 
   render() {
@@ -22,18 +48,18 @@ export default class FamilyProfile extends Component {
     return (
       <div className='fam-profile-container' >
         {console.log('donations:', this.props.donations)}
-        {
-          this.props.user === this.props.selectedFamily.userId
-          ? <button className='edit-btn'>Edit</button>
-          : ''
-        }
         <h1 className='fam-title'>{family.title}</h1>
         <h2 className='fam-name'>{family.name}</h2>
         <p className='fam-location'>{family.location}</p>
         <div className='fake-photo'><img className='fam-photo' src={family.image}></img></div>
         <div className='donate-section'>
           <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
+          // probably needs styling
+          <p>Raised: ${this.raised()}</p>
           <p className='fam-cost'>{family.cost}</p>
+          // I can style these
+          <div className='progress-bar-cont' />
+          <div className='progress-bar' />
           <p className='fam-expiration' >{family.expiration}</p>
         </div>
         <div className='story-section'>
@@ -43,6 +69,7 @@ export default class FamilyProfile extends Component {
         <div className='link-section'>
           {family.links}
         </div>
+        {this.editButton()}
       </div>
     )
   }
