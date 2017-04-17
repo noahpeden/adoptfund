@@ -5,10 +5,19 @@ export default class FamilyCard extends Component {
     this.props.storeSelected(info)
   }
 
+  runDebugger(){
+    debugger;
+  }
+
   render() {
-    return (
+    let {title, image, name, story, expiration} = this.props.info
+      return (
       <div id='featured' onClick={() => this.select(this.props.info)}>
-        <h2>{this.props.info.title}</h2>
+        <h2>{title}</h2>
+        <h3>{name}</h3>
+        <h3>{story}</h3>
+        <h3>{expiration}</h3>
+        <button onClick={() => this.runDebugger()}>Debugger</button>
       </div>
     )
   }
