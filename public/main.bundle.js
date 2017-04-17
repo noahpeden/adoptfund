@@ -14739,18 +14739,18 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
+	          { className: 'fake-photo' },
+	          _react2.default.createElement('img', { className: 'fam-photo', src: family.image })
+	        ),
+	        _react2.default.createElement(
+	          'div',
 	          { className: 'donate-section' },
 	          _react2.default.createElement(
-	            'h3',
-	            { className: 'donate-text' },
-	            'Donate:'
-	          ),
-	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { className: 'link', to: '/donation' },
+	            { className: 'donate-link', to: '/donation' },
 	            _react2.default.createElement(
 	              'button',
-	              { onClick: function onClick() {
+	              { className: 'donate-btn', onClick: function onClick() {
 	                  return _this2.donate();
 	                } },
 	              'Donate'
@@ -14773,12 +14773,14 @@
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'fam-story-title' },
-	            'Story'
+	            family.name,
+	            '\'s Story:'
 	          ),
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'fam-story' },
-	            family.story
+	            family.story,
+	            'sdjfa;ldskjfa;lkjdsfl;aksjdf;alksdjfa;ldksjf;lasdkjf;aldskjf;lasdkjf;lasdkfjlasdkfj;lakdjf;alsdkjf;aldkjfa;lsdkjf;aldskjf;aldskjf'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -32703,7 +32705,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.fam-profile-container {\n  border: 1px solid orchid;\n  margin-top: 6%;\n  width: 100%; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.fam-profile-container {\n  border: 1px solid orchid;\n  margin-top: 6%;\n  width: 100%; }\n\n.fam-title {\n  margin: 20px;\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  font-weight: bold;\n  text-align: center; }\n\n.fam-name {\n  margin: 25px 23%;\n  font-size: 35px;\n  font-family: \"Roboto Slab\", serif; }\n\n.fam-location {\n  margin-left: 25px;\n  font-size: 20px;\n  font-family: \"PT Sans\", sans-serif; }\n\n.donate-section {\n  border: 2px solid #FA7A55;\n  height: 50%;\n  position: absolute;\n  right: 3%;\n  top: 29%;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.donate-btn {\n  height: 50px;\n  width: 85%;\n  margin-left: 20px;\n  margin-top: 15px;\n  font-size: 25px;\n  font-family: \"Roboto Slab\", serif;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  transition: all 0.3s ease-in-out; }\n  .donate-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.fake-photo {\n  border: 3px solid #6495ED;\n  width: 36%;\n  height: 41vh;\n  margin: 0 auto; }\n\n.fam-cost {\n  text-align: center;\n  font-size: 20px;\n  font-family: \"PT Sans\", sans-serif;\n  margin: 20px; }\n\n.fam-story-title {\n  margin: 25px;\n  font-size: 18px;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-story {\n  border: 4px solid #7EFFDB;\n  margin: 0 auto;\n  width: 50%;\n  word-wrap: break-word;\n  padding: 10px; }\n\n.fam-photo {\n  height: 100%;\n  width: 100%; }\n", ""]);
 
 	// exports
 
