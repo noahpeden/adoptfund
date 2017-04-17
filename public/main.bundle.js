@@ -12182,7 +12182,7 @@
 	              { className: 'login-text' },
 	              'Password:'
 	            ),
-	            _react2.default.createElement('input', { className: 'password', placeholder: 'password', id: 'password', onChange: this.updateInput, value: password }),
+	            _react2.default.createElement('input', { type: 'password', className: 'password', placeholder: 'password', id: 'password', onChange: this.updateInput, value: password }),
 	            _react2.default.createElement(_Button2.default, { className: 'log-in-btn', text: 'login' })
 	          ),
 	          _react2.default.createElement(
@@ -12340,7 +12340,7 @@
 	          _react2.default.createElement('input', { placeholder: 'New User First Name', onChange: this.updateInput, value: newUserFirstName, id: 'newUserFirstName' }),
 	          _react2.default.createElement('input', { placeholder: 'New User Last Name', onChange: this.updateInput, value: newUserLastName, id: 'newUserLastName' }),
 	          _react2.default.createElement('input', { placeholder: 'New User Email', onChange: this.updateInput, value: newUserEmail, id: 'newUserEmail' }),
-	          _react2.default.createElement('input', { placeholder: 'New User Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
+	          _react2.default.createElement('input', { type: 'password', placeholder: 'New User Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
 	          _react2.default.createElement(_Button2.default, { text: 'Add New User' })
 	        )
 	      );
