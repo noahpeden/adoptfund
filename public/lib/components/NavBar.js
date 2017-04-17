@@ -6,6 +6,14 @@ export default class NavBar extends Component {
     super()
   }
 
+  checkRoute(){
+    if(this.props.user){
+      browserHistory.push('/basics')
+    }else{
+      alert('Please log in or create an account')
+    }
+  }
+
   render() {
     // button to featured should stay on same page might need a tag
     let navBackground = 'nav-container '
@@ -13,7 +21,7 @@ export default class NavBar extends Component {
 
     return (
       <nav className={navBackground} >
-        <Link to='/basics'><button className='start-family-btn'>Start a Family Fund</button></Link>
+        <button className='start-family-btn' onClick={() => this.checkRoute()}>Start a Family Fund</button>
         <Link to='/about'><button className='about-btn'>How it Works</button></Link>
         <button className='featured-btn' href='#featured'>Featured Families</button>
         <Link to='/'><button className='home-btn'>Home</button></Link>

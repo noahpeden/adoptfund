@@ -91,12 +91,13 @@ export const addUser = (firstName, lastName, email, password) => {
   }
 }
 
-export const createFamily = (title, location, name, expiration, story, links, cost) => {
+export const createFamily = (title, location, name, expiration, story, links, cost, userId) => {
+  console.log(userId)
   return (dispatch) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/family', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, location, name, expiration, story, links, cost }),
+      body: JSON.stringify({ title, location, name, expiration, story, links, cost, userId }),
     })
     .then(data => data.json())
     .then(data => dispatch(storeSelected(data[0])))

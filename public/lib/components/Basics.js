@@ -56,7 +56,7 @@ class Basics extends Component {
             onChange={(e) => this.setState({cost: e.target.value})} />
         </div>
         <div className='buttons-container'>
-          <button onClick={() => this.props.createFamily(title, location, name, expiration, story, links, cost)}>Create</button>
+          <button onClick={() => this.props.createFamily(title, location, name, expiration, story, links, cost, this.props.userId)}>Create</button>
         </div>
       </div>
     )
