@@ -9,9 +9,8 @@ export default class FamilyProfile extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.grabDonations(this.props.selectedFamily.id)
-    this.progress()
   }
 
   donate() {
@@ -29,15 +28,17 @@ export default class FamilyProfile extends Component {
   }
 
   progress() {
-    // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
-    // document.querySelector('progress-bar').style.width = percentage + '%'
+    const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
+    if (document.querySelector('.progress-bar')) {
+      document.querySelector('.progress-bar').style.width = percentage + '%'
+    }
   }
 
   editButton() {
     let btn = ''
     if (this.props.user) {
       if (this.props.user.id === this.props.selectedFamily.userId) {
-        btn = <Link to='/edit'><button className='edit-btn'>Edit</button></Link>
+        btn = <Link to='/profileEdit'><button className='edit-btn'>Edit</button></Link>
       }
     }
     return btn
@@ -47,7 +48,6 @@ export default class FamilyProfile extends Component {
     const family = this.props.selectedFamily
     return (
       <div className='fam-profile-container' >
-        {console.log('donations:', this.props.donations)}
         <h1 className='fam-title'>{family.title}</h1>
         <h2 className='fam-name'>{family.name}</h2>
         <p className='fam-location'>{family.location}</p>
@@ -58,8 +58,9 @@ export default class FamilyProfile extends Component {
           <p>Raised: ${this.raised()}</p>
           <p className='fam-cost'>{family.cost}</p>
           // I can style these
-          <div className='progress-bar-cont' />
-          <div className='progress-bar' />
+          <div className='progress-bar-cont' >
+            <div className='progress-bar' />
+          </div>
           <p className='fam-expiration' >{family.expiration}</p>
         </div>
         <div className='story-section'>
@@ -70,6 +71,7 @@ export default class FamilyProfile extends Component {
           {family.links}
         </div>
         {this.editButton()}
+        {this.progress()}
       </div>
     )
   }

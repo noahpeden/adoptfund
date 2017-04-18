@@ -70,3 +70,18 @@
     background-color: $hover-color;
   }
 }
+
+.progress-bar-cont {
+  height: 20px;
+  width: 200px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: red;
+  width: 0px;
+  transition: width 1s
+}
