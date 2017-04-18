@@ -47,23 +47,26 @@ export default class FamilyProfile extends Component {
   render() {
     const family = this.props.selectedFamily
     return (
-      <div>
-        <h1>{family.title}</h1>
-        <h2>{family.name}</h2>
-        <p>{family.location}</p>
+      <div className='fam-profile-container' >
+        {console.log('donations:', this.props.donations)}
+        <h1 className='fam-title'>{family.title}</h1>
+        <h2 className='fam-name'>{family.name}</h2>
+        <p className='fam-location'>{family.location}</p>
+        <div className='fake-photo'><img className='fam-photo' src={family.image}></img></div>
         <div className='donate-section'>
-          <h3>Donate:</h3>
-          <Link to='/donation'><button onClick={() => this.donate()}>Donate</button></Link>
+          <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
+          // probably needs styling
           <p>Raised: ${this.raised()}</p>
-          <p>Goal: ${family.cost}</p>
+          <p className='fam-cost'>{family.cost}</p>
+          // I can style these
           <div className='progress-bar-cont' >
-          <div className='progress-bar' />
+            <div className='progress-bar' />
           </div>
-          <p>{family.expiration}</p>
+          <p className='fam-expiration' >{family.expiration}</p>
         </div>
         <div className='story-section'>
-          <h3>Story</h3>
-          <p>{family.story}</p>
+          <h3 className='fam-story-title'>{family.name}'s Story:</h3>
+          <p className='fam-story'>{family.story}sdjfa;ldskjfa;lkjdsfl;aksjdf;alksdjfa;ldksjf;lasdkjf;aldskjf;lasdkjf;lasdkfjlasdkfj;lakdjf;alsdkjf;aldkjfa;lsdkjf;aldskjf;aldskjf</p>
         </div>
         <div className='link-section'>
           {family.links}

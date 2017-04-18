@@ -24,7 +24,7 @@ export default class Donation extends Component {
 
   render() {
     return (
-      <section>
+      <section className='donate-section'>
         {console.log(this.props.familyId)}
         <input placeholder='First Name' onChange={(e) => this.setState({first: e.target.value})}></input>
         <input placeholder='Last Name' onChange={(e) => this.setState({last: e.target.value})}></input>
