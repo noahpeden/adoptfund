@@ -9,9 +9,8 @@ export default class FamilyProfile extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.grabDonations(this.props.selectedFamily.id)
-    this.progress()
   }
 
   donate() {
@@ -29,8 +28,10 @@ export default class FamilyProfile extends Component {
   }
 
   progress() {
-    // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
-    // document.querySelector('progress-bar').style.width = percentage + '%'
+    const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
+    if (document.querySelector('.progress-bar')) {
+      document.querySelector('.progress-bar').style.width = percentage + '%'
+    }
   }
 
   editButton() {
@@ -55,8 +56,9 @@ export default class FamilyProfile extends Component {
           <Link to='/donation'><button onClick={() => this.donate()}>Donate</button></Link>
           <p>Raised: ${this.raised()}</p>
           <p>Goal: ${family.cost}</p>
-          <div className='progress-bar-cont' />
+          <div className='progress-bar-cont' >
           <div className='progress-bar' />
+          </div>
           <p>{family.expiration}</p>
         </div>
         <div className='story-section'>
@@ -67,6 +69,7 @@ export default class FamilyProfile extends Component {
           {family.links}
         </div>
         {this.editButton()}
+        {this.progress()}
       </div>
     )
   }

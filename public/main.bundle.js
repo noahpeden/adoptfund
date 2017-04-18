@@ -13188,7 +13188,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.nav-background {\n  width: 100%;\n  height: 60px;\n  background-color: rgba(39, 39, 39, 0.81);\n  margin: 0;\n  position: absolute;\n  top: 0; }\n\n.basics-h2 {\n  margin-top: 15vh;\n  margin-left: 29%;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  padding: 20px;\n  font-size: 40px;\n  font-weight: 600; }\n\n.input-container {\n  margin-top: 10vh; }\n\n.title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {\n  margin: 20px;\n  height: 40px;\n  width: 20%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px; }\n  .title-input:focus, .name-input:focus, .location-input:focus, .date-input:focus, .links-input:focus, .cost-input:focus {\n    outline-color: #d89b1b; }\n\n.story-input {\n  margin: 20px;\n  height: 200px;\n  width: 35%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 12px; }\n  .story-input:focus {\n    outline-color: #d89b1b; }\n\n.profile-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin: 10px 20px; }\n\n.create-btn {\n  width: 20%;\n  height: 40px;\n  border: none;\n  border-radius: 5px;\n  margin-left: 40%;\n  margin-bottom: 30px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 23px;\n  font-weight: bold;\n  color: white;\n  background-color: #d89b1b;\n  transition: all 0.5s ease; }\n  .create-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.nav-background {\n  width: 100%;\n  height: 60px;\n  background-color: rgba(39, 39, 39, 0.81);\n  margin: 0;\n  position: absolute;\n  top: 0; }\n\n.basics-h2 {\n  margin-top: 15vh;\n  margin-left: 29%;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  padding: 20px;\n  font-size: 40px;\n  font-weight: 600; }\n\n.input-container {\n  margin-top: 10vh; }\n\n.title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {\n  margin: 20px;\n  height: 40px;\n  width: 20%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px; }\n  .title-input:focus, .name-input:focus, .location-input:focus, .date-input:focus, .links-input:focus, .cost-input:focus {\n    outline-color: #d89b1b; }\n\n.story-input {\n  margin: 20px;\n  height: 200px;\n  width: 35%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 12px; }\n  .story-input:focus {\n    outline-color: #d89b1b; }\n\n.profile-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin: 10px 20px; }\n\n.create-btn {\n  width: 20%;\n  height: 40px;\n  border: none;\n  border-radius: 5px;\n  margin-left: 40%;\n  margin-bottom: 30px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 23px;\n  font-weight: bold;\n  color: white;\n  background-color: #d89b1b;\n  transition: all 0.5s ease; }\n  .create-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.progress-bar-cont {\n  height: 20px;\n  width: 200px;\n  background-color: lightgrey;\n  border-radius: 10px;\n  overflow: hidden; }\n\n.progress-bar {\n  height: 20px;\n  background-color: red;\n  width: 0px;\n  transition: width 1s; }\n", ""]);
 
 	// exports
 
@@ -13594,10 +13594,9 @@
 	  }
 
 	  _createClass(FamilyProfile, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      this.props.grabDonations(this.props.selectedFamily.id);
-	      this.progress();
 	    }
 	  }, {
 	    key: 'donate',
@@ -13618,8 +13617,10 @@
 	  }, {
 	    key: 'progress',
 	    value: function progress() {
-	      // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
-	      // document.querySelector('progress-bar').style.width = percentage + '%'
+	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
+	      if (document.querySelector('.progress-bar')) {
+	        document.querySelector('.progress-bar').style.width = percentage + '%';
+	      }
 	    }
 	  }, {
 	    key: 'editButton',
@@ -13695,8 +13696,11 @@
 	            'Goal: $',
 	            family.cost
 	          ),
-	          _react2.default.createElement('div', { className: 'progress-bar-cont' }),
-	          _react2.default.createElement('div', { className: 'progress-bar' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'progress-bar-cont' },
+	            _react2.default.createElement('div', { className: 'progress-bar' })
+	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
@@ -13722,7 +13726,8 @@
 	          { className: 'link-section' },
 	          family.links
 	        ),
-	        this.editButton()
+	        this.editButton(),
+	        this.progress()
 	      );
 	    }
 	  }]);
