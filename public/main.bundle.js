@@ -31083,6 +31083,10 @@
 
 	var _reactRouter = __webpack_require__(78);
 
+	var _PhotoUpload = __webpack_require__(443);
+
+	var _PhotoUpload2 = _interopRequireDefault(_PhotoUpload);
+
 	var _Button = __webpack_require__(138);
 
 	var _Button2 = _interopRequireDefault(_Button);
@@ -31157,6 +31161,7 @@
 	            { className: 'profile-text' },
 	            'What is your Family\'s name?'
 	          ),
+	          _react2.default.createElement(_PhotoUpload2.default, null),
 	          _react2.default.createElement('input', {
 	            className: 'name-input',
 	            placeholder: 'Family Name',
@@ -48922,6 +48927,102 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 443 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(27);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PhotoUpload = function (_Component) {
+	  _inherits(PhotoUpload, _Component);
+
+	  function PhotoUpload() {
+	    _classCallCheck(this, PhotoUpload);
+
+	    return _possibleConstructorReturn(this, (PhotoUpload.__proto__ || Object.getPrototypeOf(PhotoUpload)).apply(this, arguments));
+	  }
+
+	  _createClass(PhotoUpload, [{
+	    key: 'initUpload',
+	    value: function initUpload(e) {
+	      var _this2 = this;
+
+	      var files = document.getElementById('file-input').files;
+	      var file = files[0];
+	      if (file == null) {
+	        return alert('No file  selected.');
+	      }
+	      fetch('http://localhost:3000/api/v1/family/pic?file-name=' + file.name + '&file-type=' + file.type, {
+	        method: 'POST',
+	        headers: { 'Content-Type': 'application/json' },
+	        body: JSON.stringify({ file: file })
+	      }).then(function (data) {
+	        return data.json();
+	      }).then(function (data) {
+	        _this2.uploadFile(file, data.signedRequest, data.url);
+	      }).catch(function (err) {
+	        return console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'uploadFile',
+	    value: function uploadFile(file, signedRequest, url) {
+	      var xhr = new XMLHttpRequest();
+	      xhr.open('PUT', signedRequest);
+	      xhr.onreadystatechange = function () {
+	        if (xhr.readyState === 4) {
+	          if (xhr.status === 200) {
+	            console.log(xhr.status);
+	          } else {
+	            alert('Could not upload file.');
+	          }
+	        }
+	      };
+	      xhr.send(file);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement('input', { type: 'file', id: 'file-input', onChange: function onChange(e) {
+	            return _this3.initUpload();
+	          } }),
+	        _react2.default.createElement(
+	          'p',
+	          { id: 'status' },
+	          'Please select a file'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return PhotoUpload;
+	}(_react.Component);
+
+	exports.default = PhotoUpload;
 
 /***/ })
 /******/ ]);
