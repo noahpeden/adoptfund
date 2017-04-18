@@ -53,7 +53,6 @@ export default class FamilyProfile extends Component {
     const family = this.props.selectedFamily
     return (
       <div className='fam-profile-container' >
-
         <div className='fam-details'>
           <h1 className='fam-title'>{family.title}</h1>
           <h2 className='fam-name'>{family.name}</h2>
