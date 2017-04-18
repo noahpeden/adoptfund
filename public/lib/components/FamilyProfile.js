@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
+import moment from 'moment'
 
 export default class FamilyProfile extends Component {
   constructor() {
@@ -43,31 +44,40 @@ export default class FamilyProfile extends Component {
     return btn
   }
 
+  formatDate(date) {
+    return moment(date).format('MM/DD/YYYY')
+  }
+
   render() {
     const family = this.props.selectedFamily
     return (
       <div className='fam-profile-container' >
-        {console.log('donations:', this.props.donations)}
-        <h1 className='fam-title'>{family.title}</h1>
-        <h2 className='fam-name'>{family.name}</h2>
-        <p className='fam-location'>{family.location}</p>
-        <div className='fake-photo'><img className='fam-photo' src={family.image}></img></div>
+        <div className='fam-details'>
+          {console.log('donations:', this.props.donations)}
+          <h1 className='fam-title'>{family.title}</h1>
+          <h2 className='fam-name'>{family.name}</h2>
+          <p className='fam-location'>{family.location}</p>
+          <img className='fam-photo' src={family.image} />
+          <div className='story-section'>
+            <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
+            <p className='fam-story'>{family.story}I'm a poor upper middle class white girl looking to buy some child out of poverty. Wooo! Wanderlust.</p>
+          </div>
+        </div>
         <div className='donate-section'>
-          <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
-          // probably needs styling
-          <p>Raised: ${this.raised()}</p>
-          <p className='fam-cost'>{family.cost}</p>
-          // I can style these
-          <div className='progress-bar-cont' />
-          <div className='progress-bar' />
-          <p className='fam-expiration' >{family.expiration}</p>
-        </div>
-        <div className='story-section'>
-          <h3 className='fam-story-title'>{family.name}'s Story:</h3>
-          <p className='fam-story'>{family.story}sdjfa;ldskjfa;lkjdsfl;aksjdf;alksdjfa;ldksjf;lasdkjf;aldskjf;lasdkjf;lasdkfjlasdkfj;lakdjf;alsdkjf;aldkjfa;lsdkjf;aldskjf;aldskjf</p>
-        </div>
-        <div className='link-section'>
-          {family.links}
+          <div className='donate-inner'>
+            <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
+            <div className='total-raised'>
+              ${this.raised()}
+              <span className='total-subheader'>raised so far</span>
+            </div>
+            <p className='fam-cost'>${family.cost}</p>
+            <div className='progress-bar-cont'></div>
+            <div className='progress-bar'></div>
+            <p className='fam-expiration' >Please donate by: <br />{this.formatDate(family.expiration)}</p>
+            <div className='link-section'>
+            {family.links}
+            </div>
+          </div>
         </div>
         {this.editButton()}
       </div>
