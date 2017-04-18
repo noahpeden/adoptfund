@@ -13539,6 +13539,7 @@
 	__webpack_require__(155);
 	__webpack_require__(157);
 	__webpack_require__(159);
+	__webpack_require__(444);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -31383,8 +31384,21 @@
 	    null,
 	    _react2.default.createElement(
 	      'h2',
-	      null,
-	      'ABOUT'
+	      { className: 'about-title' },
+	      'About Us'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'about-container' },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'about-text' },
+	        'Right now a normal adoption in the United States costs about $30,000 and  most families cannot afford this amount of money out of pocket. Adopt Fund is the answer to this problem. Families who are looking to adopt can come to our crowd sourced fundraising platform, create a Family Fund, and share their "Fund" with all of their friends and contacts. Friends can then donate to families, anonymously or share their names, and help families achieve their dreams of adopting a child in need. ',
+	        _react2.default.createElement('br', null),
+	        ' ',
+	        _react2.default.createElement('br', null),
+	        'Why us and not KickStarter or GoFundMe? Because we understand that adopting a child is of the utmost seriousness and you don\'t want your Family Fund next to a fundraiser about cat baths. Adopt Fund is the way to help your family adopt a child.'
+	      )
 	    )
 	  );
 	};
@@ -49011,6 +49025,47 @@
 	}(_react.Component);
 
 	exports.default = PhotoUpload;
+
+/***/ }),
+/* 444 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(445);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(150)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./aboutStyles.scss", function() {
+				var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./aboutStyles.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 445 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(149)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);", ""]);
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
+
+	// module
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.about-container {\n  margin: 80px auto;\n  background-color: rgba(39, 39, 39, 0.11);\n  padding: 70px 0;\n  width: 40%;\n  border-radius: 5px; }\n\n.about-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.about-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  text-align: center;\n  padding: 25px; }\n", ""]);
+
+	// exports
+
 
 /***/ })
 /******/ ]);
