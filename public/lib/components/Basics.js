@@ -6,12 +6,12 @@ class Basics extends Component {
     super()
     this.state = {
       title: '',
-      location: '',
       name: '',
-      expiration: '',
+      location: '',
+      cost: '',
       story: '',
       links: '',
-      cost: '',
+      expiration: '',
     }
   }
 

@@ -121,3 +121,19 @@
   font-family: $pt-sans;
   margin: 15px;
 }
+
+.progress-bar-cont {
+  height: 20px;
+  width: 200px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #ff5722;
+  width: 0px;
+  transition: width 1s
+}

@@ -3,15 +3,10 @@ import FamilyProfileEdit from '../components/FamilyProfileEdit'
 
 const mapStateToProps = state => {
   return {
+    selectedFamily: state.family.selected.info,
+    user: state.user.data,
+    donations: state.donations.donations
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     featuredCampaigns: () => {
-//       dispatch(featuredCampaigns())
-//     }
-//   }
-// }
 
 export default connect(mapStateToProps, null)(FamilyProfileEdit)

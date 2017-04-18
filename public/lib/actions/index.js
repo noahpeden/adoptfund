@@ -128,15 +128,17 @@ export const searchCampaigns = (familyName) => {
   }
 }
 
-export const sendDonation = (first, last, email, donation, familyId) => {
+export const sendDonation = (firstName, lastName, email, donationAmount, familyId) => {
   return (dispatch) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/donation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ first, last, email, donation, familyId }),
+      body: JSON.stringify({ firstName, lastName, email, donationAmount, familyId }),
     })
     .then(data => data.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log('return', data)
+      browserHistory.push('/profile')})
     .catch(err => console.log(err))
   }
 }

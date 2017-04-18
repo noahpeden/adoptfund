@@ -87,6 +87,10 @@
 
 	var _FamilyProfileContainer2 = _interopRequireDefault(_FamilyProfileContainer);
 
+	var _FamilyProfileEditContainer = __webpack_require__(441);
+
+	var _FamilyProfileEditContainer2 = _interopRequireDefault(_FamilyProfileEditContainer);
+
 	var _BasicsContainer = __webpack_require__(170);
 
 	var _BasicsContainer2 = _interopRequireDefault(_BasicsContainer);
@@ -145,6 +149,7 @@
 	      React.createElement(_reactRouter.Route, { path: '/register', component: _RegisterContainer2.default }),
 	      React.createElement(_reactRouter.Route, { path: '/list', component: _FamilyListContainer2.default }),
 	      React.createElement(_reactRouter.Route, { path: '/profile', component: _FamilyProfileContainer2.default }),
+	      React.createElement(_reactRouter.Route, { path: '/profileEdit', component: _FamilyProfileEditContainer2.default }),
 	      React.createElement(_reactRouter.Route, { path: '/donation', component: _DonationContainer2.default })
 	    )
 	  )
@@ -12672,16 +12677,17 @@
 	  };
 	};
 
-	var sendDonation = exports.sendDonation = function sendDonation(first, last, email, donation, familyId) {
+	var sendDonation = exports.sendDonation = function sendDonation(firstName, lastName, email, donationAmount, familyId) {
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/donation', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
-	      body: JSON.stringify({ first: first, last: last, email: email, donation: donation, familyId: familyId })
+	      body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email, donationAmount: donationAmount, familyId: familyId })
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
-	      return console.log(data);
+	      console.log('return', data);
+	      _reactRouter.browserHistory.push('/profile');
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -13489,12 +13495,6 @@
 	var _actions = __webpack_require__(134);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// const mapStateToProps = state => {
-	//   return {
-	//     family: state.family.featured.featured
-	//   }
-	// }
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
@@ -14431,7 +14431,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.fam-profile-container {\n  margin: 75px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.fam-title {\n  margin: 25px;\n  font-size: 3rem;\n  font-family: \"Roboto Slab\", serif;\n  font-weight: bold; }\n\n.fam-name {\n  margin: 25px;\n  font-size: 2.25rem;\n  font-family: \"Roboto Slab\", serif; }\n\n.fam-location {\n  margin: 25px;\n  font-size: 1.25rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.donate-section {\n  text-align: center;\n  display: inline-block;\n  width: 40%;\n  vertical-align: top;\n  padding-top: 178px;\n  margin: 50px; }\n\n.donate-inner {\n  background-color: white;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 2px;\n  width: 50%;\n  margin: 0 auto; }\n\n.donate-btn {\n  margin: 18px;\n  height: 50px;\n  width: 85%;\n  font-size: 1.5rem;\n  font-family: \"PT Sans\", sans-serif;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  transition: all 0.3s ease-in-out; }\n  .donate-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.total-raised {\n  background-color: rgba(39, 39, 39, 0.11);\n  text-align: center;\n  border-radius: 5px;\n  font-size: 2.25rem;\n  font-family: \"PT Sans\", sans-serif;\n  margin: 16px;\n  padding: 25px; }\n\n.total-subheader {\n  display: block;\n  font-size: 0.875rem;\n  color: rgba(0, 0, 0, 0.3); }\n\n.fam-details {\n  display: inline-block;\n  width: 50%; }\n\n.fam-cost {\n  text-align: center;\n  font-size: 1.25rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-story-title {\n  margin: 25px;\n  font-size: 1.5rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-story {\n  margin: 25px;\n  font-size: 1rem;\n  width: 50%;\n  word-wrap: break-word; }\n\n.fam-photo {\n  height: 100%;\n  width: 100%;\n  margin: 25px; }\n\n.bb {\n  border-bottom-style: solid;\n  border-bottom-width: 1px;\n  border-color: rgba(0, 0, 0, 0.7); }\n\n.link-section {\n  margin: 25px;\n  font-size: 0.75rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-expiration {\n  font-size: 0.875rem;\n  font-family: \"PT Sans\", sans-serif;\n  margin: 15px; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.fam-profile-container {\n  margin: 75px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.fam-title {\n  margin: 25px;\n  font-size: 3rem;\n  font-family: \"Roboto Slab\", serif;\n  font-weight: bold; }\n\n.fam-name {\n  margin: 25px;\n  font-size: 2.25rem;\n  font-family: \"Roboto Slab\", serif; }\n\n.fam-location {\n  margin: 25px;\n  font-size: 1.25rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.donate-section {\n  text-align: center;\n  display: inline-block;\n  width: 40%;\n  vertical-align: top;\n  padding-top: 178px;\n  margin: 50px; }\n\n.donate-inner {\n  background-color: white;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 2px;\n  width: 50%;\n  margin: 0 auto; }\n\n.donate-btn {\n  margin: 18px;\n  height: 50px;\n  width: 85%;\n  font-size: 1.5rem;\n  font-family: \"PT Sans\", sans-serif;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  transition: all 0.3s ease-in-out; }\n  .donate-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n\n.total-raised {\n  background-color: rgba(39, 39, 39, 0.11);\n  text-align: center;\n  border-radius: 5px;\n  font-size: 2.25rem;\n  font-family: \"PT Sans\", sans-serif;\n  margin: 16px;\n  padding: 25px; }\n\n.total-subheader {\n  display: block;\n  font-size: 0.875rem;\n  color: rgba(0, 0, 0, 0.3); }\n\n.fam-details {\n  display: inline-block;\n  width: 50%; }\n\n.fam-cost {\n  text-align: center;\n  font-size: 1.25rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-story-title {\n  margin: 25px;\n  font-size: 1.5rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-story {\n  margin: 25px;\n  font-size: 1rem;\n  width: 50%;\n  word-wrap: break-word; }\n\n.fam-photo {\n  height: 100%;\n  width: 100%;\n  margin: 25px; }\n\n.bb {\n  border-bottom-style: solid;\n  border-bottom-width: 1px;\n  border-color: rgba(0, 0, 0, 0.7); }\n\n.link-section {\n  margin: 25px;\n  font-size: 0.75rem;\n  font-family: \"PT Sans\", sans-serif; }\n\n.fam-expiration {\n  font-size: 0.875rem;\n  font-family: \"PT Sans\", sans-serif;\n  margin: 15px; }\n\n.progress-bar-cont {\n  height: 20px;\n  width: 200px;\n  background-color: lightgrey;\n  border-radius: 10px;\n  overflow: hidden;\n  margin: 10px; }\n\n.progress-bar {\n  height: 20px;\n  background-color: #ff5722;\n  width: 0px;\n  transition: width 1s; }\n", ""]);
 
 	// exports
 
@@ -14802,10 +14802,9 @@
 	  }
 
 	  _createClass(FamilyProfile, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      this.props.grabDonations(this.props.selectedFamily.id);
-	      this.progress();
 	    }
 	  }, {
 	    key: 'donate',
@@ -14826,8 +14825,10 @@
 	  }, {
 	    key: 'progress',
 	    value: function progress() {
-	      // const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
-	      // document.querySelector('progress-bar').style.width = percentage + '%'
+	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
+	      if (document.querySelector('.progress-bar')) {
+	        document.querySelector('.progress-bar').style.width = percentage + '%';
+	      }
 	    }
 	  }, {
 	    key: 'editButton',
@@ -14837,7 +14838,7 @@
 	        if (this.props.user.id === this.props.selectedFamily.userId) {
 	          btn = _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/edit' },
+	            { to: '/profileEdit' },
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'edit-btn' },
@@ -14894,8 +14895,7 @@
 	            _react2.default.createElement(
 	              'p',
 	              { className: 'fam-story' },
-	              family.story,
-	              'I\'m a poor upper middle class white girl looking to buy some child out of poverty. Wooo! Wanderlust.'
+	              family.story
 	            )
 	          )
 	        ),
@@ -14928,13 +14928,18 @@
 	              )
 	            ),
 	            _react2.default.createElement(
+	              'div',
+	              { className: 'progress-bar-cont' },
+	              _react2.default.createElement('div', { className: 'progress-bar' })
+	            ),
+	            _react2.default.createElement(
 	              'p',
 	              { className: 'fam-cost' },
+	              ' Total cost: ',
+	              _react2.default.createElement('br', null),
 	              '$',
 	              family.cost
 	            ),
-	            _react2.default.createElement('div', { className: 'progress-bar-cont' }),
-	            _react2.default.createElement('div', { className: 'progress-bar' }),
 	            _react2.default.createElement(
 	              'p',
 	              { className: 'fam-expiration' },
@@ -14949,7 +14954,8 @@
 	            )
 	          )
 	        ),
-	        this.editButton()
+	        this.editButton(),
+	        this.progress()
 	      );
 	    }
 	  }]);
@@ -15031,12 +15037,12 @@
 
 	    _this.state = {
 	      title: '',
-	      location: '',
 	      name: '',
-	      expiration: '',
+	      location: '',
+	      cost: '',
 	      story: '',
 	      links: '',
-	      cost: ''
+	      expiration: ''
 	    };
 	    return _this;
 	  }
@@ -15178,7 +15184,8 @@
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    familyId: state.family.donationFamily.familyId
+	    familyId: state.family.donationFamily.familyId,
+	    user: state.user.data
 	  };
 	};
 
@@ -15190,7 +15197,7 @@
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_Donation2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Donation2.default);
 
 /***/ }),
 /* 173 */
@@ -15225,7 +15232,7 @@
 	    var _this = _possibleConstructorReturn(this, (Donation.__proto__ || Object.getPrototypeOf(Donation)).call(this));
 
 	    _this.state = {
-	      //change first and last to this.props.first/this.props.last so it auto fills
+	      // change first and last to this.props.first/this.props.last so it auto fills
 	      first: '',
 	      last: '',
 	      email: '',
@@ -15235,6 +15242,13 @@
 	  }
 
 	  _createClass(Donation, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.setState({ first: this.props.user.firstName });
+	      this.setState({ last: this.props.user.lastName });
+	      this.setState({ email: this.props.user.email });
+	    }
+	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.sendDonation(this.state.first, this.state.last, this.state.email, this.state.donation, this.props.familyId);
@@ -15247,14 +15261,14 @@
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'donate-section' },
-	        console.log(this.props.familyId),
-	        _react2.default.createElement('input', { placeholder: 'First Name', onChange: function onChange(e) {
+	        console.log('user', this.props.user),
+	        _react2.default.createElement('input', { placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
 	            return _this2.setState({ first: e.target.value });
 	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Last Name', onChange: function onChange(e) {
+	        _react2.default.createElement('input', { placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
 	            return _this2.setState({ last: e.target.value });
 	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Email', onChange: function onChange(e) {
+	        _react2.default.createElement('input', { placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
 	            return _this2.setState({ email: e.target.value });
 	          } }),
 	        _react2.default.createElement('input', { placeholder: 'Donation Amount', onChange: function onChange(e) {
@@ -48630,6 +48644,222 @@
 
 	})));
 
+
+/***/ }),
+/* 441 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactRedux = __webpack_require__(25);
+
+	var _FamilyProfileEdit = __webpack_require__(442);
+
+	var _FamilyProfileEdit2 = _interopRequireDefault(_FamilyProfileEdit);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    selectedFamily: state.family.selected.info,
+	    user: state.user.data,
+	    donations: state.donations.donations
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_FamilyProfileEdit2.default);
+
+/***/ }),
+/* 442 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(27);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(78);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var FamilyProfileEdit = function (_Component) {
+	  _inherits(FamilyProfileEdit, _Component);
+
+	  function FamilyProfileEdit() {
+	    _classCallCheck(this, FamilyProfileEdit);
+
+	    var _this = _possibleConstructorReturn(this, (FamilyProfileEdit.__proto__ || Object.getPrototypeOf(FamilyProfileEdit)).call(this));
+
+	    _this.state = {
+	      title: '',
+	      name: '',
+	      location: '',
+	      cost: '',
+	      story: '',
+	      links: '',
+	      expiration: ''
+	    };
+	    return _this;
+	  }
+
+	  _createClass(FamilyProfileEdit, [{
+	    key: 'raised',
+	    value: function raised() {
+	      var total = 0;
+	      if (this.props.donations) {
+	        this.props.donations.donations.forEach(function (donation) {
+	          total += donation.donationAmount;
+	        });
+	      }
+	      return total;
+	    }
+	  }, {
+	    key: 'progress',
+	    value: function progress() {
+	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
+	      if (document.querySelector('.progress-bar')) {
+	        document.querySelector('.progress-bar').style.width = percentage + '%';
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.setState({ title: this.props.selectedFamily.title });
+	      this.setState({ name: this.props.selectedFamily.name });
+	      this.setState({ location: this.props.selectedFamily.location });
+	      this.setState({ cost: this.props.selectedFamily.cost });
+	      this.setState({ story: this.props.selectedFamily.story });
+	      this.setState({ links: this.props.selectedFamily.links });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'fam-profile-container' },
+	        _react2.default.createElement('input', {
+	          className: 'fam-title',
+	          placeholder: 'Title of Family Fund',
+	          value: this.state.title,
+	          onChange: function onChange(e) {
+	            return _this2.setState({ title: e.target.value });
+	          }
+	        }),
+	        _react2.default.createElement('input', {
+	          className: 'fam-name',
+	          placeholder: 'Family Name',
+	          value: this.state.name,
+	          onChange: function onChange(e) {
+	            return _this2.setState({ name: e.target.value });
+	          }
+	        }),
+	        _react2.default.createElement('input', {
+	          className: 'fam-location',
+	          placeholder: 'City, State',
+	          value: this.state.location,
+	          onChange: function onChange(e) {
+	            return _this2.setState({ location: e.target.value });
+	          }
+	        }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'fake-photo' },
+	          _react2.default.createElement('img', { className: 'fam-photo', src: this.props.selectedFamily.image })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'donate-section' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'donate-link', to: '/donation' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'donate-btn', onClick: function onClick() {
+	                  return _this2.donate();
+	                } },
+	              'Donate'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Raised: $',
+	            this.raised()
+	          ),
+	          _react2.default.createElement('input', {
+	            type: 'number',
+	            className: 'fam-cost',
+	            placeholder: 'What is the total Cost',
+	            value: this.state.cost,
+	            onChange: function onChange(e) {
+	              return _this2.setState({ cost: e.target.value });
+	            }
+	          }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'progress-bar-cont' },
+	            _react2.default.createElement('div', { className: 'progress-bar' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'story-section' },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'fam-story-title' },
+	            this.state.name,
+	            '\'s Story:'
+	          ),
+	          _react2.default.createElement('textarea', {
+	            className: 'fam-story',
+	            minLength: '100',
+	            placeholder: 'Tell your family story here!',
+	            value: this.state.story,
+	            onChange: function onChange(e) {
+	              return _this2.setState({ story: e.target.value });
+	            }
+	          })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'link-section' },
+	          _react2.default.createElement('input', {
+	            className: 'fam-links',
+	            placeholder: 'blogs, social media, etc',
+	            value: this.state.links,
+	            onChange: function onChange(e) {
+	              return _this2.setState({ links: e.target.value });
+	            }
+	          })
+	        ),
+	        this.progress()
+	      );
+	    }
+	  }]);
+
+	  return FamilyProfileEdit;
+	}(_react.Component);
+
+	exports.default = FamilyProfileEdit;
 
 /***/ })
 /******/ ]);
