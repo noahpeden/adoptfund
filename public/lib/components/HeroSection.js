@@ -23,7 +23,7 @@ export default class HeroSection extends Component {
       <div className='main-section-container'>
         <h1 className='title'>Adopt Fund</h1>
         <h3 className='hero-h3'>Savin da bebs one fambam at a time</h3>
-        <button className='main-start-family-btn' onClick={() => this.checkRoute()}>Start Family Fund</button>
+        <Button className='main-start-family-btn' handleClick={() => this.checkRoute()} text='Start Family Fund'/>
         <input className='search-family-input' placeholder='Search for a Family' onChange={(e) => this.setState({searchText: e.target.value})} />
         <Link to='/list'><Button className='search-btn' text='Search' handleClick={() => this.props.searchCampaigns(this.state.searchText)} /></Link>
       </div>

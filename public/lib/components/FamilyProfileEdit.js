@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
+import Button from './Button'
 
 export default class FamilyProfileEdit extends Component {
   constructor() {
@@ -100,7 +101,7 @@ export default class FamilyProfileEdit extends Component {
             onChange={(e) => this.setState({links: e.target.value})}
           />
         </div>
-        <button onClick={() => this.submitChanges()}>Submit</button>
+        <Button handleClick={() => this.submitChanges()} text='Submit'/>
         {this.progress()}
       </div>
     )

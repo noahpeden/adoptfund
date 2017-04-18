@@ -5,10 +5,6 @@ export default class FamilyCard extends Component {
     this.props.storeSelected(info)
   }
 
-  runDebugger(){
-    debugger;
-  }
-
   render() {
     let {title, image, name, story, expiration} = this.props.info
       return (
@@ -17,7 +13,6 @@ export default class FamilyCard extends Component {
         <h3>{name}</h3>
         <h3>{story}</h3>
         <h3>{expiration}</h3>
-        <button onClick={() => this.runDebugger()}>Debugger</button>
       </div>
     )
   }
