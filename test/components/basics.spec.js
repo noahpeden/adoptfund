@@ -6,8 +6,6 @@ import sinon from 'sinon'
 import Basics from '../../public/lib/components/Basics'
 
 describe('Basics', () => {
-  const fakeArray = { favorites: [{ key: 'val' }, { twokey: 'twoval' }, { threekey: 'threeval' }] }
-  const fakeMovies = { movies: [{ key: 'val' }, { popularMovies: ['movie1', 'movie2', 'movie3'] }, { threekey: 'threeval' }] }
   const fetchData = sinon.spy()
   it('should have a state of title that is an empty string', () => {
     const wrapper = shallow(<Basics/>)
