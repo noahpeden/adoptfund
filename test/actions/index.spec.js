@@ -13,7 +13,6 @@ describe('actions', () => {
     }
     expect(actions.featured(featured)).to.deep.equal(expectedAction)
   })
-  // ^^ Should this test be more specific?
   it('should create an action for a user to sign in', () => {
     const email = 'jim@aol.com'
     const password = 'password'
