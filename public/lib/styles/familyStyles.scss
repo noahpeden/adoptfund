@@ -36,7 +36,8 @@
 
 .donate-inner {
   background-color: white;
-  border: 2px solid #FA7A55;
+  border: 1px solid $hover-color;
+  border-radius: 2px;
   width: 50%;
   margin: 0 auto;
 }
