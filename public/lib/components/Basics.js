@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import PhotoUpload from './PhotoUpload'
+import Button from './Button'
 
 class Basics extends Component {
   constructor() {
     super()
     this.state = {
       title: '',
-      location: '',
       name: '',
-      expiration: '',
+      location: '',
+      cost: '',
       story: '',
       links: '',
-      cost: '',
+      expiration: '',
     }
   }
   render() {
@@ -57,7 +58,19 @@ class Basics extends Component {
             onChange={(e) => this.setState({cost: e.target.value})} />
         </div>
         <div className='buttons-container'>
-          <button onClick={() => this.props.createFamily(title, location, name, expiration, story, links, cost, this.props.userId)}>Create</button>
+          <Button
+            handleClick={
+              () => this.props.createFamily(
+              title,
+              location,
+              name,
+              expiration,
+              story,
+              links,
+              cost,
+              this.props.userId)}
+              text='Create'
+          />
         </div>
       </div>
     )

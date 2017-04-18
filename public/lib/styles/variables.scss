@@ -2,11 +2,40 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 
 
+//mixins
+@mixin button-enabled {
+  background-color: $splash-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: $pt-sans;
+  font-size: 20px;
+}
+
 //fonts
 $roboto-slab: 'Roboto Slab', serif;
 $pt-sans: 'PT Sans', sans-serif;
+
+//font scale
+$f1: 3rem;
+$f2: 2.25rem;
+$f3: 1.5rem;
+$f4: 1.25rem;
+$f5: 1rem;
+$f6: .875rem;
+$f7: .75rem;
 
 //color palette
 $splash-color: #d89b1b;
 $input-font-color: #463e3c;
 $hover-color: rgba(39, 39, 39, 0.81);
+$light-background: rgba(39, 39, 39, 0.11);
+
+//standard spacing
+$container-pad: 75px;
+$standard-pad: 25px;
+$standard-margin: 25px;
+
+//standard sizing
+$standard-input-height: 30px;
+$standard-btn-height: 40px;

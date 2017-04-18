@@ -1,0 +1,139 @@
+@import 'variables';
+@import 'reset';
+
+.fam-profile-container {
+  margin: $container-pad;
+  background-color: $light-background;
+}
+
+.fam-title {
+  margin: $standard-margin;
+  font-size: $f1;
+  font-family: $roboto-slab;
+  font-weight: bold;
+}
+
+.fam-name {
+  margin: $standard-margin;
+  font-size: $f2;
+  font-family: $roboto-slab;
+}
+
+.fam-location {
+  margin: $standard-margin;
+  font-size: $f4;
+  font-family: $pt-sans;
+}
+
+.donate-section {
+  text-align: center;
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  padding-top: 178px;
+  margin: $standard-margin * 2;
+}
+
+.donate-inner {
+  background-color: white;
+  border: 1px solid $hover-color;
+  border-radius: 2px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.donate-btn {
+  margin: 18px;
+  height: 50px;
+  width: 85%;
+  font-size: $f3;
+  font-family: $pt-sans;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: $splash-color;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.total-raised {
+  background-color: $light-background;
+  text-align: center;
+  border-radius: 5px;
+  font-size: $f2;
+  font-family: $pt-sans;
+  margin: 16px;
+  padding: $standard-pad;
+}
+
+.total-subheader {
+  display: block;
+  font-size: $f6;
+  color: rgba(0,0,0,0.3);
+}
+
+.fam-details {
+  display: inline-block;
+  width: 50%;
+}
+
+.fam-cost {
+  text-align: center;
+  font-size: $f4;
+  font-family: $pt-sans;
+}
+
+.fam-story-title {
+  margin: $standard-margin;
+  font-size: $f3;
+  font-family: $pt-sans;
+}
+
+.fam-story {
+  margin: $standard-margin;
+  font-size: $f5;
+  width: 50%;
+  word-wrap: break-word;
+}
+
+.fam-photo {
+  height: 100%;
+  width: 100%;
+  margin: $standard-margin;
+}
+
+.bb {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: rgba(0, 0, 0, .7);
+}
+
+.link-section {
+  margin: $standard-margin;
+  font-size: $f7;
+  font-family: $pt-sans;
+}
+
+.fam-expiration {
+  font-size: $f6;
+  font-family: $pt-sans;
+  margin: 15px;
+}
+
+.progress-bar-cont {
+  height: 20px;
+  width: 200px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #ff5722;
+  width: 0px;
+  transition: width 1s
+}

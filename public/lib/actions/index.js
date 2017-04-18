@@ -30,7 +30,6 @@ export const searched = (searchedFamily) => {
 }
 
 export const storeSelected = (info) => {
-  console.log(info)
   return {
     type: 'SELECTED',
     info,
@@ -92,7 +91,6 @@ export const addUser = (firstName, lastName, email, password) => {
 }
 
 export const createFamily = (title, location, name, expiration, story, links, cost, userId) => {
-  console.log(userId)
   return (dispatch) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/family', {
       method: 'POST',
@@ -128,15 +126,17 @@ export const searchCampaigns = (familyName) => {
   }
 }
 
-export const sendDonation = (first, last, email, donation, familyId) => {
+export const sendDonation = (firstName, lastName, email, donationAmount, familyId) => {
   return (dispatch) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/donation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ first, last, email, donation, familyId }),
+      body: JSON.stringify({ firstName, lastName, email, donationAmount, familyId }),
     })
     .then(data => data.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log('return', data)
+      browserHistory.push('/profile')})
     .catch(err => console.log(err))
   }
 }
@@ -146,6 +146,22 @@ export const grabDonations = (familyId) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/donation/' + familyId)
     .then(donations => donations.json())
     .then(donations => dispatch(familyDonations(donations)))
+    .catch(err => console.log(err))
+  }
+}
+
+export const sendFamilyChanges = (title, name, location, cost, story, links, familyId) => {
+  return (dispatch) => {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/family/' + familyId, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, name, location, cost, story, links }),
+    })
+    .then(data => data.json())
+    .then(data => {
+      console.log(data)
+      dispatch(storeSelected(data[0]))})
+    .then(data => browserHistory.push('/profile'))
     .catch(err => console.log(err))
   }
 }
