@@ -6,14 +6,20 @@ export default class FamilyCard extends Component {
   }
 
   render() {
-    let {title, image, name, story, expiration} = this.props.info
+    let {title, image, name, cost} = this.props.info
       return (
-      <div id='featured' onClick={() => this.select(this.props.info)}>
-        <h2>{title}</h2>
-        <h3>{name}</h3>
-        <h3>{story}</h3>
-        <h3>{expiration}</h3>
-      </div>
-    )
+        <div className='card-container'>
+          <div id='featured' onClick={() => this.select(this.props.info)}>
+            <div className='feat-text-container'>
+              <h2 className='feat-title'>{title}</h2>
+              <h3 className='feat-name'>{name}</h3>
+            </div>
+            <div className='feat-img-container'>
+              <img src={image} className='feat-img' />
+            </div>
+            <p className='feat-cost'>{cost}</p>
+          </div>
+        </div>
+      )
   }
 }

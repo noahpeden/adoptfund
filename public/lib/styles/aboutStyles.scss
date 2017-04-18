@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'reset';
+
+.about-container {
+  @include background-container;
+}
+
+.about-title {
+  @include title;
+}
+
+.about-text {
+  font-family: $pt-sans;
+  font-size: $f5;
+  text-align: center;
+  padding: $standard-pad;
+}

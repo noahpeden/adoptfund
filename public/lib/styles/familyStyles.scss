@@ -43,18 +43,13 @@
 }
 
 .donate-btn {
+  @include button-enabled
   margin: 18px;
   height: 50px;
   width: 85%;
-  font-size: $f3;
-  font-family: $pt-sans;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  background-color: $splash-color;
-  transition: all 0.3s ease-in-out;
   &:hover {
     background-color: $hover-color;
+    cursor: pointer;
   }
 }
 
