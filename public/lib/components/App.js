@@ -7,6 +7,9 @@ import Login from './Login'
 require('./../styles/homeStyles')
 require('./../styles/profileStyles')
 require('./../styles/loginStyles')
+require('./../styles/registerStyles')
+require('./../styles/familyStyles')
+require('./../styles/donateStyles')
 
 export default class App extends Component {
   constructor() {
