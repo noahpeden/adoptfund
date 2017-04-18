@@ -4,22 +4,42 @@
 
 //mixins
 @mixin button-enabled {
+  height: $standard-btn-height;
   background-color: $splash-color;
   color: white;
   border: none;
   border-radius: 5px;
   font-family: $pt-sans;
-  font-size: $f3;
+  font-size: $f4;
   transition: all 0.3s ease-in-out;
 }
 
 @mixin standard-input {
+  display: block;
   height: $standard-input-height;
+  width: 40%;
+  margin: 25px auto;
   border-radius: 5px;
   border: 1px solid $hover-color;
   font-size: $f5;
   font-family: $pt-sans;
   text-align: center;
+}
+
+@mixin title {
+  font-size: 50px;
+  font-family: $roboto-slab;
+  color: $splash-color;
+  text-align: center;
+  margin: 100px 0;
+}
+
+@mixin background-container {
+  margin: 80px auto;
+  background-color: $light-background;
+  padding: 70px 0;
+  width: 40%;
+  border-radius: 5px;
 }
 
 //fonts
@@ -48,4 +68,4 @@ $standard-margin: 25px;
 
 //standard sizing
 $standard-input-height: 30px;
-$standard-btn-height: 40px;
+$standard-btn-height: 30px;

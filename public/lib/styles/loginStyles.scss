@@ -2,69 +2,39 @@
 @import 'reset';
 
 .login-title {
-  margin-top: 25vh;
-  margin-left: 44%;
-  font-family: $roboto-slab;
-  font-size: 40px;
-  font-weight: bold;
-  color: $splash-color;
+  @include title;
 }
 
 .login-container {
-  width: 40%;
-  height: 40%;
-  margin: 50px auto;
-  // border: 1px solid orchid;
-  border-radius: 5px;
-  background-color: rgba(39, 39, 39, 0.11);
+  @include background-container;
 }
 
 .email, .password {
-  width: 35%;
-  height: 40px;
-  margin-left: 32%;
-  font-family: $pt-sans;
-  font-size: 15px;
-  text-align: center;
-  border: 1px solid $hover-color;
-  border-radius: 5px;
+  @include standard-input;
   &:focus {
     outline-color: $splash-color;
   }
 }
 
-.login-text {
-  font-family: $pt-sans;
-  font-size: 20px;
-  margin-left: 20%;
-  padding-top: 30px;
-  padding-bottom: 20px;
-}
-
-.log-in-btn{
-  margin-top: 20px;
-  width: 20%;
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .register {
+  @include button-enabled
   width: 35%;
-  font-size: 15px;
-}
-
-.log-in-btn, .register {
-  height: 30px;
-  border: none;
-  border-radius: 5px;
-  background-color: $splash-color;
-  display: block;
-  margin: 30px auto;
-  font-family: $pt-sans;
-  color: white;
-  transition: all 0.5s ease;
+  font-size: $f5;
+  margin-left: 32%;
   &:hover {
     background-color: $hover-color;
+    cursor: pointer;
+  }
+}
+
+.log-in-btn {
+  @include button-enabled;
+  display: block;
+  margin: 30px auto;
+  width: 20%;
+  &:hover {
+    background-color: $hover-color;
+    cursor: pointer;
   }
 }
 
