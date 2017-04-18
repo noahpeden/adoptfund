@@ -42,4 +42,28 @@ describe('actions', () => {
     }
     expect(actions.searched(searchedFamily)).to.deep.equal(expectedAction)
   })
+  it('should store selected family', () => {
+    const info = { somejson: 'somejson', somemorejson: 'somemorejson' }
+    const expectedAction = {
+      type: 'SELECTED',
+      info: { somejson: 'somejson', somemorejson: 'somemorejson' },
+    }
+    expect(actions.storeSelected(info)).to.deep.equal(expectedAction)
+  })
+  it('should save a donation for a family', () => {
+    const familyId = { somejson: 'somejson', somemorejson: 'somemorejson' }
+    const expectedAction = {
+      type: 'DONATION-FAMILY',
+      familyId: { somejson: 'somejson', somemorejson: 'somemorejson' },
+    }
+    expect(actions.saveFamily(familyId)).to.deep.equal(expectedAction)
+  })
+  it('should store donations for selected family', () => {
+    const donations = { somejson: 'somejson', somemorejson: 'somemorejson' }
+    const expectedAction = {
+      type: 'FAMILY-DONATIONS',
+      donations: { somejson: 'somejson', somemorejson: 'somemorejson' },
+    }
+    expect(actions.familyDonations(donations)).to.deep.equal(expectedAction)
+  })
 })
