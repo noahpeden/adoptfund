@@ -13649,7 +13649,6 @@
 	  }, {
 	    key: 'progress',
 	    value: function progress() {
-	      console.log('bla');
 	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
 	      if (document.querySelector('.progress-bar')) {
 	        document.querySelector('.progress-bar').style.width = percentage + '%';
@@ -13663,7 +13662,7 @@
 	        if (this.props.user.id === this.props.selectedFamily.userId) {
 	          btn = _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: '/edit' },
+	            { to: '/profileEdit' },
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'edit-btn' },
@@ -31733,16 +31732,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var mapStateToProps = function mapStateToProps(state) {
-	  return {};
+	  return {
+	    selectedFamily: state.family.selected.info,
+	    user: state.user.data,
+	    donations: state.donations.donations
+	  };
 	};
-
-	// const mapDispatchToProps = (dispatch) => {
-	//   return {
-	//     featuredCampaigns: () => {
-	//       dispatch(featuredCampaigns())
-	//     }
-	//   }
-	// }
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_FamilyProfileEdit2.default);
 
@@ -31761,6 +31756,8 @@
 	var _react = __webpack_require__(27);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(72);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31791,11 +31788,33 @@
 	  }
 
 	  _createClass(FamilyProfileEdit, [{
+	    key: 'raised',
+	    value: function raised() {
+	      var total = 0;
+	      if (this.props.donations) {
+	        this.props.donations.donations.forEach(function (donation) {
+	          total += donation.donationAmount;
+	        });
+	      }
+	      return total;
+	    }
+	  }, {
+	    key: 'progress',
+	    value: function progress() {
+	      var percentage = this.raised() / this.props.selectedFamily.cost * 100;
+	      if (document.querySelector('.progress-bar')) {
+	        document.querySelector('.progress-bar').style.width = percentage + '%';
+	      }
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.setState({ title: this.props.family.title });
-	      this.setState({ name: this.props.family.name });
-	      this.setState({ location: this.props.family.location });
+	      this.setState({ title: this.props.selectedFamily.title });
+	      this.setState({ name: this.props.selectedFamily.name });
+	      this.setState({ location: this.props.selectedFamily.location });
+	      this.setState({ cost: this.props.selectedFamily.cost });
+	      this.setState({ story: this.props.selectedFamily.story });
+	      this.setState({ links: this.props.selectedFamily.links });
 	    }
 	  }, {
 	    key: 'render',
@@ -31808,22 +31827,37 @@
 	        _react2.default.createElement('input', {
 	          className: 'fam-title',
 	          placeholder: 'Title of Family Fund',
+	          value: this.state.title,
 	          onChange: function onChange(e) {
 	            return _this2.setState({ title: e.target.value });
-	          } }),
-	        '/>',
-	        _react2.default.createElement('input', { className: 'fam-name' }),
-	        _react2.default.createElement('input', { className: 'fam-location' }),
+	          }
+	        }),
+	        _react2.default.createElement('input', {
+	          className: 'fam-name',
+	          placeholder: 'Family Name',
+	          value: this.state.name,
+	          onChange: function onChange(e) {
+	            return _this2.setState({ name: e.target.value });
+	          }
+	        }),
+	        _react2.default.createElement('input', {
+	          className: 'fam-location',
+	          placeholder: 'City, State',
+	          value: this.state.location,
+	          onChange: function onChange(e) {
+	            return _this2.setState({ location: e.target.value });
+	          }
+	        }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'fake-photo' },
-	          _react2.default.createElement('img', { className: 'fam-photo', src: family.image })
+	          _react2.default.createElement('img', { className: 'fam-photo', src: this.props.selectedFamily.image })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'donate-section' },
 	          _react2.default.createElement(
-	            Link,
+	            _reactRouter.Link,
 	            { className: 'donate-link', to: '/donation' },
 	            _react2.default.createElement(
 	              'button',
@@ -31839,7 +31873,15 @@
 	            'Raised: $',
 	            this.raised()
 	          ),
-	          _react2.default.createElement('input', { type: 'number', className: 'fam-cost' }),
+	          _react2.default.createElement('input', {
+	            type: 'number',
+	            className: 'fam-cost',
+	            placeholder: 'What is the total Cost',
+	            value: this.state.cost,
+	            onChange: function onChange(e) {
+	              return _this2.setState({ cost: e.target.value });
+	            }
+	          }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'progress-bar-cont' },
@@ -31852,15 +31894,30 @@
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'fam-story-title' },
-	            family.name,
+	            this.state.name,
 	            '\'s Story:'
 	          ),
-	          _react2.default.createElement('textarea', { className: 'fam-story' })
+	          _react2.default.createElement('textarea', {
+	            className: 'fam-story',
+	            minLength: '100',
+	            placeholder: 'Tell your family story here!',
+	            value: this.state.story,
+	            onChange: function onChange(e) {
+	              return _this2.setState({ story: e.target.value });
+	            }
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'link-section' },
-	          _react2.default.createElement('input', { className: 'fam-links' })
+	          _react2.default.createElement('input', {
+	            className: 'fam-links',
+	            placeholder: 'blogs, social media, etc',
+	            value: this.state.links,
+	            onChange: function onChange(e) {
+	              return _this2.setState({ links: e.target.value });
+	            }
+	          })
 	        ),
 	        this.progress()
 	      );

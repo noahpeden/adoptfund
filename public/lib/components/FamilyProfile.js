@@ -28,7 +28,6 @@ export default class FamilyProfile extends Component {
   }
 
   progress() {
-    console.log('bla')
     const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
     if (document.querySelector('.progress-bar')) {
       document.querySelector('.progress-bar').style.width = percentage + '%'
@@ -39,7 +38,7 @@ export default class FamilyProfile extends Component {
     let btn = ''
     if (this.props.user) {
       if (this.props.user.id === this.props.selectedFamily.userId) {
-        btn = <Link to='/edit'><button className='edit-btn'>Edit</button></Link>
+        btn = <Link to='/profileEdit'><button className='edit-btn'>Edit</button></Link>
       }
     }
     return btn
