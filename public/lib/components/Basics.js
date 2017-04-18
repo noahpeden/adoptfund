@@ -59,6 +59,7 @@ class Basics extends Component {
         </div>
         <div className='buttons-container'>
           <Button
+            className='create-btn'
             handleClick={
               () => this.props.createFamily(
               title,
