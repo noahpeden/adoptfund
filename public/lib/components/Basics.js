@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import Button from './Button'
+
 
 class Basics extends Component {
   constructor() {
@@ -56,7 +58,19 @@ class Basics extends Component {
             onChange={(e) => this.setState({cost: e.target.value})} />
         </div>
         <div className='buttons-container'>
-          <button onClick={() => this.props.createFamily(title, location, name, expiration, story, links, cost, this.props.userId)}>Create</button>
+          <Button
+            handleClick={
+              () => this.props.createFamily(
+              title,
+              location,
+              name,
+              expiration,
+              story,
+              links,
+              cost,
+              this.props.userId)}
+              text='Create'
+          />
         </div>
       </div>
     )
