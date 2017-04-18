@@ -12729,13 +12729,9 @@
 	          { className: 'hero-h3' },
 	          'Savin da bebs one fambam at a time'
 	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'main-start-family-btn', onClick: function onClick() {
-	              return _this2.checkRoute();
-	            } },
-	          'Start Family Fund'
-	        ),
+	        _react2.default.createElement(_Button2.default, { className: 'main-start-family-btn', handleClick: function handleClick() {
+	            return _this2.checkRoute();
+	          }, text: 'Start Family Fund' }),
 	        _react2.default.createElement('input', { className: 'search-family-input', placeholder: 'Search for a Family', onChange: function onChange(e) {
 	            return _this2.setState({ searchText: e.target.value });
 	          } }),
@@ -12794,11 +12790,6 @@
 	      this.props.storeSelected(info);
 	    }
 	  }, {
-	    key: 'runDebugger',
-	    value: function runDebugger() {
-	      debugger;
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -12834,13 +12825,6 @@
 	          'h3',
 	          null,
 	          expiration
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              return _this2.runDebugger();
-	            } },
-	          'Debugger'
 	        )
 	      );
 	    }
@@ -29746,6 +29730,10 @@
 
 	var _reactRouter = __webpack_require__(72);
 
+	var _Button = __webpack_require__(130);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29907,13 +29895,9 @@
 	            }
 	          })
 	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              return _this2.submitChanges();
-	            } },
-	          'Submit'
-	        ),
+	        _react2.default.createElement(_Button2.default, { handleClick: function handleClick() {
+	            return _this2.submitChanges();
+	          }, text: 'Submit' }),
 	        this.progress()
 	      );
 	    }
@@ -30177,6 +30161,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Button = __webpack_require__(130);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30194,7 +30182,6 @@
 	    var _this = _possibleConstructorReturn(this, (Donation.__proto__ || Object.getPrototypeOf(Donation)).call(this));
 
 	    _this.state = {
-	      // change first and last to this.props.first/this.props.last so it auto fills
 	      first: '',
 	      last: '',
 	      email: '',
@@ -30235,13 +30222,9 @@
 	        _react2.default.createElement('input', { placeholder: 'Donation Amount', onChange: function onChange(e) {
 	            return _this2.setState({ donation: e.target.value });
 	          } }),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              return _this2.donate();
-	            } },
-	          'Donate'
-	        )
+	        _react2.default.createElement(_Button2.default, { onClick: function onClick() {
+	            return _this2.donate();
+	          }, text: 'Donate' })
 	      );
 	    }
 	  }]);

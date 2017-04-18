@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
+import Button from './Button'
 
 export default class Donation extends Component {
   constructor() {
     super()
     this.state = {
-      // change first and last to this.props.first/this.props.last so it auto fills
       first: '',
       last: '',
       email: '',
@@ -35,7 +35,7 @@ export default class Donation extends Component {
         <input placeholder='Last Name' value={this.state.last} onChange={(e) => this.setState({last: e.target.value})}></input>
         <input placeholder='Email' value={this.state.email} onChange={(e) => this.setState({email: e.target.value})}></input>
         <input placeholder='Donation Amount' onChange={(e) => this.setState({donation: e.target.value})}></input>
-        <button onClick={() => this.donate()}>Donate</button>
+        <Button onClick={() => this.donate()} text='Donate'/>
       </section>
     )
   }
