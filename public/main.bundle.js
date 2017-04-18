@@ -12479,6 +12479,7 @@
 	__webpack_require__(145);
 	__webpack_require__(147);
 	__webpack_require__(149);
+	__webpack_require__(433);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -30136,7 +30137,7 @@
 
 	var _reactRedux = __webpack_require__(25);
 
-	var _Donation = __webpack_require__(282);
+	var _Donation = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/Donation\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _Donation2 = _interopRequireDefault(_Donation);
 
@@ -30162,96 +30163,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Donation2.default);
 
 /***/ },
-/* 282 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(27);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Donation = function (_Component) {
-	  _inherits(Donation, _Component);
-
-	  function Donation() {
-	    _classCallCheck(this, Donation);
-
-	    var _this = _possibleConstructorReturn(this, (Donation.__proto__ || Object.getPrototypeOf(Donation)).call(this));
-
-	    _this.state = {
-	      // change first and last to this.props.first/this.props.last so it auto fills
-	      first: '',
-	      last: '',
-	      email: '',
-	      donation: ''
-	    };
-	    return _this;
-	  }
-
-	  _createClass(Donation, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.setState({ first: this.props.user.firstName });
-	      this.setState({ last: this.props.user.lastName });
-	      this.setState({ email: this.props.user.email });
-	    }
-	  }, {
-	    key: 'donate',
-	    value: function donate() {
-	      this.props.sendDonation(this.state.first, this.state.last, this.state.email, this.state.donation, this.props.familyId);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-
-	      return _react2.default.createElement(
-	        'section',
-	        { className: 'donate-section' },
-	        _react2.default.createElement('input', { placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
-	            return _this2.setState({ first: e.target.value });
-	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
-	            return _this2.setState({ last: e.target.value });
-	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
-	            return _this2.setState({ email: e.target.value });
-	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Donation Amount', onChange: function onChange(e) {
-	            return _this2.setState({ donation: e.target.value });
-	          } }),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              return _this2.donate();
-	            } },
-	          'Donate'
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Donation;
-	}(_react.Component);
-
-	exports.default = Donation;
-
-/***/ },
+/* 282 */,
 /* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -47743,6 +47655,47 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 433 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(434);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(142)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./donateStyles.scss", function() {
+				var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./donateStyles.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 434 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(141)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);", ""]);
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
+
+	// module
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.donate-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.donate-container {\n  margin: 80px auto;\n  background-color: rgba(39, 39, 39, 0.11);\n  padding: 70px 0;\n  width: 40%; }\n\n.donate-name, .donate-email, .donate-amount {\n  margin: 25px auto;\n  display: block;\n  height: 30px;\n  width: 40%;\n  border-radius: 5px;\n  border: 1px solid black;\n  font-size: 15px;\n  font-family: \"PT Sans\", sans-serif;\n  text-align: center; }\n\n.donate-money-btn {\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  height: 40px;\n  width: 30%;\n  margin-left: 34%; }\n", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);
