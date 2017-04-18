@@ -1,0 +1,36 @@
+@import 'variables';
+@import 'reset';
+
+.donate-title {
+  font-size: 50px;
+  font-family: $roboto-slab;
+  color: $splash-color;
+  text-align: center;
+  margin: 100px 0;
+}
+
+.donate-container {
+  margin: 80px auto;
+  background-color: $light-background;
+  padding: 70px 0;
+  width: 40%;
+}
+
+.donate-name, .donate-email, .donate-amount {
+  margin: 25px auto;
+  display: block;
+  height: $standard-input-height;
+  width: 40%;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 15px;
+  font-family: $pt-sans;
+  text-align: center;
+}
+
+.donate-money-btn {
+  @include button-enabled;
+  height: $standard-btn-height;
+  width: 30%;
+  margin-left: 34%;
+}
