@@ -4,7 +4,6 @@ export default class Donation extends Component {
   constructor() {
     super()
     this.state = {
-      // change first and last to this.props.first/this.props.last so it auto fills
       first: '',
       last: '',
       email: '',
@@ -30,15 +29,6 @@ export default class Donation extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <section className='donate-section'>
-        <input placeholder='First Name' value={this.state.first} onChange={(e) => this.setState({first: e.target.value})}></input>
-        <input placeholder='Last Name' value={this.state.last} onChange={(e) => this.setState({last: e.target.value})}></input>
-        <input placeholder='Email' value={this.state.email} onChange={(e) => this.setState({email: e.target.value})}></input>
-        <input placeholder='Donation Amount' onChange={(e) => this.setState({donation: e.target.value})}></input>
-        <button onClick={() => this.donate()}>Donate</button>
-      </section>
-=======
       <section >
         <p className='donate-title'>Thank you for your donation!</p>
         <div className='donate-container'>
@@ -50,7 +40,6 @@ export default class Donation extends Component {
           <button className='donate-money-btn' onClick={() => this.donate()}>Donate</button>
           </div>
         </section>
->>>>>>> d10304ee20da7abd884398cdd2d93b543d9f54af
     )
   }
 }
