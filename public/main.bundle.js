@@ -12530,7 +12530,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signOut = exports.signIn = undefined;
+	exports.sendFamilyChanges = exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signOut = exports.signIn = undefined;
 
 	var _isomorphicFetch = __webpack_require__(135);
 
@@ -12571,7 +12571,6 @@
 	};
 
 	var storeSelected = exports.storeSelected = function storeSelected(info) {
-	  console.log(info);
 	  return {
 	    type: 'SELECTED',
 	    info: info
@@ -12635,7 +12634,6 @@
 	};
 
 	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, cost, userId) {
-	  console.log(userId);
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/family', {
 	      method: 'POST',
@@ -12700,6 +12698,25 @@
 	      return donations.json();
 	    }).then(function (donations) {
 	      return dispatch(familyDonations(donations));
+	    }).catch(function (err) {
+	      return console.log(err);
+	    });
+	  };
+	};
+
+	var sendFamilyChanges = exports.sendFamilyChanges = function sendFamilyChanges(title, name, location, cost, story, links, familyId) {
+	  return function (dispatch) {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/family/' + familyId, {
+	      method: 'PATCH',
+	      headers: { 'Content-Type': 'application/json' },
+	      body: JSON.stringify({ title: title, name: name, location: location, cost: cost, story: story, links: links })
+	    }).then(function (data) {
+	      return data.json();
+	    }).then(function (data) {
+	      console.log(data);
+	      dispatch(storeSelected(data[0]));
+	    }).then(function (data) {
+	      return _reactRouter.browserHistory.push('/profile');
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
@@ -48661,6 +48678,8 @@
 
 	var _FamilyProfileEdit2 = _interopRequireDefault(_FamilyProfileEdit);
 
+	var _actions = __webpack_require__(134);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var mapStateToProps = function mapStateToProps(state) {
@@ -48671,7 +48690,15 @@
 	  };
 	};
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_FamilyProfileEdit2.default);
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    sendFamilyChanges: function sendFamilyChanges(title, name, location, cost, story, links, familyId) {
+	      dispatch((0, _actions.sendFamilyChanges)(title, name, location, cost, story, links, familyId));
+	    }
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_FamilyProfileEdit2.default);
 
 /***/ }),
 /* 442 */
@@ -48720,6 +48747,16 @@
 	  }
 
 	  _createClass(FamilyProfileEdit, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.setState({ title: this.props.selectedFamily.title });
+	      this.setState({ name: this.props.selectedFamily.name });
+	      this.setState({ location: this.props.selectedFamily.location });
+	      this.setState({ cost: this.props.selectedFamily.cost });
+	      this.setState({ story: this.props.selectedFamily.story });
+	      this.setState({ links: this.props.selectedFamily.links });
+	    }
+	  }, {
 	    key: 'raised',
 	    value: function raised() {
 	      var total = 0;
@@ -48739,14 +48776,10 @@
 	      }
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.setState({ title: this.props.selectedFamily.title });
-	      this.setState({ name: this.props.selectedFamily.name });
-	      this.setState({ location: this.props.selectedFamily.location });
-	      this.setState({ cost: this.props.selectedFamily.cost });
-	      this.setState({ story: this.props.selectedFamily.story });
-	      this.setState({ links: this.props.selectedFamily.links });
+	    key: 'submitChanges',
+	    value: function submitChanges() {
+	      var family = this.state;
+	      this.props.sendFamilyChanges(family.title, family.name, family.location, family.cost, family.story, family.links, this.props.selectedFamily.id);
 	    }
 	  }, {
 	    key: 'render',
@@ -48780,11 +48813,6 @@
 	            return _this2.setState({ location: e.target.value });
 	          }
 	        }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'fake-photo' },
-	          _react2.default.createElement('img', { className: 'fam-photo', src: this.props.selectedFamily.image })
-	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'donate-section' },
@@ -48850,6 +48878,13 @@
 	              return _this2.setState({ links: e.target.value });
 	            }
 	          })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: function onClick() {
+	              return _this2.submitChanges();
+	            } },
+	          'Submit'
 	        ),
 	        this.progress()
 	      );
