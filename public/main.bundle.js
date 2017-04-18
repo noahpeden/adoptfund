@@ -13447,29 +13447,9 @@
 	                addUser(newUserFirstName, newUserLastName, newUserEmail, newUserPassword);
 	                _this2.setState({ newUserFirstName: '', newUserLastName: '', newUserEmail: '', newUserPassword: '' });
 	              } },
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Your First Name:'
-	            ),
 	            _react2.default.createElement('input', { placeholder: 'First Name', onChange: this.updateInput, value: newUserFirstName, id: 'newUserFirstName' }),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Your Last Name:'
-	            ),
 	            _react2.default.createElement('input', { placeholder: 'Last Name', onChange: this.updateInput, value: newUserLastName, id: 'newUserLastName' }),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Your Email:'
-	            ),
 	            _react2.default.createElement('input', { placeholder: 'Email', onChange: this.updateInput, value: newUserEmail, id: 'newUserEmail' }),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'new-user-text' },
-	              'Choose a Password:'
-	            ),
 	            _react2.default.createElement('input', { placeholder: 'Password', onChange: this.updateInput, value: newUserPassword, id: 'newUserPassword' }),
 	            _react2.default.createElement(_Button2.default, { className: 'new-user-btn', text: 'Sign up!' })
 	          )
@@ -14382,7 +14362,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.register-title {\n  margin-top: 25vh;\n  margin-left: 31%;\n  font-family: \"Roboto Slab\", serif;\n  font-size: 40px;\n  font-weight: bold;\n  color: #d89b1b; }\n\n.register-container {\n  width: 40%;\n  height: 40%;\n  margin: 70px auto;\n  padding: 30px;\n  border-radius: 5px;\n  background-color: rgba(39, 39, 39, 0.11); }\n\n.new-user-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin-left: 6%;\n  padding-top: 30px; }\n\n#newUserFirstName, #newUserLastName, #newUserEmail, #newUserPassword {\n  width: 35%;\n  height: 40px;\n  margin-left: 32%;\n  margin-top: 30px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  text-align: center;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px; }\n  #newUserFirstName:focus, #newUserLastName:focus, #newUserEmail:focus, #newUserPassword:focus {\n    outline-color: #d89b1b; }\n\n.new-user-btn {\n  height: 30px;\n  width: 50%;\n  border: none;\n  border-radius: 5px;\n  background-color: #d89b1b;\n  display: block;\n  margin: 55px auto;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  color: white;\n  transition: all 0.5s ease; }\n  .new-user-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.register-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.register-container {\n  margin: 80px auto;\n  background-color: rgba(39, 39, 39, 0.11);\n  padding: 70px 0;\n  width: 40%;\n  border-radius: 5px; }\n\n#newUserFirstName, #newUserLastName, #newUserEmail, #newUserPassword {\n  display: block;\n  height: 30px;\n  width: 40%;\n  margin: 25px auto;\n  border-radius: 5px;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  text-align: center; }\n  #newUserFirstName:focus, #newUserLastName:focus, #newUserEmail:focus, #newUserPassword:focus {\n    outline-color: #d89b1b; }\n\n.new-user-btn {\n  height: 30px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  margin-top: 20px;\n  margin-left: 40%;\n  width: 20%; }\n  .new-user-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n", ""]);
 
 	// exports
 
