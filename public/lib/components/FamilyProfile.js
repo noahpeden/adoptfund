@@ -28,6 +28,7 @@ export default class FamilyProfile extends Component {
   }
 
   progress() {
+    console.log('bla')
     const percentage = (this.raised() / this.props.selectedFamily.cost) * 100
     if (document.querySelector('.progress-bar')) {
       document.querySelector('.progress-bar').style.width = percentage + '%'
@@ -48,7 +49,6 @@ export default class FamilyProfile extends Component {
     const family = this.props.selectedFamily
     return (
       <div className='fam-profile-container' >
-        {console.log('donations:', this.props.donations)}
         <h1 className='fam-title'>{family.title}</h1>
         <h2 className='fam-name'>{family.name}</h2>
         <p className='fam-location'>{family.location}</p>
