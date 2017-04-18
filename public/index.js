@@ -11,6 +11,7 @@ import AppContainer from './lib/containers/AppContainer'
 import HomeContainer from './lib/containers/HomeContainer'
 import FamilyListContainer from './lib/containers/FamilyListContainer'
 import FamilyProfileContainer from './lib/containers/FamilyProfileContainer'
+import FamilyProfileEditContainer from './lib/containers/FamilyProfileEditContainer'
 import BasicsContainer from './lib/containers/BasicsContainer'
 import DonationContainer from './lib/containers/DonationContainer'
 
@@ -47,6 +48,7 @@ const router = (
         <Route path='/register' component={RegisterContainer} />
         <Route path='/list' component={FamilyListContainer} />
         <Route path='/profile' component={FamilyProfileContainer} />
+        <Route path='/profileEdit' component={FamilyProfileEditContainer} />
         <Route path='/donation' component={DonationContainer} />
       </Route>
     </Router>

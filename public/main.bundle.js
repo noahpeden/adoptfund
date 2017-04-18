@@ -87,6 +87,10 @@
 
 	var _FamilyProfileContainer2 = _interopRequireDefault(_FamilyProfileContainer);
 
+	var _FamilyProfileEditContainer = __webpack_require__(316);
+
+	var _FamilyProfileEditContainer2 = _interopRequireDefault(_FamilyProfileEditContainer);
+
 	var _BasicsContainer = __webpack_require__(156);
 
 	var _BasicsContainer2 = _interopRequireDefault(_BasicsContainer);
@@ -145,6 +149,7 @@
 	      React.createElement(_reactRouter.Route, { path: '/register', component: _RegisterContainer2.default }),
 	      React.createElement(_reactRouter.Route, { path: '/list', component: _FamilyListContainer2.default }),
 	      React.createElement(_reactRouter.Route, { path: '/profile', component: _FamilyProfileContainer2.default }),
+	      React.createElement(_reactRouter.Route, { path: '/profileEdit', component: _FamilyProfileEditContainer2.default }),
 	      React.createElement(_reactRouter.Route, { path: '/donation', component: _DonationContainer2.default })
 	    )
 	  )
@@ -13840,12 +13845,12 @@
 
 	    _this.state = {
 	      title: '',
-	      location: '',
 	      name: '',
-	      expiration: '',
+	      location: '',
+	      cost: '',
 	      story: '',
 	      links: '',
-	      cost: ''
+	      expiration: ''
 	    };
 	    return _this;
 	  }
@@ -31708,6 +31713,164 @@
 
 	// exports
 
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactRedux = __webpack_require__(25);
+
+	var _FamilyProfileEdit = __webpack_require__(317);
+
+	var _FamilyProfileEdit2 = _interopRequireDefault(_FamilyProfileEdit);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {};
+	};
+
+	// const mapDispatchToProps = (dispatch) => {
+	//   return {
+	//     featuredCampaigns: () => {
+	//       dispatch(featuredCampaigns())
+	//     }
+	//   }
+	// }
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_FamilyProfileEdit2.default);
+
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(27);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var FamilyProfileEdit = function (_Component) {
+	  _inherits(FamilyProfileEdit, _Component);
+
+	  function FamilyProfileEdit() {
+	    _classCallCheck(this, FamilyProfileEdit);
+
+	    var _this = _possibleConstructorReturn(this, (FamilyProfileEdit.__proto__ || Object.getPrototypeOf(FamilyProfileEdit)).call(this));
+
+	    _this.state = {
+	      title: '',
+	      name: '',
+	      location: '',
+	      cost: '',
+	      story: '',
+	      links: '',
+	      expiration: ''
+	    };
+	    return _this;
+	  }
+
+	  _createClass(FamilyProfileEdit, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.setState({ title: this.props.family.title });
+	      this.setState({ name: this.props.family.name });
+	      this.setState({ location: this.props.family.location });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'fam-profile-container' },
+	        _react2.default.createElement('input', {
+	          className: 'fam-title',
+	          placeholder: 'Title of Family Fund',
+	          onChange: function onChange(e) {
+	            return _this2.setState({ title: e.target.value });
+	          } }),
+	        '/>',
+	        _react2.default.createElement('input', { className: 'fam-name' }),
+	        _react2.default.createElement('input', { className: 'fam-location' }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'fake-photo' },
+	          _react2.default.createElement('img', { className: 'fam-photo', src: family.image })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'donate-section' },
+	          _react2.default.createElement(
+	            Link,
+	            { className: 'donate-link', to: '/donation' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'donate-btn', onClick: function onClick() {
+	                  return _this2.donate();
+	                } },
+	              'Donate'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Raised: $',
+	            this.raised()
+	          ),
+	          _react2.default.createElement('input', { type: 'number', className: 'fam-cost' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'progress-bar-cont' },
+	            _react2.default.createElement('div', { className: 'progress-bar' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'story-section' },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'fam-story-title' },
+	            family.name,
+	            '\'s Story:'
+	          ),
+	          _react2.default.createElement('textarea', { className: 'fam-story' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'link-section' },
+	          _react2.default.createElement('input', { className: 'fam-links' })
+	        ),
+	        this.progress()
+	      );
+	    }
+	  }]);
+
+	  return FamilyProfileEdit;
+	}(_react.Component);
+
+	exports.default = FamilyProfileEdit;
 
 /***/ }
 /******/ ]);
