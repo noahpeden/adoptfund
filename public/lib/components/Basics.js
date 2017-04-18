@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import PhotoUpload from './PhotoUpload'
 import Button from './Button'
-
 
 class Basics extends Component {
   constructor() {
@@ -16,7 +16,6 @@ class Basics extends Component {
       expiration: '',
     }
   }
-
   render() {
     const { title, location, name, expiration, story, links, cost } = this.state
     return (
@@ -30,6 +29,7 @@ class Basics extends Component {
             placeholder='Title of Family Fund'
             onChange={(e) => this.setState({title: e.target.value})} />
           <p className='profile-text'>What is your Family's name?</p>
+          <PhotoUpload />
           <input
             className='name-input'
             placeholder='Family Name'
