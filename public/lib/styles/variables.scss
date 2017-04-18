@@ -13,6 +13,15 @@
   transition: all 0.3s ease-in-out;
 }
 
+@mixin standard-input {
+  height: $standard-input-height;
+  border-radius: 5px;
+  border: 1px solid $hover-color;
+  font-size: $f5;
+  font-family: $pt-sans;
+  text-align: center;
+}
+
 //fonts
 $roboto-slab: 'Roboto Slab', serif;
 $pt-sans: 'PT Sans', sans-serif;
