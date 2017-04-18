@@ -92,7 +92,6 @@ export const addUser = (firstName, lastName, email, password) => {
 }
 
 export const createFamily = (title, location, name, expiration, story, links, cost, userId) => {
-  console.log(userId)
   return (dispatch) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/family', {
       method: 'POST',
@@ -148,6 +147,22 @@ export const grabDonations = (familyId) => {
     return fetch('https://adoptfund-api.herokuapp.com/api/v1/donation/' + familyId)
     .then(donations => donations.json())
     .then(donations => dispatch(familyDonations(donations)))
+    .catch(err => console.log(err))
+  }
+}
+
+export const sendFamilyChanges = (title, name, location, cost, story, links, familyId) => {
+  return (dispatch) => {
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/family/' + familyId, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, name, location, cost, story, links }),
+    })
+    .then(data => data.json())
+    .then(data => {
+      console.log(data)
+      dispatch(storeSelected(data[0]))})
+    .then(data => browserHistory.push('/profile'))
     .catch(err => console.log(err))
   }
 }

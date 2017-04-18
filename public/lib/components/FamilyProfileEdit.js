@@ -15,6 +15,15 @@ export default class FamilyProfileEdit extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({title: this.props.selectedFamily.title})
+    this.setState({name: this.props.selectedFamily.name})
+    this.setState({location: this.props.selectedFamily.location})
+    this.setState({cost: this.props.selectedFamily.cost})
+    this.setState({story: this.props.selectedFamily.story})
+    this.setState({links: this.props.selectedFamily.links})
+  }
+
   raised() {
     let total = 0
     if (this.props.donations) {
@@ -32,13 +41,9 @@ export default class FamilyProfileEdit extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({title: this.props.selectedFamily.title})
-    this.setState({name: this.props.selectedFamily.name})
-    this.setState({location: this.props.selectedFamily.location})
-    this.setState({cost: this.props.selectedFamily.cost})
-    this.setState({story: this.props.selectedFamily.story})
-    this.setState({links: this.props.selectedFamily.links})
+  submitChanges() {
+    let family = this.state
+    this.props.sendFamilyChanges(family.title, family.name, family.location, family.cost, family.story, family.links, this.props.selectedFamily.id)
   }
 
   render() {
@@ -62,7 +67,7 @@ export default class FamilyProfileEdit extends Component {
           value={this.state.location}
           onChange={(e) => this.setState({location: e.target.value})}
         />
-        <div className='fake-photo'><img className='fam-photo' src={this.props.selectedFamily.image}></img></div>
+        {/* <div className='fake-photo'><img className='fam-photo' src={this.props.selectedFamily.image}></img></div> */}
         <div className='donate-section'>
           <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
           <p>Raised: ${this.raised()}</p>
@@ -95,6 +100,7 @@ export default class FamilyProfileEdit extends Component {
             onChange={(e) => this.setState({links: e.target.value})}
           />
         </div>
+        <button onClick={() => this.submitChanges()}>Submit</button>
         {this.progress()}
       </div>
     )
