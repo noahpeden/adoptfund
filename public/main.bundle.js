@@ -11482,7 +11482,6 @@
 	};
 
 	var storeSelected = exports.storeSelected = function storeSelected(info) {
-	  console.log(info);
 	  return {
 	    type: 'SELECTED',
 	    info: info
