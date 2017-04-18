@@ -12402,12 +12402,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const mapStateToProps = state => {
-	//   return {
-	//     family: state.family.featured.featured
-	//   }
-	// }
-
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    featuredCampaigns: function featuredCampaigns() {
@@ -14041,7 +14035,7 @@
 	    var _this = _possibleConstructorReturn(this, (Donation.__proto__ || Object.getPrototypeOf(Donation)).call(this));
 
 	    _this.state = {
-	      //change first and last to this.props.first/this.props.last so it auto fills
+	      // change first and last to this.props.first/this.props.last so it auto fills
 	      first: '',
 	      last: '',
 	      email: '',
@@ -14051,6 +14045,13 @@
 	  }
 
 	  _createClass(Donation, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.setState({ first: this.props.user.firstName });
+	      this.setState({ last: this.props.user.lastName });
+	      this.setState({ email: this.props.user.email });
+	    }
+	  }, {
 	    key: 'donate',
 	    value: function donate() {
 	      this.props.sendDonation(this.state.first, this.state.last, this.state.email, this.state.donation, this.props.familyId);
@@ -14063,14 +14064,14 @@
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'donate-section' },
-	        console.log(this.props.familyId),
-	        _react2.default.createElement('input', { placeholder: 'First Name', onChange: function onChange(e) {
+	        console.log('user', this.props.user),
+	        _react2.default.createElement('input', { placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
 	            return _this2.setState({ first: e.target.value });
 	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Last Name', onChange: function onChange(e) {
+	        _react2.default.createElement('input', { placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
 	            return _this2.setState({ last: e.target.value });
 	          } }),
-	        _react2.default.createElement('input', { placeholder: 'Email', onChange: function onChange(e) {
+	        _react2.default.createElement('input', { placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
 	            return _this2.setState({ email: e.target.value });
 	          } }),
 	        _react2.default.createElement('input', { placeholder: 'Donation Amount', onChange: function onChange(e) {
