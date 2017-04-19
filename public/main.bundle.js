@@ -11564,7 +11564,7 @@
 
 	var featuredCampaigns = exports.featuredCampaigns = function featuredCampaigns() {
 	  return function (dispatch) {
-	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/family?limit=8').then(function (data) {
+	    return (0, _isomorphicFetch2.default)('https://adoptfund-api.herokuapp.com/api/v1/family?limit=6').then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
 	      dispatch(featured(data));
@@ -12701,7 +12701,7 @@
 	        _react2.default.createElement(
 	          'h3',
 	          { className: 'hero-h3' },
-	          'Savin da bebs one fambam at a time'
+	          'Helping Families Grow'
 	        ),
 	        _react2.default.createElement(_Button2.default, { className: 'main-start-family-btn', handleClick: function handleClick() {
 	            return _this2.checkRoute();
@@ -13407,7 +13407,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.about-container {\n  margin: 80px auto;\n  background-color: rgba(39, 39, 39, 0.11);\n  padding: 70px 0;\n  width: 40%;\n  border-radius: 5px; }\n\n.about-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.about-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  text-align: center;\n  padding: 25px; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.about-container {\n  margin: 80px auto;\n  background-color: rgba(39, 39, 39, 0.11);\n  padding: 70px 0;\n  width: 40%;\n  border-radius: 5px;\n  margin-top: -62px; }\n\n.about-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.about-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.5rem;\n  text-align: center;\n  padding: 25px; }\n", ""]);
 
 	// exports
 
@@ -33976,11 +33976,14 @@
 	      _react2.default.createElement(
 	        'p',
 	        { className: 'about-text' },
-	        'Right now a normal adoption in the United States costs about $30,000 and  most families cannot afford this amount of money out of pocket. Adopt Fund is the answer to this problem. Families who are looking to adopt can come to our crowd sourced fundraising platform, create a Family Fund, and share their "Fund" with all of their friends and contacts. Friends can then donate to families, anonymously or share their names, and help families achieve their dreams of adopting a child in need. ',
+	        'A normal adoption in the United States costs about $30,000 and  most families cannot afford this amount out of pocket. Adopt Fund is the answer to this problem. Families who are looking to adopt can come to Adopt Fund\'s crowd-sourced fundraising platform, create a Family Fund, and share their Fund with friends and family. Contributors can then donate to families, anonymously or share their names, and help families achieve their dreams of adopting a child in need. ',
 	        _react2.default.createElement('br', null),
 	        ' ',
 	        _react2.default.createElement('br', null),
-	        'Why us and not KickStarter or GoFundMe? Because we understand that adopting a child is of the utmost seriousness and you don\'t want your Family Fund next to a fundraiser about cat baths. Adopt Fund is the way to help your family adopt a child.'
+	        'Why us and not KickStarter or GoFundMe? Because we understand that adopting a child is of the utmost seriousness and you don\'t want your Family Fund next to a campaign for cat baths. ',
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement('br', null),
+	        'Adopt Fund is here to help your family adopt a child.'
 	      )
 	    )
 	  );
