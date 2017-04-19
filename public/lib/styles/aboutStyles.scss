@@ -3,6 +3,7 @@
 
 .about-container {
   @include background-container;
+  margin-top: -62px;
 }
 
 .about-title {
@@ -11,7 +12,7 @@
 
 .about-text {
   font-family: $pt-sans;
-  font-size: $f5;
+  font-size: $f3;
   text-align: center;
   padding: $standard-pad;
 }
