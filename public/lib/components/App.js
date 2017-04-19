@@ -11,6 +11,7 @@ require('./../styles/registerStyles')
 require('./../styles/familyStyles')
 require('./../styles/donateStyles')
 require('./../styles/aboutStyles')
+require('./../styles/searched')
 
 export default class App extends Component {
   constructor() {

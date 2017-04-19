@@ -11,9 +11,9 @@ export default class HeroSection extends Component {
   }
 
   checkRoute(){
-    if(this.props.user){
+    if (this.props.user) {
       browserHistory.push('/basics')
-    }else{
+    } else {
       alert('Please log in or create an account')
     }
   }

@@ -106,7 +106,7 @@ export const createFamily = (title, location, name, expiration, story, links, co
 
 export const featuredCampaigns = () => {
   return (dispatch) => {
-    return fetch('https://adoptfund-api.herokuapp.com/api/v1/family?limit=6')
+    return fetch('https://adoptfund-api.herokuapp.com/api/v1/family?limit=8')
     .then(data => data.json())
     .then(data => {
       dispatch(featured(data))
@@ -117,9 +117,10 @@ export const featuredCampaigns = () => {
 
 export const searchCampaigns = (familyName) => {
   return (dispatch) => {
-    return fetch('https://adoptfund-api.herokuapp.com/api/v1/family/' + familyName)
+    return fetch(`https://adoptfund-api.herokuapp.com/api/v1/family/${familyName}`)
     .then(data => data.json())
     .then(data => {
+      console.log("data", data);
       dispatch(searched(data))
     })
     .catch(err => console.log(err))
