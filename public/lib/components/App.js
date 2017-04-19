@@ -10,6 +10,7 @@ require('./../styles/loginStyles')
 require('./../styles/registerStyles')
 require('./../styles/familyStyles')
 require('./../styles/donateStyles')
+require('./../styles/aboutStyles')
 
 export default class App extends Component {
   constructor() {
