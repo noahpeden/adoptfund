@@ -23,7 +23,6 @@ export default class NavBar extends Component {
       <nav className={navBackground} >
         <button className='start-family-btn' onClick={() => this.checkRoute()}>Start a Family Fund</button>
         <Link to='/about'><button className='about-btn'>How it Works</button></Link>
-        <button className='featured-btn' href='#featured'>Featured Families</button>
         <Link to='/'><button className='home-btn'>Home</button></Link>
         {
           (this.props.user != null && Object.keys(this.props.user).length > 1)
