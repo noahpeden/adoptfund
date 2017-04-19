@@ -11,7 +11,7 @@ export default class Home extends Component {
             <HeroSectionContainer />
           </div>
         </div>
-        <p className='featured-fam-title'>Featured Families</p> 
+        <p className='featured-fam-title'>Featured Families</p>
         <ul className='featured-container'>
           {displayCards(this.props.family)}
         </ul>
