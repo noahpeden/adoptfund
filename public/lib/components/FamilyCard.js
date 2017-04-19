@@ -17,7 +17,7 @@ export default class FamilyCard extends Component {
             <div className='feat-img-container'>
               <img src={image} className='feat-img' />
             </div>
-            <p className='feat-cost'>{cost}</p>
+            <p className='feat-cost'>Goal: ${cost}</p>
           </div>
         </div>
       )
