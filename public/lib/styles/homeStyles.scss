@@ -113,7 +113,7 @@
 
 .featured-container {
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   width: 100%;
   margin: 0 5%;
   justify-content: center;
@@ -128,8 +128,56 @@
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   border-radius: 5px;
   width: 50%;
-  background: #42b078;
+  background: $splash-color;
   margin: 10px;
   text-align: center;
   padding: 10px;
+  transition: all 1s ease;
+  &:hover {
+    color: $hover-color;
+    font-weight: bolder;
+  }
+}
+
+.card-container {
+  display: flex;
+}
+
+.feat-title {
+  font-size: $f4;
+  font-family: $pt-sans;
+  text-align: center;
+  margin: 10px;
+}
+
+.feat-name {
+  font-size: $f5;
+  font-family: $pt-sans;
+  text-align: center;
+}
+
+.feat-cost {
+  display: block;
+  font-size: $f6;
+  font-family: $pt-sans;
+  text-align: center;
+}
+
+.feat-img {
+  height: 100%;
+  width: 100%;
+}
+
+.feat-img-container {
+  border: 1px solid teal;
+  height: 125px;
+  width: 30%;
+}
+
+.feat-text-container {
+  position: absolute;
+}
+
+a {
+  text-decoration: none;
 }
