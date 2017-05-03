@@ -1,6 +1,10 @@
 @import 'variables';
 @import 'reset';
 
+html {
+  // background-color: #F6F6FA;
+}
+
 .img-container {
   background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);
   background-repeat: no-repeat;
@@ -38,7 +42,7 @@
   text-align: center;
   // margin-top: 25vh;
   padding: 120px 50px;
-  border-bottom: 2px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .title {
@@ -116,8 +120,7 @@
 
 .featured-container {
   display: flex;
-  // flex-wrap: wrap;
-  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   justify-content: space-around;
   flex-flow: row wrap;
@@ -128,18 +131,17 @@
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  color: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  color: grey;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
   border-radius: 5px;
   width: 300px;
-  background: $splash-color;
-  margin: 10px;
+  background: white;
+  margin: 20px;
   text-align: center;
   padding: 10px;
   transition: all 1s ease;
   &:hover {
-    color: $hover-color;
-    font-weight: bolder;
+    color: lightgrey;
   }
 }
 
@@ -193,4 +195,10 @@
 
 a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 1100px) {
+    .featured-container {
+        max-width: 800px
+    }
 }
