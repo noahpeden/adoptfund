@@ -1,10 +1,6 @@
 @import 'variables';
 @import 'reset';
 
-// .nav-container {
-//   border: 1px solid orchid;
-// }
-
 .img-container {
   background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);
   background-repeat: no-repeat;
@@ -17,30 +13,8 @@
   background-color: rgba(84, 80, 80, 0.6);
 }
 
-.nav-container {
-  margin: 20px 10px;
-  background: transparent;
-  position: absolute;
-}
-
 .nav-background {
   background: orchid;
-}
-
-.start-family-btn, .about-btn, .featured-btn, .sign-in-btn {
-  margin: 10px;
-  border: none;
-  background: none;
-  font-family: $pt-sans;
-  font-size: 17px;
-  font-weight: 600;
-  color: white;
-  transition: color 0.5s ease;
-  cursor: pointer;
-  outline: none;
-  &:hover {
-    color: $splash-color;
-  }
 }
 
 .main-section-container {

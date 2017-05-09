@@ -6,7 +6,7 @@
   height: 60px;
   background-color: $hover-color;
   margin: 0;
-  position: absolute;
+  position: static;
   top: 0;
 }
 
@@ -22,7 +22,6 @@
 
 
 .input-container {
-  // margin-top: 10vh;
   max-width: 500px;
   margin: auto;
 }
