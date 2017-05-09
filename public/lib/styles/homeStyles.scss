@@ -56,9 +56,9 @@
 
 .main-start-family-btn {
   display: block;
-  margin: auto;
+  margin: 20px auto;
   height: 45px;
-  width: 450px;
+  width: 100%;
   border: none;
   border-radius: 5px;
   font-family: $pt-sans;
@@ -75,34 +75,41 @@
   }
 }
 
+.search-section {
+  max-width: 450px;
+  margin: auto;
+}
+
 .search-family-input {
-  // width: 30%;
+  width: 99%;
   height: 45px;
   border: none;
   border-radius: 5px;
+  padding-left: 5px;
   color: $input-font-color;
   font-family: $pt-sans;
   font-size: 20px;
-  padding-left: 15px;
   outline: none;
 }
 
 .search-btn {
-  height: 45px;
-  margin: 20px;
-  background: transparent;
+  position: relative;
+  float: right;
+  top: -47px;
+  right: -2px;
+  height: 47px;
   border: 2px solid white;
   border-radius: 5px;
+  background-color: white;
   font-family: $pt-sans;
   font-size: 20px;
-  // font-weight: bold;
-  color: white;
+  color: lightgrey;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   &:hover {
     background-color: $splash-color;
-    border: 2px solid transparent;
+    color: white;
   }
 }
 
