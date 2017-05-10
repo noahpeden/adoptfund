@@ -60,20 +60,18 @@ export default class FamilyProfile extends Component {
           <img className='fam-photo' src={family.image} />
         </div>
         <div className='donate-section'>
-          <div className='donate-inner'>
-            <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
-            <div className='total-raised'>
-              ${this.raised()}
-              <span className='total-subheader'>raised so far</span>
-            </div>
-            <div className='progress-bar-cont'>
-              <div className='progress-bar' />
-            </div>
-            <p className='fam-cost'> Total cost: <br />${family.cost}</p>
-            <p className='fam-expiration' >Please donate by: <br />{this.formatDate(family.expiration)}</p>
-            <div className='link-section'>
-              {family.links}
-            </div>
+          <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
+          <div className='total-raised'>
+            ${this.raised()}
+            <span className='total-subheader'>raised so far</span>
+          </div>
+          <div className='progress-bar-cont'>
+            <div className='progress-bar' />
+          </div>
+          <p className='fam-cost'> Total cost: <br />${family.cost}</p>
+          <p className='fam-expiration' >Please donate by: <br />{this.formatDate(family.expiration)}</p>
+          <div className='link-section'>
+            {family.links}
           </div>
         </div>
         <div className='story-section'>
