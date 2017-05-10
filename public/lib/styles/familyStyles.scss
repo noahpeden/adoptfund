@@ -2,51 +2,74 @@
 @import 'reset';
 
 .fam-profile-container {
-  margin: $container-pad;
-  background-color: $light-background;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background-color: #FBFBFB;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.intro-section {
+  display: inline-block;
+  height: 400px;
+  max-width: 300px;
+  margin: 110px 25px 25px 25px;
+}
+
+.fam-photo {
+  position: relative;
+  top: -100px;
+  left: -7px;
+  width: 250px;
+  height: 250px;
+  border: 2px solid white;
+  border-radius: 125px;
+  margin: 30px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.fam-intro {
+  text-align: center;
+  position: relative;
+  top: -120px;
 }
 
 .fam-title {
-  margin: $standard-margin;
-  font-size: $f1;
-  font-family: $roboto-slab;
-  font-weight: bold;
-}
-
-.fam-name {
-  margin: $standard-margin;
+  text-align: center;
+  padding-top: 20px;
   font-size: $f2;
   font-family: $roboto-slab;
 }
 
-.fam-location {
-  margin: $standard-margin;
-  font-size: $f4;
+.fam-name, .fam-location {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: $f5;
   font-family: $pt-sans;
+  color: grey;
 }
 
 .donate-section {
-  text-align: center;
+  float: right;
   display: inline-block;
-  width: 40%;
+  text-align: center;
   vertical-align: top;
-  padding-top: 178px;
-  margin: $standard-margin * 2;
-}
-
-.donate-inner {
-  background-color: white;
-  border: 1px solid $hover-color;
-  border-radius: 2px;
-  width: 50%;
-  margin: 0 auto;
+  margin: 50px 25px 25px 0;
+  height: 460px;
+  // width: 525px;
+  width: 60%;
 }
 
 .donate-btn {
   @include button-enabled
-  margin: 18px;
+  margin-top: 15px;
   height: 50px;
-  width: 85%;
+  width: 95%;
   &:hover {
     background-color: $hover-color;
     cursor: pointer;
@@ -69,45 +92,25 @@
   color: rgba(0,0,0,0.3);
 }
 
-.fam-details {
-  display: inline-block;
-  width: 50%;
+.progress-bar-cont {
+  height: 20px;
+  width: 90%;
+  background-color: lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px auto;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #ff5722;
+  width: 0px;
+  transition: width 1s
 }
 
 .fam-cost {
   text-align: center;
   font-size: $f4;
-  font-family: $pt-sans;
-}
-
-.fam-story-title {
-  margin: $standard-margin;
-  font-size: $f3;
-  font-family: $pt-sans;
-}
-
-.fam-story {
-  margin: $standard-margin;
-  font-size: $f5;
-  width: 50%;
-  word-wrap: break-word;
-}
-
-.fam-photo {
-  height: 100%;
-  width: 100%;
-  margin: $standard-margin;
-}
-
-.bb {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: rgba(0, 0, 0, .7);
-}
-
-.link-section {
-  margin: $standard-margin;
-  font-size: $f7;
   font-family: $pt-sans;
 }
 
@@ -117,18 +120,38 @@
   margin: 15px;
 }
 
-.progress-bar-cont {
-  height: 20px;
-  width: 200px;
-  background-color: lightgrey;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px;
+.story-section {
+  position: relative;
+  top: -60px;
+  max-width: 100%;
+  margin: 0 25px
 }
 
-.progress-bar {
-  height: 20px;
-  background-color: #ff5722;
-  width: 0px;
-  transition: width 1s
+.fam-story-title {
+  margin: 0 15px;
+  font-size: $f3;
+  font-family: $pt-sans;
+  color: grey;
+}
+
+.bb {
+  padding: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: lightgrey;
+}
+
+.fam-story {
+  font-size: $f5;
+  // font-weight: bold;
+  width: 90%;
+  word-wrap: break-word;
+  padding: 20px;
+  margin: auto;
+}
+
+.link-section {
+  margin: $standard-margin;
+  font-size: $f7;
+  font-family: $pt-sans;
 }

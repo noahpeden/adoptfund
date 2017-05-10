@@ -17,13 +17,20 @@
 @mixin standard-input {
   display: block;
   height: $standard-input-height;
-  width: 40%;
-  margin: 25px auto;
-  border-radius: 5px;
-  border: 1px solid $hover-color;
+  width: 97%;
+  border: none;
+  border-bottom: 1px solid lightgrey;
   font-size: $f5;
   font-family: $pt-sans;
-  text-align: center;
+  padding-left: 15px;
+}
+
+@mixin input-cont {
+  width: 90%;
+  margin: auto;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 @mixin title {
@@ -35,10 +42,10 @@
 }
 
 @mixin background-container {
-  margin: 80px auto;
+  margin: auto;
   background-color: $light-background;
-  padding: 70px 0;
-  width: 40%;
+  padding: 20px 0;
+  max-width: 400px;
   border-radius: 5px;
 }
 
@@ -59,7 +66,7 @@ $f7: .75rem;
 $splash-color: #d89b1b;
 $input-font-color: #463e3c;
 $hover-color: rgba(39, 39, 39, 0.81);
-$light-background: rgba(39, 39, 39, 0.11);
+$light-background: rgba(39, 39, 39, 0.06);
 
 //standard spacing
 $container-pad: 75px;
@@ -67,5 +74,5 @@ $standard-pad: 25px;
 $standard-margin: 25px;
 
 //standard sizing
-$standard-input-height: 30px;
-$standard-btn-height: 30px;
+$standard-input-height: 50px;
+$standard-btn-height: 40px;

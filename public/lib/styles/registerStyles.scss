@@ -5,6 +5,10 @@
   @include title
 }
 
+.input-cont {
+  @include input-cont
+}
+
 .register-container {
   @include background-container;
 }

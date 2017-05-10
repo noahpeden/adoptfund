@@ -1,8 +1,24 @@
 @import 'variables';
 @import 'reset';
 
-.login-title {
+.logo {
   @include title;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.login-title {
+  width: 400px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: $pt-sans;
+  font-size: $f3;
+  color: lightgrey;
+
+}
+
+.input-cont {
+  @include input-cont
 }
 
 .login-container {
@@ -16,24 +32,25 @@
   }
 }
 
-.register {
-  @include button-enabled
-  width: 35%;
-  font-size: $f5;
-  margin-left: 32%;
+.log-in-btn {
+  @include button-enabled;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
   &:hover {
     background-color: $hover-color;
     cursor: pointer;
   }
 }
 
-.log-in-btn {
-  @include button-enabled;
-  display: block;
-  margin: 30px auto;
-  width: 20%;
+.register {
+  font-size: $f5;
+  border: none;
+  background-color: transparent;
+  color: grey;
+  margin-left: 20px;
   &:hover {
-    background-color: $hover-color;
+    color: lightgrey;
     cursor: pointer;
   }
 }
