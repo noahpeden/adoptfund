@@ -18,11 +18,7 @@
 }
 
 .input-cont {
-  width: 90%;
-  margin: auto;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  overflow: hidden;
+  @include input-cont
 }
 
 .login-container {

@@ -29,10 +29,12 @@ export default class Register extends Component {
             addUser(newUserFirstName, newUserLastName, newUserEmail, newUserPassword)
             this.setState({ newUserFirstName: '', newUserLastName: '', newUserEmail: '', newUserPassword: '' })
           }}>
-            <input placeholder='First Name' onChange={this.updateInput} value={newUserFirstName} id='newUserFirstName' />
-            <input placeholder='Last Name' onChange={this.updateInput} value={newUserLastName} id='newUserLastName' />
-            <input placeholder='Email' onChange={this.updateInput} value={newUserEmail} id='newUserEmail' />
-            <input placeholder='Password' onChange={this.updateInput} value={newUserPassword} id='newUserPassword' />
+            <div className='input-cont'>
+              <input placeholder='First Name' onChange={this.updateInput} value={newUserFirstName} id='newUserFirstName' />
+              <input placeholder='Last Name' onChange={this.updateInput} value={newUserLastName} id='newUserLastName' />
+              <input placeholder='Email' onChange={this.updateInput} value={newUserEmail} id='newUserEmail' />
+              <input placeholder='Password' onChange={this.updateInput} value={newUserPassword} id='newUserPassword' />
+            </div>
             <Button className='new-user-btn' text='Sign up!' />
           </form>
         </div>

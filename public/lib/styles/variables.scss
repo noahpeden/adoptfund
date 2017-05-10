@@ -17,12 +17,20 @@
 @mixin standard-input {
   display: block;
   height: $standard-input-height;
-  width: 100%;
+  width: 97%;
   border: none;
   border-bottom: 1px solid lightgrey;
   font-size: $f5;
   font-family: $pt-sans;
   padding-left: 15px;
+}
+
+@mixin input-cont {
+  width: 90%;
+  margin: auto;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 @mixin title {
