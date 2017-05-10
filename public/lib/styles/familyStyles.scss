@@ -7,16 +7,35 @@
 }
 
 .card {
-  display: inline-block;
   background-color: #FBFBFB;
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
 .intro-section {
-  height: 450px;
-  max-width: 400px;
-  margin: 110px 50px 50px 50px;
+  display: inline-block;
+  height: 400px;
+  max-width: 300px;
+  margin: 110px 25px 25px 25px;
+}
+
+.fam-photo {
+  position: relative;
+  top: -100px;
+  left: -7px;
+  width: 250px;
+  height: 250px;
+  border: 2px solid white;
+  border-radius: 125px;
+  margin: 30px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.fam-intro {
+  text-align: center;
+  position: relative;
+  top: -120px;
 }
 
 .fam-title {
@@ -35,34 +54,20 @@
   color: grey;
 }
 
-.story-section {
-  margin: 50px 50px 50px 0;
-  height: 550px;
-  width: 525px;
-  max-width: 525px;
-  vertical-align: top;
-}
-
-.fam-story {
-  font-size: $f5;
-  font-weight: bold;
-  width: 50%;
-  word-wrap: break-word;
-}
-
 .donate-section {
-  text-align: center;
+  float: right;
   display: inline-block;
+  text-align: center;
   vertical-align: top;
-  margin: 50px 50px 50px 0;
-  height: 650px;
-  width: 525px;
-  max-width: 525px;
+  margin: 50px 25px 25px 0;
+  height: 460px;
+  // width: 525px;
+  width: 55%;
 }
 
 .donate-btn {
   @include button-enabled
-  margin-top: 35px;
+  margin-top: 15px;
   height: 50px;
   width: 95%;
   &:hover {
@@ -87,49 +92,25 @@
   color: rgba(0,0,0,0.3);
 }
 
+.progress-bar-cont {
+  height: 20px;
+  width: 90%;
+  background-color: lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px auto;
+}
 
-.fam-intro {
-  text-align: center;
-  position: relative;
-  top: -120px;
+.progress-bar {
+  height: 20px;
+  background-color: #ff5722;
+  width: 0px;
+  transition: width 1s
 }
 
 .fam-cost {
   text-align: center;
   font-size: $f4;
-  font-family: $pt-sans;
-}
-
-.fam-story-title {
-  margin: $standard-margin;
-  font-size: $f3;
-  font-family: $pt-sans;
-  color: grey;
-}
-
-
-.fam-photo {
-  position: relative;
-  top: -100px;
-  width: 250px;
-  height: 250px;
-  border: 2px solid white;
-  border-radius: 125px;
-  margin: 30px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-  overflow: hidden;
-}
-
-.bb {
-  padding-bottom: 15px;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: lightgrey;
-}
-
-.link-section {
-  margin: $standard-margin;
-  font-size: $f7;
   font-family: $pt-sans;
 }
 
@@ -139,18 +120,38 @@
   margin: 15px;
 }
 
-.progress-bar-cont {
-  height: 20px;
-  width: 200px;
-  background-color: lightgrey;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px;
+.story-section {
+  position: relative;
+  top: -60px;
+  max-width: 100%;
+  margin: 0 25px
 }
 
-.progress-bar {
-  height: 20px;
-  background-color: #ff5722;
-  width: 0px;
-  transition: width 1s
+.fam-story-title {
+  margin: 0 15px;
+  font-size: $f3;
+  font-family: $pt-sans;
+  color: grey;
+}
+
+.bb {
+  padding: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: lightgrey;
+}
+
+.fam-story {
+  font-size: $f5;
+  // font-weight: bold;
+  width: 90%;
+  word-wrap: break-word;
+  padding: 20px;
+  margin: auto;
+}
+
+.link-section {
+  margin: $standard-margin;
+  font-size: $f7;
+  font-family: $pt-sans;
 }

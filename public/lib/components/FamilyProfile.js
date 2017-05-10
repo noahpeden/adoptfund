@@ -52,7 +52,7 @@ export default class FamilyProfile extends Component {
   render() {
     const family = this.props.selectedFamily
     return (
-      <div className='fam-profile-container' >
+      <div className='fam-profile-container'>
         <div className='intro-section card'>
           <img className='fam-photo' src={family.image} />
           <div className='fam-intro'>
@@ -69,19 +69,20 @@ export default class FamilyProfile extends Component {
             <span className='total-subheader'>total donation recieved</span>
           </div>
           <div className='progress-bar-cont'>
-            <div className='progress-bar' />
+            <div className='progress-bar'>
+            </div>
           </div>
           <p className='fam-cost'> Total cost: <br />${family.cost}</p>
           <p className='fam-expiration' >Please donate by: <br />{this.formatDate(family.expiration)}</p>
-          <div className='link-section'>
-            {family.links}
-          </div>
         </div>
         {this.progress()}
         {this.editButton()}
         <div className='story-section card'>
           <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
           <p className='fam-story'>{family.story}</p>
+        </div>
+        <div className='link-section'>
+          {family.links}
         </div>
       </div>
     )
