@@ -58,10 +58,6 @@ export default class FamilyProfile extends Component {
           <h2 className='fam-name'>{family.name}</h2>
           <p className='fam-location'>{family.location}</p>
           <img className='fam-photo' src={family.image} />
-          <div className='story-section'>
-            <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
-            <p className='fam-story'>{family.story}</p>
-          </div>
         </div>
         <div className='donate-section'>
           <div className='donate-inner'>
@@ -76,9 +72,13 @@ export default class FamilyProfile extends Component {
             <p className='fam-cost'> Total cost: <br />${family.cost}</p>
             <p className='fam-expiration' >Please donate by: <br />{this.formatDate(family.expiration)}</p>
             <div className='link-section'>
-            {family.links}
+              {family.links}
             </div>
           </div>
+        </div>
+        <div className='story-section'>
+          <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
+          <p className='fam-story'>{family.story}</p>
         </div>
         {this.editButton()}
         {this.progress()}
