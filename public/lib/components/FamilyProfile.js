@@ -81,9 +81,6 @@ export default class FamilyProfile extends Component {
           <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
           <p className='fam-story'>{family.story}</p>
         </div>
-        <div className='link-section'>
-          {family.links}
-        </div>
       </div>
     )
   }
