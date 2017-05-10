@@ -54,10 +54,12 @@ export default class FamilyProfile extends Component {
     return (
       <div className='fam-profile-container' >
         <div className='fam-details'>
-          <h1 className='fam-title'>{family.title}</h1>
-          <h2 className='fam-name'>{family.name}</h2>
-          <p className='fam-location'>{family.location}</p>
           <img className='fam-photo' src={family.image} />
+          <div className='fam-intro'>
+            <h1 className='fam-title'>{family.title}</h1>
+            <h2 className='fam-name'>{family.name}</h2>
+            <p className='fam-location'>{family.location}</p>
+          </div>
         </div>
         <div className='donate-section'>
           <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
