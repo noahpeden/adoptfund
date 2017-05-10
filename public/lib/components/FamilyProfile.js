@@ -53,19 +53,20 @@ export default class FamilyProfile extends Component {
     const family = this.props.selectedFamily
     return (
       <div className='fam-profile-container' >
-        <div className='fam-details'>
+        <div className='intro-section card'>
           <img className='fam-photo' src={family.image} />
           <div className='fam-intro'>
             <h1 className='fam-title'>{family.title}</h1>
             <h2 className='fam-name'>{family.name}</h2>
             <p className='fam-location'>{family.location}</p>
+            <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
           </div>
         </div>
-        <div className='donate-section'>
+        <div className='donate-section card'>
           <Link className='donate-link' to='/donation'><button className='donate-btn' onClick={() => this.donate()}>Donate</button></Link>
           <div className='total-raised'>
             ${this.raised()}
-            <span className='total-subheader'>raised so far</span>
+            <span className='total-subheader'>total donation recieved</span>
           </div>
           <div className='progress-bar-cont'>
             <div className='progress-bar' />
@@ -76,12 +77,12 @@ export default class FamilyProfile extends Component {
             {family.links}
           </div>
         </div>
-        <div className='story-section'>
+        {this.progress()}
+        {this.editButton()}
+        <div className='story-section card'>
           <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
           <p className='fam-story'>{family.story}</p>
         </div>
-        {this.editButton()}
-        {this.progress()}
       </div>
     )
   }
