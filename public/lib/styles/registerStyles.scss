@@ -1,8 +1,20 @@
 @import 'variables';
 @import 'reset';
 
+
+.logo {
+  @include title;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .register-title {
-  @include title
+  width: 400px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: $pt-sans;
+  font-size: $f3;
+  color: lightgrey;
 }
 
 .input-cont {
@@ -22,10 +34,11 @@
 
 .new-user-btn {
   @include button-enabled;
-  margin-top: 20px;
-  margin-left: 40%;
-  width: 20%;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
   &:hover {
     background-color: $hover-color;
+    cursor: pointer;
   }
 }
