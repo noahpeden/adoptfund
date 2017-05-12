@@ -13445,9 +13445,14 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
+	          'h1',
+	          { className: 'logo' },
+	          'Adopt Fund'
+	        ),
+	        _react2.default.createElement(
 	          'h2',
 	          { className: 'register-title' },
-	          'Sign up for AdoptFund:'
+	          'Sign up for AdoptFund'
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -14305,7 +14310,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.nav-background {\n  width: 100%;\n  height: 60px;\n  background-color: rgba(39, 39, 39, 0.81);\n  margin: 0;\n  position: static;\n  top: 0; }\n\n.basics-h2 {\n  margin-top: 15vh;\n  margin-left: 29%;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  padding: 20px;\n  font-size: 40px;\n  font-weight: 600; }\n\n.input-container {\n  max-width: 500px;\n  margin: auto; }\n\n.title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {\n  margin: 20px 0px;\n  height: 40px;\n  width: 100%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  border-radius: 5px;\n  border: 1px solid rgba(39, 39, 39, 0.81); }\n  .title-input:focus, .name-input:focus, .location-input:focus, .date-input:focus, .links-input:focus, .cost-input:focus {\n    outline-color: #d89b1b; }\n\n.story-input {\n  margin: 20px 0px;\n  height: 200px;\n  width: 100%;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 0.875rem; }\n  .story-input:focus {\n    outline-color: #d89b1b; }\n\n.profile-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin: 10px 20px; }\n\n.create-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  width: 20%;\n  margin-left: 40%;\n  margin-bottom: 30px; }\n  .create-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.nav-background {\n  width: 100%;\n  height: 60px;\n  background-color: rgba(39, 39, 39, 0.81);\n  margin: 0;\n  position: static;\n  top: 0; }\n\n.basics-h2 {\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  font-size: 40px;\n  font-weight: 600;\n  text-align: center;\n  margin: 50px; }\n\nhr {\n  width: 90%; }\n\n.input-container {\n  max-width: 500px;\n  margin: 40px auto;\n  text-align: center; }\n\n.title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {\n  margin-bottom: 20px;\n  height: 40px;\n  width: 95%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  border-radius: 5px;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  padding-left: 5px;\n  color: lightgrey; }\n  .title-input:focus, .name-input:focus, .location-input:focus, .date-input:focus, .links-input:focus, .cost-input:focus {\n    outline-color: #d89b1b; }\n\n::placeholder {\n  color: lightgrey; }\n\n.story-input {\n  margin-bottom: 20px;\n  height: 200px;\n  width: 95%;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 0.875rem; }\n  .story-input:focus {\n    outline-color: #d89b1b; }\n\n.profile-text, #status {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  margin: 0 10px;\n  text-align: left;\n  color: grey; }\n\n#file-input {\n  width: 97%;\n  margin-bottom: 20px; }\n\n.create-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  width: 97%; }\n  .create-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -14387,7 +14392,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.register-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.input-cont {\n  width: 90%;\n  margin: auto;\n  border: 1px solid lightgrey;\n  border-radius: 5px;\n  overflow: hidden; }\n\n.register-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px; }\n\n#newUserFirstName, #newUserLastName, #newUserEmail, #newUserPassword {\n  display: block;\n  height: 50px;\n  width: 97%;\n  border: none;\n  border-bottom: 1px solid lightgrey;\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 15px; }\n  #newUserFirstName:focus, #newUserLastName:focus, #newUserEmail:focus, #newUserPassword:focus {\n    outline-color: #d89b1b; }\n\n.new-user-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  margin-top: 20px;\n  margin-left: 40%;\n  width: 20%; }\n  .new-user-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81); }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.logo {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0;\n  margin-top: 50px;\n  margin-bottom: 50px; }\n\n.register-title {\n  width: 400px;\n  margin: 10px auto;\n  text-align: center;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.5rem;\n  color: lightgrey; }\n\n.input-cont {\n  width: 90%;\n  margin: auto;\n  border: 1px solid lightgrey;\n  border-radius: 5px;\n  overflow: hidden; }\n\n.register-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px; }\n\n#newUserFirstName, #newUserLastName, #newUserEmail, #newUserPassword {\n  display: block;\n  height: 50px;\n  width: 97%;\n  border: none;\n  border-bottom: 1px solid lightgrey;\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 15px; }\n  #newUserFirstName:focus, #newUserLastName:focus, #newUserEmail:focus, #newUserPassword:focus {\n    outline-color: #d89b1b; }\n\n.new-user-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  display: block;\n  margin: 20px auto;\n  width: 90%;\n  margin-bottom: 0; }\n  .new-user-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -14469,7 +14474,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.donate-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.donate-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px; }\n\n.donate-name, .donate-email, .donate-amount {\n  display: block;\n  height: 50px;\n  width: 97%;\n  border: none;\n  border-bottom: 1px solid lightgrey;\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 15px; }\n  .donate-name:focus, .donate-email:focus, .donate-amount:focus {\n    outline-color: #d89b1b; }\n\n.donate-money-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  height: 40px;\n  width: 30%;\n  margin-left: 34%;\n  margin-top: 20px; }\n  .donate-money-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.donate-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 80px 0; }\n\n.donate-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px;\n  text-align: center; }\n\n.donate-name, .donate-email, .donate-amount {\n  display: block;\n  height: 50px;\n  width: 97%;\n  border: none;\n  border-bottom: 1px solid lightgrey;\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 15px; }\n  .donate-name:focus, .donate-email:focus, .donate-amount:focus {\n    outline-color: #d89b1b; }\n\n.donate-money-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  height: 40px;\n  margin-top: 20px;\n  width: 90%; }\n  .donate-money-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -14510,7 +14515,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.about-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px;\n  margin-top: -62px; }\n\n.about-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.about-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.5rem;\n  text-align: center;\n  padding: 25px; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.about-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px; }\n\n.logo {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0;\n  margin-top: 50px;\n  margin-bottom: 50px; }\n\n.about-title {\n  width: 400px;\n  margin: 10px auto;\n  text-align: center;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.5rem;\n  color: lightgrey; }\n\n.about-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  padding: 0 20px;\n  color: grey; }\n", ""]);
 
 	// exports
 
@@ -31245,7 +31250,7 @@
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
-	            'Give your Family Fund a title:'
+	            'Give your Family Fund a title'
 	          ),
 	          _react2.default.createElement('input', {
 	            className: 'title-input',
@@ -31258,7 +31263,6 @@
 	            { className: 'profile-text' },
 	            'What is your Family\'s name?'
 	          ),
-	          _react2.default.createElement(_PhotoUpload2.default, null),
 	          _react2.default.createElement('input', {
 	            className: 'name-input',
 	            placeholder: 'Family Name',
@@ -31279,7 +31283,7 @@
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
-	            'Tell your story:'
+	            'Tell your story'
 	          ),
 	          _react2.default.createElement('textarea', {
 	            className: 'story-input',
@@ -31288,10 +31292,11 @@
 	            onChange: function onChange(e) {
 	              return _this2.setState({ story: e.target.value });
 	            } }),
+	          _react2.default.createElement(_PhotoUpload2.default, null),
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
-	            'Feel free to add any personal links you might want to share:'
+	            'Add any links you want to share'
 	          ),
 	          _react2.default.createElement('input', {
 	            className: 'links-input',
@@ -31310,11 +31315,7 @@
 	            placeholder: 'What is the total Cost',
 	            onChange: function onChange(e) {
 	              return _this2.setState({ cost: e.target.value });
-	            } })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'buttons-container' },
+	            } }),
 	          _react2.default.createElement(_Button2.default, {
 	            className: 'create-btn',
 	            handleClick: function handleClick() {
@@ -31415,14 +31416,14 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement('input', { type: 'file', id: 'file-input', onChange: function onChange(e) {
-	            return _this3.initUpload();
-	          } }),
 	        _react2.default.createElement(
 	          'p',
 	          { id: 'status' },
-	          'Please select a file'
-	        )
+	          'Select a family photo'
+	        ),
+	        _react2.default.createElement('input', { type: 'file', id: 'file-input', onChange: function onChange(e) {
+	            return _this3.initUpload();
+	          } })
 	      );
 	    }
 	  }]);
@@ -35065,18 +35066,22 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'donate-container' },
-	          _react2.default.createElement('input', { className: 'donate-name', placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
-	              return _this2.setState({ first: e.target.value });
-	            } }),
-	          _react2.default.createElement('input', { className: 'donate-name', placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
-	              return _this2.setState({ last: e.target.value });
-	            } }),
-	          _react2.default.createElement('input', { className: 'donate-email', placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
-	              return _this2.setState({ email: e.target.value });
-	            } }),
-	          _react2.default.createElement('input', { className: 'donate-amount', placeholder: 'Donation Amount', onChange: function onChange(e) {
-	              return _this2.setState({ donation: e.target.value });
-	            } }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'input-cont' },
+	            _react2.default.createElement('input', { className: 'donate-name', placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
+	                return _this2.setState({ first: e.target.value });
+	              } }),
+	            _react2.default.createElement('input', { className: 'donate-name', placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
+	                return _this2.setState({ last: e.target.value });
+	              } }),
+	            _react2.default.createElement('input', { className: 'donate-email', placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
+	                return _this2.setState({ email: e.target.value });
+	              } }),
+	            _react2.default.createElement('input', { className: 'donate-amount', placeholder: 'Donation Amount', onChange: function onChange(e) {
+	                return _this2.setState({ donation: e.target.value });
+	              } })
+	          ),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'donate-money-btn', onClick: function onClick() {
@@ -35114,6 +35119,11 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      { className: 'logo' },
+	      'Adopt Fund'
+	    ),
 	    _react2.default.createElement(
 	      'h2',
 	      { className: 'about-title' },

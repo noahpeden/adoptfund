@@ -11,38 +11,47 @@
 }
 
 .basics-h2 {
-  margin-top: 15vh;
-  margin-left: 29%;
   font-family: $roboto-slab;
   color: $splash-color;
-  padding: 20px;
   font-size: 40px;
   font-weight: 600;
+  text-align: center;
+  margin: 50px;
 }
 
+hr {
+  width: 90%;
+}
 
 .input-container {
   max-width: 500px;
-  margin: auto;
+  margin: 40px auto;
+  text-align: center;
 }
 
 .title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {
-  margin: 20px 0px;
+  margin-bottom: 20px;
   height: 40px;
-  width: 100%;
+  width: 95%;
   font-family: $pt-sans;
   font-size: $f5;
   border-radius: 5px;
   border: 1px solid $hover-color;
+  padding-left: 5px;
+  color: lightgrey;
   &:focus {
     outline-color: $splash-color;
   }
 }
 
+::placeholder {
+  color: lightgrey;
+}
+
 .story-input {
-  margin: 20px 0px;
+  margin-bottom: 20px;
   height: 200px;
-  width: 100%;
+  width: 95%;
   border: 1px solid $hover-color;
   border-radius: 5px;
   font-family: $pt-sans;
@@ -52,17 +61,22 @@
   }
 }
 
-.profile-text {
+.profile-text, #status {
   font-family: $pt-sans;
-  font-size: 20px;
-  margin: 10px 20px;
+  font-size: 15px;
+  margin: 0 10px;
+  text-align: left;
+  color: grey;
+}
+
+#file-input {
+  width: 97%;
+  margin-bottom: 20px;
 }
 
 .create-btn {
   @include button-enabled;
-  width: 20%;
-  margin-left: 40%;
-  margin-bottom: 30px;
+  width: 97%;
   &:hover {
     background-color: $hover-color;
     cursor: pointer;

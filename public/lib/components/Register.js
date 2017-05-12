@@ -22,7 +22,8 @@ export default class Register extends Component {
     const { newUserFirstName, newUserLastName, newUserEmail, newUserPassword, newUserName } = this.state
     return (
       <div>
-        <h2 className='register-title'>Sign up for AdoptFund:</h2>
+        <h1 className='logo'>Adopt Fund</h1>
+        <h2 className='register-title'>Sign up for AdoptFund</h2>
         <div className='register-container'>
           <form onSubmit={(e) => {
             e.preventDefault()

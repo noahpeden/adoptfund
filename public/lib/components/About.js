@@ -3,6 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     <div>
+      <h1 className='logo'>Adopt Fund</h1>
       <h2 className='about-title'>About Us</h2>
       <div className='about-container'>
         <p className='about-text' >A normal adoption in the United States costs about $30,000
