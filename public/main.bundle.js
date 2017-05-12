@@ -14310,7 +14310,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.nav-background {\n  width: 100%;\n  height: 60px;\n  background-color: rgba(39, 39, 39, 0.81);\n  margin: 0;\n  position: static;\n  top: 0; }\n\n.basics-h2 {\n  margin-top: 15vh;\n  margin-left: 29%;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  padding: 20px;\n  font-size: 40px;\n  font-weight: 600; }\n\n.input-container {\n  max-width: 500px;\n  margin: auto; }\n\n.title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {\n  margin: 20px 0px;\n  height: 40px;\n  width: 100%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  border-radius: 5px;\n  border: 1px solid rgba(39, 39, 39, 0.81); }\n  .title-input:focus, .name-input:focus, .location-input:focus, .date-input:focus, .links-input:focus, .cost-input:focus {\n    outline-color: #d89b1b; }\n\n.story-input {\n  margin: 20px 0px;\n  height: 200px;\n  width: 100%;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 0.875rem; }\n  .story-input:focus {\n    outline-color: #d89b1b; }\n\n.profile-text {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  margin: 10px 20px; }\n\n.create-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  width: 20%;\n  margin-left: 40%;\n  margin-bottom: 30px; }\n  .create-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.nav-background {\n  width: 100%;\n  height: 60px;\n  background-color: rgba(39, 39, 39, 0.81);\n  margin: 0;\n  position: static;\n  top: 0; }\n\n.basics-h2 {\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  font-size: 40px;\n  font-weight: 600;\n  text-align: center;\n  margin: 50px; }\n\nhr {\n  width: 90%; }\n\n.input-container {\n  max-width: 500px;\n  margin: 40px auto;\n  text-align: center; }\n\n.title-input, .name-input, .location-input, .date-input, .links-input, .cost-input {\n  margin-bottom: 20px;\n  height: 40px;\n  width: 95%;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1rem;\n  border-radius: 5px;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  padding-left: 5px;\n  color: lightgrey; }\n  .title-input:focus, .name-input:focus, .location-input:focus, .date-input:focus, .links-input:focus, .cost-input:focus {\n    outline-color: #d89b1b; }\n\n::placeholder {\n  color: lightgrey; }\n\n.story-input {\n  margin-bottom: 20px;\n  height: 200px;\n  width: 95%;\n  border: 1px solid rgba(39, 39, 39, 0.81);\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 0.875rem; }\n  .story-input:focus {\n    outline-color: #d89b1b; }\n\n.profile-text, #status {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 15px;\n  margin: 0 10px;\n  text-align: left;\n  color: grey; }\n\n#file-input {\n  width: 97%;\n  margin-bottom: 20px; }\n\n.create-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  width: 97%; }\n  .create-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -31250,7 +31250,7 @@
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
-	            'Give your Family Fund a title:'
+	            'Give your Family Fund a title'
 	          ),
 	          _react2.default.createElement('input', {
 	            className: 'title-input',
@@ -31263,7 +31263,6 @@
 	            { className: 'profile-text' },
 	            'What is your Family\'s name?'
 	          ),
-	          _react2.default.createElement(_PhotoUpload2.default, null),
 	          _react2.default.createElement('input', {
 	            className: 'name-input',
 	            placeholder: 'Family Name',
@@ -31284,7 +31283,7 @@
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
-	            'Tell your story:'
+	            'Tell your story'
 	          ),
 	          _react2.default.createElement('textarea', {
 	            className: 'story-input',
@@ -31293,10 +31292,11 @@
 	            onChange: function onChange(e) {
 	              return _this2.setState({ story: e.target.value });
 	            } }),
+	          _react2.default.createElement(_PhotoUpload2.default, null),
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
-	            'Feel free to add any personal links you might want to share:'
+	            'Add any links you want to share'
 	          ),
 	          _react2.default.createElement('input', {
 	            className: 'links-input',
@@ -31315,11 +31315,7 @@
 	            placeholder: 'What is the total Cost',
 	            onChange: function onChange(e) {
 	              return _this2.setState({ cost: e.target.value });
-	            } })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'buttons-container' },
+	            } }),
 	          _react2.default.createElement(_Button2.default, {
 	            className: 'create-btn',
 	            handleClick: function handleClick() {
@@ -31420,14 +31416,14 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement('input', { type: 'file', id: 'file-input', onChange: function onChange(e) {
-	            return _this3.initUpload();
-	          } }),
 	        _react2.default.createElement(
 	          'p',
-	          { id: 'status' },
-	          'Please select a file'
-	        )
+	          { 'class': 'status', id: 'status' },
+	          'Select a family photo'
+	        ),
+	        _react2.default.createElement('input', { 'class': 'file-input', type: 'file', id: 'file-input', onChange: function onChange(e) {
+	            return _this3.initUpload();
+	          } })
 	      );
 	    }
 	  }]);

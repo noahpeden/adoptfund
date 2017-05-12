@@ -23,13 +23,12 @@ class Basics extends Component {
         <h2 className='basics-h2'>Create Your Family Profile</h2>
         <hr />
         <div className='input-container'>
-          <p className='profile-text'>Give your Family Fund a title:</p>
+          <p className='profile-text'>Give your Family Fund a title</p>
           <input
             className='title-input'
             placeholder='Title of Family Fund'
             onChange={(e) => this.setState({title: e.target.value})} />
           <p className='profile-text'>What is your Family's name?</p>
-          <PhotoUpload />
           <input
             className='name-input'
             placeholder='Family Name'
@@ -39,13 +38,14 @@ class Basics extends Component {
             className='location-input'
             placeholder='City, State'
             onChange={(e) => this.setState({location: e.target.value})} />
-          <p className='profile-text'>Tell your story:</p>
+          <p className='profile-text'>Tell your story</p>
           <textarea
             className='story-input'
             minLength='100'
             placeholder='Tell your family story here!'
             onChange={(e) => this.setState({story: e.target.value})} />
-          <p className='profile-text'>Feel free to add any personal links you might want to share:</p>
+          <PhotoUpload />
+          <p className='profile-text'>Add any links you want to share</p>
           <input
             className='links-input'
             type='url'
@@ -56,20 +56,18 @@ class Basics extends Component {
             className='cost-input'
             placeholder='What is the total Cost'
             onChange={(e) => this.setState({cost: e.target.value})} />
-        </div>
-        <div className='buttons-container'>
           <Button
             className='create-btn'
-            handleClick={
-              () => this.props.createFamily(
-              title,
-              location,
-              name,
-              expiration,
-              story,
-              links,
-              cost,
-              this.props.userId)}
+            handleClick={() => this.props.createFamily(
+                title,
+                location,
+                name,
+                expiration,
+                story,
+                links,
+                cost,
+                this.props.userId
+              )}
               text='Create'
           />
         </div>
