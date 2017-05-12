@@ -42,8 +42,8 @@ class PhotoUpload extends Component {
   render() {
     return (
       <div>
-        <p class='status' id='status'>Select a family photo</p>
-        <input class='file-input' type="file" id="file-input" onChange={(e) => this.initUpload()} />
+        <p id='status'>Select a family photo</p>
+        <input type="file" id="file-input" onChange={(e) => this.initUpload()} />
       </div>
     )
   }
