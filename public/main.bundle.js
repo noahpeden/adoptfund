@@ -14474,7 +14474,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.donate-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0; }\n\n.donate-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px; }\n\n.donate-name, .donate-email, .donate-amount {\n  display: block;\n  height: 50px;\n  width: 97%;\n  border: none;\n  border-bottom: 1px solid lightgrey;\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 15px; }\n  .donate-name:focus, .donate-email:focus, .donate-amount:focus {\n    outline-color: #d89b1b; }\n\n.donate-money-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  height: 40px;\n  width: 30%;\n  margin-left: 34%;\n  margin-top: 20px; }\n  .donate-money-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.donate-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 80px 0; }\n\n.donate-container {\n  margin: auto;\n  background-color: rgba(39, 39, 39, 0.06);\n  padding: 20px 0;\n  max-width: 400px;\n  border-radius: 5px;\n  text-align: center; }\n\n.donate-name, .donate-email, .donate-amount {\n  display: block;\n  height: 50px;\n  width: 97%;\n  border: none;\n  border-bottom: 1px solid lightgrey;\n  font-size: 1rem;\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 15px; }\n  .donate-name:focus, .donate-email:focus, .donate-amount:focus {\n    outline-color: #d89b1b; }\n\n.donate-money-btn {\n  height: 40px;\n  background-color: #d89b1b;\n  color: white;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.25rem;\n  transition: all 0.3s ease-in-out;\n  height: 40px;\n  margin-top: 20px;\n  width: 90%; }\n  .donate-money-btn:hover {\n    background-color: rgba(39, 39, 39, 0.81);\n    cursor: pointer; }\n", ""]);
 
 	// exports
 
@@ -35066,18 +35066,22 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'donate-container' },
-	          _react2.default.createElement('input', { className: 'donate-name', placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
-	              return _this2.setState({ first: e.target.value });
-	            } }),
-	          _react2.default.createElement('input', { className: 'donate-name', placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
-	              return _this2.setState({ last: e.target.value });
-	            } }),
-	          _react2.default.createElement('input', { className: 'donate-email', placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
-	              return _this2.setState({ email: e.target.value });
-	            } }),
-	          _react2.default.createElement('input', { className: 'donate-amount', placeholder: 'Donation Amount', onChange: function onChange(e) {
-	              return _this2.setState({ donation: e.target.value });
-	            } }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'input-cont' },
+	            _react2.default.createElement('input', { className: 'donate-name', placeholder: 'First Name', value: this.state.first, onChange: function onChange(e) {
+	                return _this2.setState({ first: e.target.value });
+	              } }),
+	            _react2.default.createElement('input', { className: 'donate-name', placeholder: 'Last Name', value: this.state.last, onChange: function onChange(e) {
+	                return _this2.setState({ last: e.target.value });
+	              } }),
+	            _react2.default.createElement('input', { className: 'donate-email', placeholder: 'Email', value: this.state.email, onChange: function onChange(e) {
+	                return _this2.setState({ email: e.target.value });
+	              } }),
+	            _react2.default.createElement('input', { className: 'donate-amount', placeholder: 'Donation Amount', onChange: function onChange(e) {
+	                return _this2.setState({ donation: e.target.value });
+	              } })
+	          ),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'donate-money-btn', onClick: function onClick() {
