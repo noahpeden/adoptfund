@@ -143,7 +143,6 @@
 
 .fam-story {
   font-size: $f5;
-  // font-weight: bold;
   width: 90%;
   word-wrap: break-word;
   padding: 20px;
@@ -154,4 +153,16 @@
   margin: $standard-margin;
   font-size: $f7;
   font-family: $pt-sans;
+}
+
+.edit-btn {
+  @include button-enabled
+  background-color: lightgrey;
+  margin-top: 15px;
+  height: 50px;
+  width: 95%;
+  &:hover {
+    background-color: $hover-color;
+    cursor: pointer;
+  }
 }

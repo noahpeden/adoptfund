@@ -74,9 +74,9 @@ export default class FamilyProfile extends Component {
           </div>
           <p className='fam-cost'> Total cost: <br />${family.cost}</p>
           <p className='fam-expiration' >Please donate by: <br />{this.formatDate(family.expiration)}</p>
+          {this.editButton()}
         </div>
         {this.progress()}
-        {this.editButton()}
         <div className='story-section card'>
           <h3 className='fam-story-title bb'>{family.name}'s Story</h3>
           <p className='fam-story'>{family.story}</p>
