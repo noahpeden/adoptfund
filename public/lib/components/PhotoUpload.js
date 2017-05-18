@@ -15,6 +15,7 @@ class PhotoUpload extends Component {
     })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       return data
     })
     .catch(err => console.log(err))

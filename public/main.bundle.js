@@ -31382,6 +31382,7 @@
 	      }).then(function (response) {
 	        return response.json();
 	      }).then(function (data) {
+	        console.log(data);
 	        return data;
 	      }).catch(function (err) {
 	        return console.log(err);
