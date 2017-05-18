@@ -3,16 +3,26 @@
 
 .about-container {
   @include background-container;
-  margin-top: -62px;
+}
+
+.logo {
+  @include title;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .about-title {
-  @include title;
+  width: 400px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: $pt-sans;
+  font-size: $f3;
+  color: lightgrey;
 }
 
 .about-text {
   font-family: $pt-sans;
-  font-size: $f3;
-  text-align: center;
-  padding: $standard-pad;
+  font-size: $f5;
+  padding: 0 20px;
+  color: grey;
 }
