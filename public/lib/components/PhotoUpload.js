@@ -15,8 +15,7 @@ class PhotoUpload extends Component {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
-      return data
+      this.props.savePhoto(data.url)
     })
     .catch(err => console.log(err))
   }

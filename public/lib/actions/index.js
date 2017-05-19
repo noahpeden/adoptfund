@@ -90,12 +90,12 @@ export const addUser = (firstName, lastName, email, password) => {
   }
 }
 
-export const createFamily = (title, location, name, expiration, story, links, cost, userId) => {
+export const createFamily = (title, location, name, expiration, story, links, image, cost, userId) => {
   return (dispatch) => {
     return fetch('https://adopt-fund-api.herokuapp.com/api/v1/family', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, location, name, expiration, story, links, cost, userId }),
+      body: JSON.stringify({ title, location, name, expiration, story, links, image, cost, userId }),
     })
     .then(data => data.json())
     .then(data => dispatch(storeSelected(data[0])))
@@ -151,12 +151,12 @@ export const grabDonations = (familyId) => {
   }
 }
 
-export const sendFamilyChanges = (title, name, location, cost, story, links, familyId) => {
+export const sendFamilyChanges = (title, name, location, cost, story, links, image, familyId) => {
   return (dispatch) => {
     return fetch('https://adopt-fund-api.herokuapp.com/api/v1/family/' + familyId, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, name, location, cost, story, links }),
+      body: JSON.stringify({ title, name, location, cost, story, links, image }),
     })
     .then(data => data.json())
     .then(data => {
@@ -164,5 +164,11 @@ export const sendFamilyChanges = (title, name, location, cost, story, links, fam
       dispatch(storeSelected(data[0]))})
     .then(data => browserHistory.push('/profile'))
     .catch(err => console.log(err))
+  }
+}
+
+export const savePhoto = (photo) => {
+  return (dispatch) => {
+    return fetch('https://adopt-fund-api.herokuapp.com/api/v1/')
   }
 }

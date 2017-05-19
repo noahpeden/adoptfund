@@ -12532,7 +12532,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.sendFamilyChanges = exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signOut = exports.signIn = undefined;
+	exports.savePhoto = exports.sendFamilyChanges = exports.grabDonations = exports.sendDonation = exports.searchCampaigns = exports.featuredCampaigns = exports.createFamily = exports.addUser = exports.fetchLogin = exports.familyDonations = exports.saveFamily = exports.storeSelected = exports.searched = exports.featured = exports.signOut = exports.signIn = undefined;
 
 	var _isomorphicFetch = __webpack_require__(135);
 
@@ -12635,12 +12635,12 @@
 	  };
 	};
 
-	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, cost, userId) {
+	var createFamily = exports.createFamily = function createFamily(title, location, name, expiration, story, links, image, cost, userId) {
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adopt-fund-api.herokuapp.com/api/v1/family', {
 	      method: 'POST',
 	      headers: { 'Content-Type': 'application/json' },
-	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, cost: cost, userId: userId })
+	      body: JSON.stringify({ title: title, location: location, name: name, expiration: expiration, story: story, links: links, image: image, cost: cost, userId: userId })
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
@@ -12707,12 +12707,12 @@
 	  };
 	};
 
-	var sendFamilyChanges = exports.sendFamilyChanges = function sendFamilyChanges(title, name, location, cost, story, links, familyId) {
+	var sendFamilyChanges = exports.sendFamilyChanges = function sendFamilyChanges(title, name, location, cost, story, links, image, familyId) {
 	  return function (dispatch) {
 	    return (0, _isomorphicFetch2.default)('https://adopt-fund-api.herokuapp.com/api/v1/family/' + familyId, {
 	      method: 'PATCH',
 	      headers: { 'Content-Type': 'application/json' },
-	      body: JSON.stringify({ title: title, name: name, location: location, cost: cost, story: story, links: links })
+	      body: JSON.stringify({ title: title, name: name, location: location, cost: cost, story: story, links: links, image: image })
 	    }).then(function (data) {
 	      return data.json();
 	    }).then(function (data) {
@@ -12723,6 +12723,12 @@
 	    }).catch(function (err) {
 	      return console.log(err);
 	    });
+	  };
+	};
+
+	var savePhoto = exports.savePhoto = function savePhoto(photo) {
+	  return function (dispatch) {
+	    return (0, _isomorphicFetch2.default)('https://adopt-fund-api.herokuapp.com/api/v1/');
 	  };
 	};
 
@@ -31216,12 +31222,19 @@
 	      cost: '',
 	      story: '',
 	      links: '',
+	      image: '',
 	      expiration: ''
 	    };
+	    _this.savePhoto = _this.savePhoto.bind(_this);
 	    return _this;
 	  }
 
 	  _createClass(Basics, [{
+	    key: 'savePhoto',
+	    value: function savePhoto(data) {
+	      this.setState({ image: data });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -31233,6 +31246,7 @@
 	          expiration = _state.expiration,
 	          story = _state.story,
 	          links = _state.links,
+	          image = _state.image,
 	          cost = _state.cost;
 
 	      return _react2.default.createElement(
@@ -31292,7 +31306,8 @@
 	            onChange: function onChange(e) {
 	              return _this2.setState({ story: e.target.value });
 	            } }),
-	          _react2.default.createElement(_PhotoUpload2.default, null),
+	          _react2.default.createElement('img', { src: this.state.image }),
+	          _react2.default.createElement(_PhotoUpload2.default, { savePhoto: this.savePhoto }),
 	          _react2.default.createElement(
 	            'p',
 	            { className: 'profile-text' },
@@ -31319,7 +31334,7 @@
 	          _react2.default.createElement(_Button2.default, {
 	            className: 'create-btn',
 	            handleClick: function handleClick() {
-	              return _this2.props.createFamily(title, location, name, expiration, story, links, cost, _this2.props.userId);
+	              return _this2.props.createFamily(title, location, name, expiration, story, links, image, cost, _this2.props.userId);
 	            },
 	            text: 'Create'
 	          })
@@ -31369,6 +31384,8 @@
 	  _createClass(PhotoUpload, [{
 	    key: 'initUpload',
 	    value: function initUpload(e) {
+	      var _this2 = this;
+
 	      var files = document.getElementById('file-input').files;
 	      var file = files[0];
 	      var form = new FormData();
@@ -31382,8 +31399,7 @@
 	      }).then(function (response) {
 	        return response.json();
 	      }).then(function (data) {
-	        console.log(data);
-	        return data;
+	        _this2.props.savePhoto(data.url);
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
@@ -31391,7 +31407,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -31402,7 +31418,7 @@
 	          'Select a family photo'
 	        ),
 	        _react2.default.createElement('input', { type: 'file', id: 'file-input', onChange: function onChange(e) {
-	            return _this2.initUpload();
+	            return _this3.initUpload();
 	          } })
 	      );
 	    }
