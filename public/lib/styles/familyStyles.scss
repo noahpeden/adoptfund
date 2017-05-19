@@ -19,7 +19,7 @@
   margin: 110px 25px 25px 25px;
 }
 
-.fam-photo {
+.fam-photo-cont {
   position: relative;
   top: -100px;
   left: -7px;
@@ -30,6 +30,10 @@
   margin: 30px;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
   overflow: hidden;
+}
+
+.fam-photo {
+  height: 250px;
 }
 
 .fam-intro {
