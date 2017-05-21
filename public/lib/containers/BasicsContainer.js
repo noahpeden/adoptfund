@@ -10,8 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createFamily: (title, location, name, expiration, story, links, cost, userId) => {
-      dispatch(createFamily(title, location, name, expiration, story, links, cost, userId))
+    createFamily: (title, location, name, expiration, story, links, image, cost, userId) => {
+      dispatch(createFamily(title, location, name, expiration, story, links, image, cost, userId))
     }
   }
 }
