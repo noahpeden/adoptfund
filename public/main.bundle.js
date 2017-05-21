@@ -31169,8 +31169,8 @@
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    createFamily: function createFamily(title, location, name, expiration, story, links, cost, userId) {
-	      dispatch((0, _actions.createFamily)(title, location, name, expiration, story, links, cost, userId));
+	    createFamily: function createFamily(title, location, name, expiration, story, links, image, cost, userId) {
+	      dispatch((0, _actions.createFamily)(title, location, name, expiration, story, links, image, cost, userId));
 	    }
 	  };
 	};

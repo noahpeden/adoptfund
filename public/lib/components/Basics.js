@@ -77,7 +77,7 @@ class Basics extends Component {
                 cost,
                 this.props.userId
               )}
-              text='Create'
+            text='Create'
           />
         </div>
       </div>
