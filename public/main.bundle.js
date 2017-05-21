@@ -31038,33 +31038,41 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'fam-profile-container' },
-	        _react2.default.createElement('input', {
-	          className: 'fam-title',
-	          placeholder: 'Title of Family Fund',
-	          value: this.state.title,
-	          onChange: function onChange(e) {
-	            return _this2.setState({ title: e.target.value });
-	          }
-	        }),
-	        _react2.default.createElement('input', {
-	          className: 'fam-name',
-	          placeholder: 'Family Name',
-	          value: this.state.name,
-	          onChange: function onChange(e) {
-	            return _this2.setState({ name: e.target.value });
-	          }
-	        }),
-	        _react2.default.createElement('input', {
-	          className: 'fam-location',
-	          placeholder: 'City, State',
-	          value: this.state.location,
-	          onChange: function onChange(e) {
-	            return _this2.setState({ location: e.target.value });
-	          }
-	        }),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'donate-section' },
+	          { className: 'intro-section card' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'fam-intro' },
+	            _react2.default.createElement('input', {
+	              className: 'fam-title',
+	              placeholder: 'Title of Family Fund',
+	              value: this.state.title,
+	              onChange: function onChange(e) {
+	                return _this2.setState({ title: e.target.value });
+	              }
+	            }),
+	            _react2.default.createElement('input', {
+	              className: 'fam-name',
+	              placeholder: 'Family Name',
+	              value: this.state.name,
+	              onChange: function onChange(e) {
+	                return _this2.setState({ name: e.target.value });
+	              }
+	            }),
+	            _react2.default.createElement('input', {
+	              className: 'fam-location',
+	              placeholder: 'City, State',
+	              value: this.state.location,
+	              onChange: function onChange(e) {
+	                return _this2.setState({ location: e.target.value });
+	              }
+	            })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'donate-section card' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { className: 'donate-link', to: '/donation' },
@@ -31077,10 +31085,20 @@
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Raised: $',
-	            this.raised()
+	            'div',
+	            { className: 'total-raised' },
+	            '$',
+	            this.raised(),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'total-subheader' },
+	              'total donation recieved'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'progress-bar-cont' },
+	            _react2.default.createElement('div', { className: 'progress-bar' })
 	          ),
 	          _react2.default.createElement('input', {
 	            type: 'number',
@@ -31090,19 +31108,14 @@
 	            onChange: function onChange(e) {
 	              return _this2.setState({ cost: e.target.value });
 	            }
-	          }),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'progress-bar-cont' },
-	            _react2.default.createElement('div', { className: 'progress-bar' })
-	          )
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'story-section' },
+	          { className: 'story-section card' },
 	          _react2.default.createElement(
 	            'h3',
-	            { className: 'fam-story-title' },
+	            { className: 'fam-story-title bb' },
 	            this.state.name,
 	            '\'s Story:'
 	          ),
@@ -31113,18 +31126,6 @@
 	            value: this.state.story,
 	            onChange: function onChange(e) {
 	              return _this2.setState({ story: e.target.value });
-	            }
-	          })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'link-section' },
-	          _react2.default.createElement('input', {
-	            className: 'fam-links',
-	            placeholder: 'blogs, social media, etc',
-	            value: this.state.links,
-	            onChange: function onChange(e) {
-	              return _this2.setState({ links: e.target.value });
 	            }
 	          })
 	        ),
