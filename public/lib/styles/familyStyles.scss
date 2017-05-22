@@ -42,11 +42,21 @@
   top: -120px;
 }
 
-.fam-title {
+.fam-intro-edit {
+  text-align: center;
+  position: relative;
+}
+
+.fam-title, .fam-title-edit {
   text-align: center;
   padding-top: 20px;
   font-size: $f2;
   font-family: $roboto-slab;
+  width: 95%;
+}
+
+.fam-title-edit {
+
 }
 
 .fam-name, .fam-location {

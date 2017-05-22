@@ -51,9 +51,9 @@ export default class FamilyProfileEdit extends Component {
     return (
       <div className='fam-profile-container'>
         <div className='intro-section card'>
-          <div className='fam-intro'>
+          <div className='fam-intro-edit'>
             <input
-              className='fam-title'
+              className='fam-title-edit'
               placeholder='Title of Family Fund'
               value={this.state.title}
               onChange={(e) => this.setState({title: e.target.value})}
