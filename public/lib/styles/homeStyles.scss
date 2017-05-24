@@ -183,6 +183,40 @@ a {
   text-decoration: none;
 }
 
+.loading-cont {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+
+.dot {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: grey;
+}
+
+#dot1 {
+  top: 0;
+  margin: auto;
+}
+
+#dot2 {
+  right: 0;
+  top: 20px;
+}
+
+#dot3 {
+  top: 40px;
+  margin: auto;
+}
+
+#dot4 {
+  left: 0;
+  top: 20px;
+}
+
 @media only screen and (max-width: 1150px) {
     .featured-container {
         max-width: 800px
