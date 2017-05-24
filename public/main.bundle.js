@@ -13967,7 +13967,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);", ""]);
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.img-container {\n  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);\n  background-repeat: no-repeat;\n  -webkit-background-size: cover; }\n\n.img-layer {\n  background-color: rgba(84, 80, 80, 0.6); }\n\n.nav-container {\n  background: transparent;\n  position: absolute; }\n\n.start-family-btn, .about-btn, .featured-btn, .sign-in-btn, .home-btn {\n  margin: 20px 10px;\n  border: none;\n  background: none;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 17px;\n  font-weight: 600;\n  color: white;\n  transition: color 0.5s ease;\n  cursor: pointer;\n  outline: none; }\n  .start-family-btn:hover, .about-btn:hover, .featured-btn:hover, .sign-in-btn:hover, .home-btn:hover {\n    color: #d89b1b; }\n\n.main-section-container {\n  text-align: center;\n  padding: 120px 50px;\n  border-bottom: 15px solid #d89b1b; }\n\n.title {\n  font-family: \"Roboto Slab\", serif;\n  font-size: 120px;\n  font-weight: bold;\n  padding: 50px;\n  color: white; }\n\n.hero-h3 {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 30px;\n  padding-bottom: 30px;\n  color: white; }\n\n.main-start-family-btn {\n  display: block;\n  margin: 20px auto;\n  height: 45px;\n  width: 100%;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-weight: bold;\n  font-size: 20px;\n  background-color: #d89b1b;\n  color: white;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n  outline: none; }\n  .main-start-family-btn:hover {\n    background: none;\n    border: 2px solid white; }\n\n.search-section {\n  max-width: 450px;\n  margin: auto; }\n\n.search-family-input {\n  width: 97%;\n  height: 45px;\n  border: none;\n  border-radius: 5px;\n  padding-left: 15px;\n  color: #463e3c;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  outline: none; }\n\n.search-btn {\n  position: relative;\n  float: right;\n  top: -47px;\n  right: -2px;\n  height: 47px;\n  border: 2px solid white;\n  border-radius: 5px;\n  background-color: white;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  color: lightgrey;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out; }\n  .search-btn:hover {\n    background-color: #d89b1b;\n    color: white; }\n\n.featured-fam-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0;\n  margin: 50px auto;\n  color: rgba(39, 39, 39, 0.81); }\n\n.featured-container {\n  display: flex;\n  max-width: 1200px;\n  margin: 0 auto;\n  justify-content: space-around;\n  flex-flow: row wrap; }\n\n#featured {\n  display: inline-flex;\n  flex-wrap: wrap;\n  color: #d89b1b;\n  border-radius: 5px;\n  width: 350px;\n  max-height: 350px;\n  background: white;\n  transition: all 1s ease; }\n  #featured:hover {\n    color: lightgrey;\n    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }\n\n.card-container {\n  width: 350px;\n  height: 350px;\n  border-radius: 5px;\n  display: flex;\n  margin: 20px; }\n\n.feat-title {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.5rem;\n  padding-left: 8px; }\n\n.feat-name, .feat-cost {\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 10px;\n  padding-top: 5px; }\n\n.feat-img {\n  width: 100%;\n  border-top-right-radius: 4px;\n  border-top-left-radius: 4px;\n  transition: all 0.5s ease; }\n  .feat-img:hover {\n    -webkit-filter: grayscale(100%); }\n\n.feat-img-container {\n  width: 100%;\n  height: 230px;\n  overflow: hidden;\n  display: block; }\n\na {\n  text-decoration: none; }\n\n.loading-cont {\n  width: 100px;\n  height: 100px;\n  background-color: pink; }\n\n.dot {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background-color: grey; }\n\n#dot1 {\n  top: 0;\n  margin: auto; }\n\n#dot2 {\n  right: 0;\n  top: 20px; }\n\n#dot3 {\n  top: 40px;\n  margin: auto; }\n\n#dot4 {\n  left: 0;\n  top: 20px; }\n\n@media only screen and (max-width: 1150px) {\n  .featured-container {\n    max-width: 800px; } }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n.img-container {\n  background-image: url(http://prosperityedwell.com/wp-content/uploads/2016/06/familypic.jpg);\n  background-repeat: no-repeat;\n  -webkit-background-size: cover; }\n\n.img-layer {\n  background-color: rgba(84, 80, 80, 0.6); }\n\n.nav-container {\n  background: transparent;\n  position: absolute; }\n\n.start-family-btn, .about-btn, .featured-btn, .sign-in-btn, .home-btn {\n  margin: 20px 10px;\n  border: none;\n  background: none;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 17px;\n  font-weight: 600;\n  color: white;\n  transition: color 0.5s ease;\n  cursor: pointer;\n  outline: none; }\n  .start-family-btn:hover, .about-btn:hover, .featured-btn:hover, .sign-in-btn:hover, .home-btn:hover {\n    color: #d89b1b; }\n\n.main-section-container {\n  text-align: center;\n  padding: 120px 50px;\n  border-bottom: 15px solid #d89b1b; }\n\n.title {\n  font-family: \"Roboto Slab\", serif;\n  font-size: 120px;\n  font-weight: bold;\n  padding: 50px;\n  color: white; }\n\n.hero-h3 {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 30px;\n  padding-bottom: 30px;\n  color: white; }\n\n.main-start-family-btn {\n  display: block;\n  margin: 20px auto;\n  height: 45px;\n  width: 100%;\n  border: none;\n  border-radius: 5px;\n  font-family: \"PT Sans\", sans-serif;\n  font-weight: bold;\n  font-size: 20px;\n  background-color: #d89b1b;\n  color: white;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n  outline: none; }\n  .main-start-family-btn:hover {\n    background: none;\n    border: 2px solid white; }\n\n.search-section {\n  max-width: 450px;\n  margin: auto; }\n\n.search-family-input {\n  width: 97%;\n  height: 45px;\n  border: none;\n  border-radius: 5px;\n  padding-left: 15px;\n  color: #463e3c;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  outline: none; }\n\n.search-btn {\n  position: relative;\n  float: right;\n  top: -47px;\n  right: -2px;\n  height: 47px;\n  border: 2px solid white;\n  border-radius: 5px;\n  background-color: white;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 20px;\n  color: lightgrey;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out; }\n  .search-btn:hover {\n    background-color: #d89b1b;\n    color: white; }\n\n.featured-fam-title {\n  font-size: 50px;\n  font-family: \"Roboto Slab\", serif;\n  color: #d89b1b;\n  text-align: center;\n  margin: 100px 0;\n  margin: 50px auto;\n  color: rgba(39, 39, 39, 0.81); }\n\n.featured-container {\n  display: flex;\n  max-width: 1200px;\n  margin: 0 auto;\n  justify-content: space-around;\n  flex-flow: row wrap; }\n\n#featured {\n  display: inline-flex;\n  flex-wrap: wrap;\n  color: #d89b1b;\n  border-radius: 5px;\n  width: 350px;\n  max-height: 350px;\n  background: white;\n  transition: all 1s ease; }\n  #featured:hover {\n    color: lightgrey;\n    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }\n\n.card-container {\n  width: 350px;\n  height: 350px;\n  border-radius: 5px;\n  display: flex;\n  margin: 20px; }\n\n.feat-title {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 1.5rem;\n  padding-left: 8px; }\n\n.feat-name, .feat-cost {\n  font-family: \"PT Sans\", sans-serif;\n  padding-left: 10px;\n  padding-top: 5px; }\n\n.feat-img {\n  width: 100%;\n  border-top-right-radius: 4px;\n  border-top-left-radius: 4px;\n  transition: all 0.5s ease; }\n  .feat-img:hover {\n    -webkit-filter: grayscale(100%); }\n\n.feat-img-container {\n  width: 100%;\n  height: 230px;\n  overflow: hidden;\n  display: block; }\n\na {\n  text-decoration: none; }\n\n.loading-cont {\n  position: relative;\n  top: -20px;\n  width: 80px;\n  height: 80px; }\n\n.dot {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background-color: lightgrey; }\n\n#dot1 {\n  top: 0;\n  margin: auto; }\n\n#dot2 {\n  top: 10px;\n  right: -60px; }\n\n#dot3 {\n  top: 20px;\n  margin: auto; }\n\n#dot4 {\n  top: -30px; }\n\n@media only screen and (max-width: 1150px) {\n  .featured-container {\n    max-width: 800px; } }\n", ""]);
 
 	// exports
 
@@ -14658,7 +14658,7 @@
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'featured-container' },
-	          (0, _helpers.displayCards)(this.props.family) ? (0, _helpers.displayCards)(this.props.family) : _react2.default.createElement(_Loading2.default, null)
+	          _react2.default.createElement(_Loading2.default, null)
 	        )
 	      );
 	    }
@@ -49167,22 +49167,50 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(27);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Loading = function Loading() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'loading-cont' },
-	    _react2.default.createElement('div', { className: 'dot', id: 'dot1' }),
-	    _react2.default.createElement('div', { className: 'dot', id: 'dot2' }),
-	    _react2.default.createElement('div', { className: 'dot', id: 'dot3' }),
-	    _react2.default.createElement('div', { className: 'dot', id: 'dot4' })
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Loading = function (_Component) {
+	  _inherits(Loading, _Component);
+
+	  function Loading() {
+	    _classCallCheck(this, Loading);
+
+	    return _possibleConstructorReturn(this, (Loading.__proto__ || Object.getPrototypeOf(Loading)).apply(this, arguments));
+	  }
+
+	  _createClass(Loading, [{
+	    key: 'onComponentDidMount',
+	    value: function onComponentDidMount() {
+	      console.log('bla');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'loading-cont' },
+	        _react2.default.createElement('div', { className: 'dot', id: 'dot1' }),
+	        _react2.default.createElement('div', { className: 'dot', id: 'dot2' }),
+	        _react2.default.createElement('div', { className: 'dot', id: 'dot3' }),
+	        _react2.default.createElement('div', { className: 'dot', id: 'dot4' })
+	      );
+	    }
+	  }]);
+
+	  return Loading;
+	}(_react.Component);
 
 	exports.default = Loading;
 
