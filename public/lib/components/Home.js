@@ -14,7 +14,7 @@ export default class Home extends Component {
         </div>
         <p className='featured-fam-title'>Featured Families</p>
         <ul className='featured-container'>
-          {<Loading />}
+          {displayCards(this.props.family) ? displayCards(this.props.family) : <Loading />}
         </ul>
       </section>
     )

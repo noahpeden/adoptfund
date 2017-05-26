@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Loading from './Loading'
 
 export default class FamilyCard extends Component {
   select(info) {
