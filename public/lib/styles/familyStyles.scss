@@ -19,7 +19,7 @@
   margin: 110px 25px 25px 25px;
 }
 
-.fam-photo {
+.fam-photo-cont {
   position: relative;
   top: -100px;
   left: -7px;
@@ -32,17 +32,31 @@
   overflow: hidden;
 }
 
+.fam-photo {
+  height: 250px;
+}
+
 .fam-intro {
   text-align: center;
   position: relative;
   top: -120px;
 }
 
-.fam-title {
+.fam-intro-edit {
+  text-align: center;
+  position: relative;
+}
+
+.fam-title, .fam-title-edit {
   text-align: center;
   padding-top: 20px;
   font-size: $f2;
   font-family: $roboto-slab;
+  width: 95%;
+}
+
+.fam-title-edit {
+
 }
 
 .fam-name, .fam-location {

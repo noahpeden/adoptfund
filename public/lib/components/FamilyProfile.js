@@ -54,7 +54,9 @@ export default class FamilyProfile extends Component {
     return (
       <div className='fam-profile-container'>
         <div className='intro-section card'>
-          <img className='fam-photo' src={family.image} />
+          <div className='fam-photo-cont'>
+            <img className='fam-photo' src={family.image} />
+          </div>
           <div className='fam-intro'>
             <h1 className='fam-title'>{family.title}</h1>
             <h2 className='fam-name'>{family.name}</h2>

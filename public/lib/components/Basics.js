@@ -13,11 +13,18 @@ class Basics extends Component {
       cost: '',
       story: '',
       links: '',
+      image: '',
       expiration: '',
     }
+    this.savePhoto = this.savePhoto.bind(this)
   }
+
+  savePhoto(data) {
+    this.setState({image: data})
+  }
+
   render() {
-    const { title, location, name, expiration, story, links, cost } = this.state
+    const { title, location, name, expiration, story, links, image, cost } = this.state
     return (
       <div>
         <h2 className='basics-h2'>Create Your Family Profile</h2>
@@ -44,7 +51,8 @@ class Basics extends Component {
             minLength='100'
             placeholder='Tell your family story here!'
             onChange={(e) => this.setState({story: e.target.value})} />
-          <PhotoUpload />
+          <img src={this.state.image} />
+          <PhotoUpload savePhoto={this.savePhoto} />
           <p className='profile-text'>Add any links you want to share</p>
           <input
             className='links-input'
@@ -65,10 +73,11 @@ class Basics extends Component {
                 expiration,
                 story,
                 links,
+                image,
                 cost,
                 this.props.userId
               )}
-              text='Create'
+            text='Create'
           />
         </div>
       </div>

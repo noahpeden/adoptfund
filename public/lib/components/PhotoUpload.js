@@ -9,13 +9,13 @@ class PhotoUpload extends Component {
     if (file == null) {
       return alert('No file  selected.')
     }
-    fetch(`http://localhost:3000/api/v1/family/pic?file-name=${file.name}&file-type=${file.type}`, {
+    fetch(`https://adopt-fund-api.herokuapp.com/api/v1/family/pic?file-name=${file.name}&file-type=${file.type}`, {
       method: 'POST',
       body: form,
     })
     .then((response) => response.json())
     .then((data) => {
-      return data
+      this.props.savePhoto(data.url)
     })
     .catch(err => console.log(err))
   }
